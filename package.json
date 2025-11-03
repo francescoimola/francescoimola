@@ -6,8 +6,8 @@
   "url": "https://francescoimola.com",
   "scripts": {
     "start": "eleventy --serve",
-    "build": "eleventy && npm run minify:js",
-    "minify:js": "terser assets/app.js -o public/assets/app.js -c -m"
+    "build": "cross-env NODE_ENV=production eleventy && npm run minify:js",
+    "minify:js": "terser assets/app-core.js -o public/assets/app-core.js -c -m && terser assets/app-modal.js -o public/assets/app-modal.js -c -m && terser assets/app-signup.js -o public/assets/app-signup.js -c -m"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,8 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
     "@11ty/eleventy-img": "^6.0.4",
+    "@11ty/eleventy-plugin-rss": "^2.0.4",
+    "cross-env": "^10.1.0",
     "eleventy-plugin-date": "^1.0.0",
     "image-size": "^2.0.2",
     "jsdom": "^27.0.1",

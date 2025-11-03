@@ -1,15 +1,26 @@
 ---
 layout: _base.njk
-title: "404 — {{ site.title | default('Francesco Imola') }}"
+title: 404
 navtitle: 404
-description: "Sorry, the page you were looking for doesn't exist."
+description: "Sorry, the page you were looking for doesn't exist or isn't here anymore"
 ---
 
 	<div class="pad-btt-md" aria-labelledby="page-title">
 		<h1 id="page-title">This is embarrassing</h1>
 		<p class="lead pad-top-md">I couldn't find the page you were looking for.</p>
 		<p>What now?</p>
-		<a class="button-like noselect" href="{{ baseUrl | default('/') }}">Go back to the homepage</a>
+		<a class="button-like" href="{{ baseUrl | default('/') }}">Go back to the homepage</a>
 		<p class="pad-top-md">PS: if you typed the address that got you here, please check for typos.</p>
+
+		<script>
+			// Auto-redirect missing blog category pages to main blog page
+			(function() {
+				const path = window.location.pathname;
+				// Check if URL matches /blog/{anything}/ pattern (but not /blog/ itself)
+				if (path.startsWith('/blog/') && path !== '/blog/' && path !== '/blog') {
+					window.location.replace('/blog/');
+				}
+			})();
+		</script>
 	</div>
 

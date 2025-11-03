@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include "_head.njk" %}
+
+<body>
+	<header>
+		{%- include "_header.njk" -%}
+	</header>
+
+	<main class="page-margins pad-btt-md">
+		<div class="margin-fix">
+			<div class="secondary-header pad-btt-md">
+				<div>
+					<h1>{{ navtitle | default(title) }}</h1>
+					<div class="simple-column">
+						<small class="light pad-top-sm">{{ site.name }}</small>
+						<small class="light">{{ date | readableDate }}</small>
+						<small class="light">Tagged:&nbsp;
+							{%- for category in collections.blogCategories -%}
+							<a href="/blog/{{ category | slugify }}/">{{ category }}</a> {% if not loop.last %} | {% endif %}
+							{%- endfor -%}
+						</small>
+						<small><a href="/blog/">See all posts</a></small>
+					</div>
+				</div>
+				{% include "_links.njk" %}
+			</div>
+			<img src="{{ image }}" class="give-border" width="645" height="363" {% if imageAlt %}alt="{{ imageAlt }}"{% else %}alt=""{% endif %} loading="lazy" decoding="async" />
+			<section class="pad-top-lg">{{ content | safe }}</section>
+		</div>
+	</main>
+
+	{%- include "_footer.njk" -%}
+
+	<script src="/assets/app-core.js" defer></script>
+</body>
+
+</html>

@@ -318,7 +318,7 @@ body {
     scrollbar-color: map.get($colors, text-subtle) transparent;
   }
 
-  *:focus-visible, *:focus {
+  *:focus-visible {
     outline: $border-width dotted map.get($colors, links);
     outline-offset: map.get($spacing, xs);
   }
@@ -355,7 +355,7 @@ p {
   margin: 0 0 map.get($spacing, md) 0;
   color: map.get($colors, text-subtle);
   text-rendering: optimizeSpeed;
-  max-width: $container-width;
+  max-width: $container-w;
 
   &:last-child {
     margin-bottom: 0;
@@ -386,14 +386,38 @@ a {
     text-decoration-color: map.get($colors, links);
   }
 
-  &:focus {
-    outline: auto;
+  &:active {
+    opacity: 0.8;
   }
 
   h2 {
     color: inherit;
   }
 
+}
+
+// ===================================
+// Skip Link (Accessibility)
+// ===================================
+
+.skip-link {
+  position: absolute;
+  top: calc(map.get($spacing, sm) * -10);
+  left: 45%;
+  right: auto;
+  background: map.get($colors, text);
+  color: map.get($colors, bg);
+  padding: map.get($spacing, sm) map.get($spacing, md);
+  text-decoration: none;
+  z-index: 10000;
+  border-radius: map.get($spacing, md);
+  transition: all 0.25s ease-in-out;
+
+  &:focus {
+    top: map.get($spacing, lg);
+    color: map.get($colors, bg);
+    outline: 2px solid map.get($colors, links);
+  }
 }
 
 i {
@@ -460,5 +484,45 @@ details>summary {
 
   h2 {
     display: inline;
+  }
+}
+
+// ===================================
+// Accessibility - Reduced Motion
+// ===================================
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto !important;
+  }
+}
+
+// ===================================
+// Accessibility - High Contrast Mode
+// ===================================
+
+@media (prefers-contrast: high) {
+  *:focus-visible,
+  *:focus {
+    outline-width: 2px !important;
+    outline-style: solid !important;
+  }
+
+  button,
+  .button-like {
+    border-width: 2px !important;
+  }
+
+  a {
+    text-decoration-thickness: 2px !important;
   }
 }

@@ -3,6 +3,7 @@
 {% include "_head.njk" %}
 
 <body>
+	<a href="#main-content" class="skip-link">Skip to main content</a>
 	<header>
 		{%- include "_header.njk" -%}
 	</header>
@@ -15,13 +16,13 @@
 				{% include "_links.njk" %}
 			</div>
 			{% endif %}
-			{{ content | safe }}
+			<div id="main-content">{{ content | safe }}</div>
 		</div>
 	</main>
 
 	{%- include "_footer.njk" -%}
 
-	<script src="/assets/app.js" defer></script>
+	<script src="/assets/app-core.js" defer></script>
 </body>
 
 </html>

@@ -165,6 +165,15 @@ nav {
     &::-webkit-details-marker {
       display: none;
     }
+
+    &:focus-visible {
+      outline: $border-width dotted map.get($colors, links);
+      outline-offset: map.get($spacing, xs);
+    }
+
+    &:hover .hamburger span {
+      background: map.get($colors, links);
+    }
   }
 
   .hamburger {
@@ -180,6 +189,7 @@ nav {
       height: 2px;
       background: map.get($colors, text);
       will-change: transform, opacity;
+      transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
     }
   }
 
@@ -233,13 +243,17 @@ nav {
   }
 }
 
-.secondary-links {
+.simple-column {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  gap: map.get($spacing, xs);
+}
+
+.secondary-links {
+  gap: map.get($spacing, sm);
   align-items: flex-end;
   margin-top: map.get($spacing, xs);
-  gap: map.get($spacing, sm);
 
   @media only screen and (max-width: calc(map.get($breakpoints, md)*1.333)) {
     display: none;

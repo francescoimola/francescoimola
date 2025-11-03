@@ -5,12 +5,12 @@ description: I help small businesses, freelancers and creatives drive long-term 
 permalink: '/'
 navtitle: Home
 ---
-{%- from "_cta-section.njk" import ctaSection -%}
+{%- from "_cta.njk" import ctaSection -%}
 
 <div class="intro-wrapper pad-btt-md">
 	<div class="secondary-header pad-btt-lg">
 		<h1 class="cap-width-sm">Delightful things with pixels and words for people who love what they do. Made by <span
-				class="green-text">Francesco Imola</span> from a seaside town in Kent.</h1>
+				class="green-text">{{ site.name }}</span> from a seaside town in Kent.</h1>
 		{% include "_links.njk" %}
 	</div>
 
@@ -23,9 +23,8 @@ navtitle: Home
 		</h2>
 		<p class="pad-top-sm">I spent the best part of a decade helping to platform emerging talent. Now I show people
 			what intentional design and marketing can do for them.</p>
-		<p class="pad-top"><a href="/services" class="button-like invert pad-top-sm noselect">Explore my
-				offering</a><span class="light">&nbsp;
-				<i>or</i>&nbsp;keep browsing ↓</span></p>
+		<div class="pad-top buttons-wrapper"><a href="/services" class="button-like pad-top-sm">Explore my
+				offering</a><a href="/how-i-work" class="button-like white-button pad-top-sm">See how I work</a></div>
 	</section>
 </div>
 
@@ -39,22 +38,22 @@ navtitle: Home
 		always) one, I can be a versatile extension of your team without the agency overheads.</p>
 	<div class="side-by-grid pad-top-lg">
 		<div class="pop">
-			<h3 class="noselect">Done for you</h3>
+			<h3>Done for you</h3>
 			<p>You get the basics, done properly. A website built to last. Words that says like it is. Email
 				marketing without the bullsh*t.</p>
 		</div>
 		<div class="pop">
-			<h3 class="noselect">Consultations</h3>
+			<h3>Consultations</h3>
 			<p>Space to figure out the best way forward. We dig into your challenges, what's working, what's not, and
 				where to simplify.</p>
 		</div>
 		<div class="pop">
-			<h3 class="noselect">Ongoing partnerships</h3>
+			<h3>Ongoing partnerships</h3>
 			<p>Need more than project work? I'm open to long-term arrangements where we build momentum over months and
 				years.</p>
 		</div>
 		<div class="pop">
-			<h3 class="noselect"><s>Guided work</s> (coming soon)</h3>
+			<h3><s>Guided work</s> (coming soon)</h3>
 			<p>We work side-by-side in focused body-doubling sessions to reflect, plan,
 				troubleshoot, and build on our successes.</p>
 		</div>
@@ -88,7 +87,7 @@ navtitle: Home
 		decoding="async" />
 	<figcaption class="light simple-sb-flex"><small class="light">This could be us but you <s>playing</s>, erm, still
 			considering your options</small><a href="https://commons.wikimedia.org/wiki/File:Pacioli.jpg"
-			target="_blank" rel="noopener" style="margin-bottom: 0;"><small><i>Source</i></small></a></figcaption>
+			target="_blank" rel="noopener" style="margin-bottom: 0;"><small>Source</small></a></figcaption>
 </figure>
 
 <section class="pad-btt-md cap-width">
@@ -103,7 +102,7 @@ navtitle: Home
 		marketing strategy. They need to stop fragmenting their marketing efforts and make better use of their
 		resources. I can help with that.
 	</p>
-	<a href="/how-i-work" class="button-like invert noselect">How we can work together</a>
+	<a href="/how-i-work" class="button-like white-button">How we can work together</a>
 </section>
 
 <section class="pad-btt-md cap-width ">
@@ -127,7 +126,7 @@ you.",
 		class="give-border" width="645" height="363" alt="the Folkestone harbour arm" loading="lazy" decoding="async" />
 	<figcaption class="simple-sb-flex"><small class="light">My actual Zoom background</small><a
 			href="https://commons.wikimedia.org/wiki/File:Pier_Head_lighthouse,_Folkestone_3.jpg" target="_blank"
-			rel="noopener"><small class="light" style="margin-bottom: 0;"><i>Tim Sheerman-Chase, Source</i></small></a>
+			rel="noopener"><small class="light">Tim Sheerman-Chase, Source</small></a>
 	</figcaption>
 </figure>
 
@@ -143,15 +142,29 @@ you.",
 	</p>
 	<p>If you're a business or creative based in Folkestone or the surrounding areas, and you're looking for help, a
 		fresh perspective, and someone you can talk to IRL, I've been waiting (especially) for you.</p>
-	<a href="/contact" class="button-like invert pad-top-sm noselect">Get in touch</a>
+	<a href="/contact" class="button-like white-button pad-top-sm">Get in touch</a>
 </section>
 
 {% include "_signup-form.njk" %}
+
+{% if collections.blog | length > 0 %}
+<section class="separate-above">
+	<h2 class="pad-btt-md">From the blog</h2>
+	<ul class="plain-list pad-top-lg pad-btt-sm">
+	  {%- for post in collections.blog | reverse | limit(2) -%}
+	    <li class="pad-btt-md blog-post-item pop cap-width">
+	      <div class="blog-post-content cap-width">
+	        <div class="simple-column"><h3 style="margin:0;"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
+				<small class="pad-top-sm light">{{ post.date | readableDate }}</small></div>
+	        {% if post.data.teaser %}<small class="pad-top-sm">{{ post.data.teaser }}</small>{% endif %}</div></li>{%- endfor -%}</ul>
+	<a href="/blog" class="button-like white-button pad-btt-md">See all blog posts</a>
+</section>
+{% endif %}
 
 <div id="rebrand-modal" class="modal">
 	<div>
 		<p>This site was formerly <b>nevernotready.club</b> and it is now <b>francescoimola.com</b></p>
 		<p>Same work, same person, I'm just finally online under my own name.</p>
-		<button onclick="closeModal()" type="button" class="noselect">Makes sense, lemme in</button>
+		<button onclick="closeModal()" type="button">Makes sense, lemme in</button>
 	</div>
 </div>

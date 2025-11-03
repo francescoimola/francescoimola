@@ -3,9 +3,9 @@
 	<h2>{{ heading }}</h2>
 	<p>{{ description }}</p>
 	<div class="buttons-wrapper">
-		<a href="https://cal.com/francescoimola/intro" class="button-like noselect inverted-button" type="button" target="_blank">{{ primaryButtonText }}</a>
+		<a href="https://cal.com/francescoimola/intro" class="button-like inverted-button" type="button" target="_blank">{{ primaryButtonText }}</a>
 		{%- if secondaryButtonText !== false %}
-		<a href="mailto:hi@francescoimola.com" class="button-like invert noselect">{{ secondaryButtonText | default("Copy email instead") }}</a>
+		<a href="mailto:hi@francescoimola.com" class="button-like white-button">{{ secondaryButtonText | default("Copy email instead") }}</a>
 		{%- endif %}
 	</div>
 </section>

@@ -1,5 +1,6 @@
 const eleventySass = require("@11tyrocks/eleventy-plugin-sass-lightningcss");
 const pluginDate = require("eleventy-plugin-date");
+const pluginRss = require("@11ty/eleventy-plugin-rss");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const markdownItAttrs = require("markdown-it-attrs");
@@ -22,12 +23,51 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.setLibrary("md", markdownIt(markdownItOptions).use(markdownItAnchor).use(markdownItAttrs))
     eleventyConfig.addPlugin(eleventySass);
     eleventyConfig.addPlugin(pluginDate);
+    eleventyConfig.addPlugin(pluginRss);
+
+    // Blog categories collection - extracts all unique categories from blog posts
+    eleventyConfig.addCollection("blogCategories", function(collectionApi) {
+      let categories = new Set();
+      let posts = collectionApi.getFilteredByTag('blog');
+      posts.forEach(p => {
+        if (p.data.categories) {
+          p.data.categories.forEach(c => categories.add(c));
+        }
+      });
+      return Array.from(categories).sort();
+    });
+
+    // Passthrough copy for static assets
     eleventyConfig.addPassthroughCopy("fonts");
     eleventyConfig.addPassthroughCopy("assets");
 
     // Add split filter for Nunjucks
     eleventyConfig.addFilter("split", function(str, separator) {
       return str.split(separator);
+    });
+
+    // Add limit filter for Nunjucks
+    eleventyConfig.addFilter("limit", function(array, limit) {
+      return array.slice(0, limit);
+    });
+
+    // Filter blog posts by category
+    eleventyConfig.addFilter("filterByCategory", function(posts, cat) {
+      if (!cat) return posts;
+      cat = cat.toLowerCase();
+      return posts.filter(p => {
+        if (!p.data.categories) return false;
+        let cats = p.data.categories.map(s => s.toLowerCase());
+        return cats.includes(cat);
+      });
+    });
+
+    // Slugify filter for URL-safe strings
+    eleventyConfig.addFilter("slugify", function(str) {
+      return str
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
     });
 
     // Check if image source is a remote URL
@@ -43,6 +83,9 @@ module.exports = function (eleventyConfig) {
       const fallbackPath = path.join('./assets/images', `${imageName}.${ext}`);
       return fs.existsSync(webpPath) || fs.existsSync(fallbackPath);
     });
+
+    // Excerpt shortcode
+    eleventyConfig.addShortcode('teaser', post => extractExcerpt(post));
 
     // Image optimization shortcode
     eleventyConfig.addNunjucksAsyncShortcode("image", async function(src, alt, sizes = "100vw") {

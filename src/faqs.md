@@ -1,6 +1,6 @@
 ---
 layout: _base.njk
-title: Frequently Asked Questions about working together | Francesco Imola
+title: Frequently Asked Questions
 description: What I do, how quotes works, and info about concessions. All your questions about working together, answered in plain English.
 permalink: "/faqs/"
 navtitle: FAQs

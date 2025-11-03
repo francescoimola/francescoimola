@@ -1,9 +1,12 @@
 ---
-layout: _base.njk
-tags: ['blog']
+layout: _post-base.njk
+categories:
+- Freelancing
+- SEO
 title: Hello World
 date: 2025-11-01
-teaser: Leave fur on owners clothes i can haz purr when being pet hide at bottom of staircase to trip human and pretend you want to go out but then don't yet licplans. Shred all toilet paper and spread around the house. 
+draft: true
+teaser: Leave fur on owners clothes i can haz purr when being pet hide at bottom of staircase to trip human and pretend you want to go out but then don't yet licplans. Shred toilet paper and spread around the house
 image: https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_1290,f_auto/dpr_auto/footer-cover_youytd.webp
 imageAlt: fast-moving trees
 ---

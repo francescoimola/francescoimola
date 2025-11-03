@@ -2,11 +2,11 @@
 <div class="work playground">
   <div class="cap-width">
     {% if link %}
-      <h3 class="noselect"><a href="{{ link }}">{{ title }}</a></h3>
+      <h3><a href="{{ link }}">{{ title }}</a></h3>
     {% else %}
-      <h3 class="noselect">{{ title }}</h3>
+      <h3>{{ title }}</h3>
     {% endif %}
-    <span class="light noselect">{{ year }}</span>
+    <span class="light">{{ year }}</span>
   </div>
   {% if description %}
     <p>{{ description }}</p>
