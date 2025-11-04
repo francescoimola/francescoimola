@@ -396,6 +396,11 @@ a {
 
 }
 
+sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
 // ===================================
 // Skip Link (Accessibility)
 // ===================================
@@ -425,7 +430,7 @@ i {
   font-weight: inherit;
 }
 
-b {
+b, strong {
   font-weight: 500;
 }
 
@@ -467,6 +472,11 @@ img {
   fill: map.get($colors, text);
   image-rendering: webkit-optimize-contrast;
   image-rendering: crisp-edges;
+}
+
+img, .give-border {
+  border: $border-width solid map.get($colors, text-subtle);
+  border-radius: map.get($spacing, xs);
 }
 
 figure {

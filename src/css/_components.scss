@@ -682,11 +682,6 @@ ul.plain-list {
   }
 }
 
-.give-border {
-  border: $border-width solid map.get($colors, text-subtle);
-  border-radius: map.get($spacing, xs);
-}
-
 .selected-work-card {
   background: map.get($colors, bg);
 

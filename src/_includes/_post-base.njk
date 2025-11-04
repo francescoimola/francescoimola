@@ -25,8 +25,8 @@
 				</div>
 				{% include "_links.njk" %}
 			</div>
-			<img src="{{ image }}" class="give-border" width="645" height="363" {% if imageAlt %}alt="{{ imageAlt }}"{% else %}alt=""{% endif %} loading="lazy" decoding="async" />
-			<section class="pad-top-lg">{{ content | safe }}</section>
+			<img src="{{ image }}" width="645" height="363" {% if imageAlt %}alt="{{ imageAlt }}"{% else %}alt=""{% endif %} loading="lazy" decoding="async" />
+			<section class="pad-top-lg cap-width">{{ content | safe }}</section>
 		</div>
 	</main>
 

@@ -24,7 +24,7 @@ eleventyComputed:
 	  {%- for post in collections.blog | filterByCategory(category) | reverse -%}
 	    <li class="pad-btt-md blog-post-item">
             {% if post.data.image %}
-			<a href="{{ post.url | url }}" class="blog-post-image"><img src="{{ post.data.image }}" class="give-border" width="345" height="134" {% if post.data.imageAlt %}alt="{{ post.data.imageAlt }}"{% else %}alt=""{% endif %} loading="lazy" decoding="async" /></a>
+			<a href="{{ post.url | url }}" class="blog-post-image"><img src="{{ post.data.image }}" width="345" height="134" {% if post.data.imageAlt %}alt="{{ post.data.imageAlt }}"{% else %}alt=""{% endif %} loading="lazy" decoding="async" /></a>
 		  {% endif %}
 	      <div class="blog-post-content">
 	        <div class="post-header"><h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2><small>{{ post.date | readableDate }}</small></div>
