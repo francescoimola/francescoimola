@@ -6,7 +6,7 @@ categories:
 - Sustainability
 title: Should I care about website speed?
 date: 2025-11-01
-draft: true
+draft: false
 teaser: Site speed matters. For your SEO, your UX, and your carbon footprint. Learn how to make websites load faster, reduce friction in your visitor journey and keep people coming back again and again.
 image: https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_1290,f_auto/dpr_auto/timothy-dykes-KCjzVioAG6A-unsplash_z0kuee.webp
 imageAlt: a snail on a red surface
