@@ -4,6 +4,7 @@ title: "{{ blog.title }}"
 description: "{{ blog.description }}"
 navtitle: Blog
 eleventyExcludeFromCollections: true
+permalink: /blog/{% if pagination.pageNumber > 0 %}page-{{ pagination.pageNumber + 1 }}/{% endif %}
 pagination:
   data: collections.blog
   size: 10
