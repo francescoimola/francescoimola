@@ -1,18 +1,18 @@
 {%- macro playgroundProject(title, year, link, description, images) -%}
-<div class="work playground">
-  <div class="cap-width">
+<article class="work playground">
+  <header class="cap-width">
     {% if link %}
       <h3><a href="{{ link }}">{{ title }}</a></h3>
     {% else %}
       <h3>{{ title }}</h3>
     {% endif %}
-    <span class="light">{{ year }}</span>
-  </div>
+    <time class="light" datetime="{{ year }}">{{ year }}</time>
+  </header>
   {% if description %}
     <p>{{ description }}</p>
   {% endif %}
   {% if images and images.length > 0 %}
-    <div class="image-scroll">
+    <figure class="image-scroll">
       {% for image in images %}
         {% set imageName = image.src | split('/') | last | split('.') | first %}
         {% set imageExt = image.src | split('.') | last | lower %}
@@ -22,7 +22,7 @@
           <img src="/assets/images/{{ imageName }}.{{ fallbackFormat}}" alt="{{ image.alt }}" loading="lazy" decoding="async">
         </picture>
       {% endfor %}
-    </div>
+    </figure>
   {% endif %}
-</div>
+</article>
 {%- endmacro -%}

@@ -1,5 +1,5 @@
 {%- macro projectCard(role, description, image) -%}
-<div class="work">
+<article class="work">
   <figure>
     {% if image %}
       <img
@@ -16,10 +16,10 @@
     {% endif %}
   </figure>
   {% if role %}
-    <span class="role">{{ role }}</span>
+    <strong class="role">{{ role }}</strong>
   {% endif %}
   {% if description %}
-    <span class="description prevent-orphan">{{ description | safe }}</span>
+    <p class="description prevent-orphan">{{ description | safe }}</p>
   {% endif %}
-</div>
+</article>
 {%- endmacro -%}

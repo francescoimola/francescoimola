@@ -12,15 +12,13 @@ image: https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_1290,f_auto/d
 imageAlt: a snail on a red surface
 ---
 
-**Short answer: Yes. Your slow website is annoying your visitors, hurting your Google rankings, and probably contributing to climate change.**
+**Short answer: Yes. Slow websites annoy visitors, hurt their own Google rankings, and contribute to climate change.**
 
-About a month ago, I updated this very website to a new setup that I'll probably write more in depth about soon. Early during production, I ran it through a speed test and nearly choked on my tea. Some pages took about 5 seconds to load (they fortunately don't anymore!).
+About a month ago, I updated this very website to a new setup that (something I'll write more in depth about soon). Early during production, I ran it through a speed test and nearly choked on my tea. Some pages took about 5 seconds to load!
 
 Doesn't sound like a lot? I don't blame you for never really thinking about speed. You check your site on your fast home internet and recent laptop. And it looks fine, I'm sure. But meanwhile, one of your potential customers is sitting on a train right now, browsing your site on a spotty 3G connection from their refurbished tablet, and....you're serving them a miserable experience. That's when they close the tab and never come back.
 
 If you're running any kind of website—whether it's a portfolio, an ecommerce, a coaching platform, or a reason to showcase your restaurant—and your pages take a while to load, it's not a good sign. Here's why.
-
-<br>
 
 ## 1. You're losing visitors
 
@@ -36,7 +34,7 @@ The McMaster-Carr website certainly has "a look" that won't win design awards, b
 
 If your audience can find what they're looking for quickly and easily, you're killing two birds with one stone: you'll reduce friction in their journey to working/buying with you, and you'll also keep them coming back.
 
-<br>
+
 
 ## 2. Google prefers faster websites
 
@@ -52,7 +50,7 @@ Need proof?
 
 In 2023, [Adobe improved its page speed from 7.2 seconds to 3.4 seconds](https://business.adobe.com/blog/perspectives/a-quick-start-guide-to-web-performance) and the visit rate from engaged users increased by 35%. Bounce rates decreased by 6%, and the average time spent on page increased by 21% for mobile visitors.
 
-<br>
+
 
 ## 3. The internet consumes a lot of electricity
 
@@ -64,7 +62,7 @@ The internet produces about 3-4% of global carbon emissions, roughly the same as
 
 Sounds tiny? Think of it as the equivalent of CO2e that one mature tree absorbs from the atmosphere in 716 days, or roughly two years.
 
-<br>
+
 
 ## How to check how fast your website is
 
@@ -83,7 +81,7 @@ If you're scoring below 75/100 or "B" on page speed metrics, don't panic. You're
 
 Here's what you can do.
 
-<br>
+
 
 ## The changes that matter
 
@@ -105,7 +103,7 @@ I wanted all the fancy features of a modern website (what is a modern website an
 
 It took me weeks to come to terms with the sacrifices needed, but once I did, I removed everything that wasn't essential: pop-ups, analytics trackers, and embedded iframes. Besides, it also turned out that much of this JavaScript was a band-aid for problems that I should've solved with better UX, more accessible navigation, and tighter copy.
 
-<br>
+
 
 ## When is a website fast enough?
 
@@ -135,7 +133,7 @@ It's inevitable that sooner or later, you and I will see pages slowing down.
 
 That's why it's always a good idea to continuously monitor and iterate. Because when you give a website all the care and attention it needs, it'll stay high-performing four years in (almost) like it did on day one.
 
-<br>
+
 
 ---
 
