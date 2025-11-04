@@ -153,20 +153,17 @@ you.",
 	<ul class="plain-list pad-top-lg pad-btt-sm">
 	  {%- for post in collections.blog | reverse | limit(2) -%}
 	    <li class="pad-btt-md blog-post-item pop cap-width">
-		  <article>
 	      <div class="blog-post-content cap-width">
 	        <div class="simple-column"><h3 style="margin:0;"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
-				<time class="small-like pad-top-sm light" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time></div>
-	        {% if post.data.teaser %}<small class="pad-top-sm">{{ post.data.teaser }}</small>{% endif %}</div>
-		  </article>
-		</li>{%- endfor -%}</ul>
+				<small class="pad-top-sm light">{{ post.date | readableDate }}</small></div>
+	        {% if post.data.teaser %}<small class="pad-top-sm">{{ post.data.teaser }}</small>{% endif %}</div></li>{%- endfor -%}</ul>
 	<a href="/blog" class="button-like white-button pad-btt-md">See all blog posts</a>
 </section>
 {% endif %}
 
 <div id="rebrand-modal" class="modal">
 	<div>
-		<p>This site was formerly <strong>nevernotready.club</strong> and it is now <strong>francescoimola.com</strong></p>
+		<p>This site was formerly <b>nevernotready.club</b> and it is now <b>francescoimola.com</b></p>
 		<p>Same work, same person, I'm just finally online under my own name.</p>
 		<button onclick="closeModal()" type="button">Makes sense, lemme in</button>
 	</div>

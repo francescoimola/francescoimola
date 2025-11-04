@@ -70,11 +70,6 @@ module.exports = function (eleventyConfig) {
         .replace(/^-+|-+$/g, '');
     });
 
-    // HTML date string filter for datetime attributes
-    eleventyConfig.addFilter("htmlDateString", function(dateObj) {
-      return new Date(dateObj).toISOString();
-    });
-
     // Check if image source is a remote URL
     eleventyConfig.addFilter("isRemoteUrl", function(src) {
       return src && (src.startsWith('http://') || src.startsWith('https://'));

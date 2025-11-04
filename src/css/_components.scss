@@ -452,20 +452,6 @@ hr {
 // UTILITIES
 // ===================================
 
-.blog-post-content {
-  h2 {
-    margin-top: map.get($spacing, xl);
-  }
-
-  img {
-    margin: map.get($spacing, xl) 0;
-
-    & + small{
-      margin: calc(map.get($spacing, lg) * -1.333) 0 map.get($spacing, xl) 0;
-    }
-  }
-}
-
 .tags-filter {
   @include flex(row, map.get($spacing, xs));
   flex-wrap: wrap;
@@ -641,44 +627,11 @@ ul.plain-list {
   }
 
 .pricing-grid {
-  width: 100%;
-  border-collapse: collapse;
-
-  thead tr {
-    font-weight: bold;
-    border-bottom: $border-width solid map.get($colors, text-more-subtle);
-  }
-
-  tbody tr {
-    border-bottom: $border-width dashed map.get($colors, text-more-subtle);
-  }
-
-  th, td {
-    padding: map.get($spacing, sm);
-    text-align: left;
-
-    &:first-child {
-      width: 66.67%;
-    }
-
-    &:last-child {
-      width: 33.33%;
-      text-align: right;
-    }
-  }
-
-  th {
-    font-weight: bold;
-  }
-}
-
-// Legacy support for div-based pricing grids (if any remain)
-.pricing-grid:not(table) {
   display: grid;
   gap: map.get($spacing, xs);
 }
 
-.pricing-row:not(tr) {
+.pricing-row {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: map.get($spacing, md);
