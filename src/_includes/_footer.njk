@@ -1,6 +1,5 @@
-{% if page.url and ("/contact" in page.url) %}
 <footer role="contentinfo" class="page-margins pad-btt-lg">
-  {% if "/contact" not in page.url %}
+  {% if page.url and ("/contact" not in page.url) %}
   <div class="separate-above">
     <h3 class="email">I love a good 'ol email</h3>
     <div class="pad-top-sm">
@@ -50,4 +49,3 @@
       title="Creatives for Climate: global network of creative professionals taking action on climate change">{% include "_icons/_c4c.njk" %}</a>
   </div>
 </footer>
-{% endif %}

@@ -14,6 +14,18 @@ module.exports = {
       if (data.draft && process.env.NODE_ENV === 'production') {
         return false;
       }
+      // If a custom permalink is already set, use it
+      if (data.permalink) {
+        return data.permalink;
+      }
+      // Otherwise, generate a clean URL from the title
+      if (data.title) {
+        const slug = data.title
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/^-+|-+$/g, '');
+        return `/blog/${slug}/`;
+      }
       return data.permalink;
     }
   }
