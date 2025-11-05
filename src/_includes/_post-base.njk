@@ -13,19 +13,25 @@
 				<div>
 					<h1>{{ navtitle | default(title) }}</h1>
 					<div class="simple-column">
+						{% if date %}
 						<small class="light pad-top-sm">{{ site.name }}</small>
 						<small class="light">{{ date | readableDate }}</small>
+						{% endif %}
+						{% if category %}
 						<small class="light">Tagged:&nbsp;
 							{%- for category in collections.blogCategories -%}
 							<a href="/blog/{{ category | slugify }}/">{{ category }}</a> {% if not loop.last %} | {% endif %}
 							{%- endfor -%}
 						</small>
 						<small><a href="/blog/">See all posts</a></small>
+						{% endif %}
 					</div>
 				</div>
 				{% include "_links.njk" %}
 			</div>
+			{% if image %}
 			<img src="{{ image }}" width="645" height="363" {% if imageAlt %}alt="{{ imageAlt }}"{% else %}alt=""{% endif %} loading="lazy" decoding="async" />
+			{% endif %}
 			<section class="pad-top-lg cap-width">{{ content | safe }}</section>
 		</div>
 	</main>
