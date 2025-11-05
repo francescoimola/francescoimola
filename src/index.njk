@@ -82,7 +82,7 @@ navtitle: Home
 
 <figure class="pad-btt-md separate-above cap-width">
 	<img src="https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_1290,f_auto/dpr_auto/dither_it_Pacioli_g8pabn.webp"
-		 width="645" height="363"
+		width="645" height="363"
 		alt="Portrait of a friar mathematician Luca Pacioli with a student (Guidobaldo da Montefeltro?)" loading="lazy"
 		decoding="async" />
 	<figcaption class="light simple-sb-flex"><small class="light">This could be us but you <s>playing</s>, erm, still
@@ -123,7 +123,7 @@ you.",
 
 <figure class="pad-btt-md separate-above cap-width">
 	<img src="https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_1290,f_auto/dpr_auto/Pier_Head_lighthouse__Folkestone_3_qcuzty.webp"
-		 width="645" height="363" alt="the Folkestone harbour arm" loading="lazy" decoding="async" />
+		width="645" height="363" alt="the Folkestone harbour arm" loading="lazy" decoding="async" />
 	<figcaption class="simple-sb-flex"><small class="light">My actual Zoom background</small><a
 			href="https://commons.wikimedia.org/wiki/File:Pier_Head_lighthouse,_Folkestone_3.jpg" target="_blank"
 			rel="noopener"><small class="light">Tim Sheerman-Chase, Source</small></a>
@@ -149,17 +149,10 @@ you.",
 
 {% if collections.blog | length > 0 %}
 <section class="separate-above">
-	<h2 class="pad-btt-md">From the blog</h2>
-	<ul class="plain-list pad-top-lg pad-btt-sm">
-	  {%- for post in collections.blog | reverse | limit(2) -%}
-	    <li class="pad-btt-md blog-post-item pop cap-width">
-	      <div class="blog-post-content cap-width">
-	        <div class="simple-column"><h3 style="margin:0;"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
-				<small class="pad-top-sm light">{{ post.date | readableDate }}</small></div>
-	        {% if post.data.teaser %}<small class="pad-top-sm">{{ post.data.teaser }}</small>{% endif %}</div></li>{%- endfor -%}</ul>
-	<a href="/blog" class="button-like pad-btt-md">See all blog posts</a>
+	{%- include "_blog-showcase.njk" -%}
 </section>
 {% endif %}
+
 
 <div id="rebrand-modal" class="modal">
 	<div>

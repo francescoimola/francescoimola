@@ -1,47 +1,57 @@
 ---js
 {
-  layout: "_base.njk",
-  navtitle: "Blog",
-  eleventyExcludeFromCollections: true,
-  permalink: function(data) {
-    if (data.pagination.pageNumber > 0) {
-      return `/blog/page-${data.pagination.pageNumber + 1}/`;
-    }
-    return `/blog/`;
-  },
-  pagination: {
-    data: "collections.blog",
-    size: 10,
-    alias: "posts"
-  },
-  eleventyComputed: {
-    title: function(data) {
-      return data.blog.title;
-    },
-    description: function(data) {
-      return data.blog.description;
-    }
-  }
+layout: "_base.njk",
+navtitle: "Blog",
+eleventyExcludeFromCollections: true,
+permalink: function(data) {
+if (data.pagination.pageNumber > 0) {
+return `/blog/page-${data.pagination.pageNumber + 1}/`;
+}
+return `/blog/`;
+},
+pagination: {
+data: "collections.blog",
+size: 10,
+alias: "posts"
+},
+eleventyComputed: {
+title: function(data) {
+return data.blog.title;
+},
+description: function(data) {
+return data.blog.description;
+}
+}
 }
 ---
 
 <div class="cap-width">
-	<div class="tags-filter">
-			<a href="/blog" class="current">All</a>
-			{%- for tag in collections.blogCategories -%}
-				<a href="/blog/{{ tag | slugify }}/">{{ tag }}</a>
-			{%- endfor -%}
-	</div>
+  <div class="tags-filter">
+    <a href="/blog" class="current">All</a>
+    {%- for tag in collections.blogCategories -%}
+    <a href="/blog/{{ tag | slugify }}/">{{ tag }}</a>
+    {%- endfor -%}
+  </div>
 </div>
 
-<ul class="plain-list pad-top-lg pad-btt-md">
-	  {%- for post in posts | reverse -%}
-	    <li class="pad-btt-md blog-post-item">
-            {% if post.data.image %}
-			<a href="{{ post.url | url }}" class="blog-post-image"><img src="{{ post.data.image }}" width="345" height="134" {% if post.data.imageAlt %}alt="{{ post.data.imageAlt }}"{% else %}alt=""{% endif %} loading="lazy" decoding="async" /></a>
-		  {% endif %}
-	      <div class="blog-post-content cap-width">
-	        <div class="post-header"><h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2><small>{{ post.date | readableDate }}</small></div>
-	        {% if post.data.teaser %}
-	          <p class="pad-top-md cap-width">{{ post.data.teaser }}</p>{% endif %}</div></li>{%- endfor -%}
+<ul class="plain-list pad-top-lg pad-btt-md no-list-style">
+  {%- for post in posts | reverse -%}
+  <li class="pad-btt-md">
+    <article class="blog-post-preview">
+      {% if post.data.image %}
+      <a href="{{ post.url | url }}" class="blog-post-image"><img src="{{ post.data.image }}" width="345" height="134" {%
+          if post.data.imageAlt %}alt="{{ post.data.imageAlt }}" {% else %}alt="" {% endif %} loading="lazy"
+          decoding="async" /></a>
+      {% endif %}
+      <div class="cap-width">
+        <div class="post-header">
+          <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
+          <small>{{ post.date | readableDate }}</small>
+        </div>
+        {% if post.data.teaser %}
+        <p class="pad-top-md cap-width">{{ post.data.teaser }}</p>{% endif %}
+      </div>
+    </article>
+  </li>
+  {%- endfor -%}
 </ul>

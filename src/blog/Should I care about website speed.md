@@ -7,7 +7,7 @@ categories:
 title: Should I care about website speed?
 date: 2025-11-01
 draft: false
-teaser: Site speed matters. For your SEO, your UX, and your carbon footprint. Learn how to make websites load faster, reduce friction in your visitor journey and keep people coming back again and again.
+teaser: Website speed matters. For your SEO, UX, and carbon footprint. Learn how to make websites load faster, show up in more searches, reduce friction in your journey, and keep people coming back.
 image: https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_1290,f_auto/dpr_auto/timothy-dykes-KCjzVioAG6A-unsplash_z0kuee.webp
 imageAlt: a snail on a red surface
 ---
@@ -19,8 +19,6 @@ About a month ago, I updated this very website to a new setup that I'll probably
 Doesn't sound like a lot? I don't blame you for never really thinking about speed. You check your site on your fast home internet and recent laptop. And it looks fine, I'm sure. But meanwhile, one of your potential customers is sitting on a train right now, browsing your site on a spotty 3G connection from their refurbished tablet, and....you're serving them a miserable experience. That's when they close the tab and never come back.
 
 If you're running any kind of website—whether it's a portfolio, an ecommerce, a coaching platform, or a reason to showcase your restaurant—and your pages take a while to load, it's not a good sign. Here's why.
-
-<br>
 
 ## 1. You're losing visitors
 
@@ -36,8 +34,6 @@ The McMaster-Carr website certainly has "a look" that won't win design awards, b
 
 If your audience can find what they're looking for quickly and easily, you're killing two birds with one stone: you'll reduce friction in their journey to working/buying with you, and you'll also keep them coming back.
 
-<br>
-
 ## 2. Google prefers faster websites
 
 If you've been relying on templated websites or website builders that spit out gigantic pages no matter what (there's a famous one that starts with an S), you might not know that Google has been using page speed as a ranking factor. Since 2010!
@@ -52,8 +48,6 @@ Need proof?
 
 In 2023, [Adobe improved its page speed from 7.2 seconds to 3.4 seconds](https://business.adobe.com/blog/perspectives/a-quick-start-guide-to-web-performance) and the visit rate from engaged users increased by 35%. Bounce rates decreased by 6%, and the average time spent on page increased by 21% for mobile visitors.
 
-<br>
-
 ## 3. The internet consumes a lot of electricity
 
 Beyond SEO and user experience, speed also affects energy consumption.
@@ -63,8 +57,6 @@ The internet produces about 3-4% of global carbon emissions, roughly the same as
 "Globally, the average web page produces approximately 0.36 grams CO2 equivalent per pageview. For a website with 10,000 monthly page views, that's 43 kg CO2e per year." — [Website Carbon™ Calculator](https://www.websitecarbon.com/)
 
 Sounds tiny? Think of it as the equivalent of CO2e that one mature tree absorbs from the atmosphere in 716 days, or roughly two years.
-
-<br>
 
 ## How to check how fast your website is
 
@@ -83,15 +75,13 @@ If you're scoring below 75/100 or "B" on page speed metrics, don't panic. You're
 
 Here's what you can do.
 
-<br>
-
 ## The changes that matter
 
 After seeing my test results from months ago, I made some changes. Bear in mind that the needs of your website might be different from mine, and these are simply the things that made a difference for me:
 
 1. **Big beautiful images were weighing me down.**
 
-I had a wonderful full-resolution image as the background of my footer. It was 2MB when it could have been 200KB. Before I eventually got rid of it altogether, I switched from PNG to WebP (a better-compressed format) and implemented [lazy loading](https://css-tricks.com/the-complete-guide-to-lazy-loading-images/). This alone cut my load time by a third. 
+I had a wonderful full-resolution image as the background of my footer. It was 2MB when it could have been 200KB. Before I eventually got rid of it altogether, I switched from PNG to WebP (a better-compressed format) and implemented [lazy loading](https://css-tricks.com/the-complete-guide-to-lazy-loading-images/). This alone cut my load time by a third.
 
 These days, I use as few images as possible, and when I need them, I upload them to Cloudinary before linking them back to my code. Cloudinary is a tool that dynamically optimizes image quality, file size, and format based on the browser of who's accessing your site, and it does it without code.
 
@@ -104,8 +94,6 @@ I'm a typography snob. I love custom fonts. But they're costly. I switched to us
 I wanted all the fancy features of a modern website (what is a modern website anyway). The tooltips, the slide-in calendar widgets, the parallax effects, the gorgeous animations. They're all reliant on JavaScript code, and while one or two alone don't hurt, altogether they slow you down.
 
 It took me weeks to come to terms with the sacrifices needed, but once I did, I removed everything that wasn't essential: pop-ups, analytics trackers, and embedded iframes. Besides, it also turned out that much of this JavaScript was a band-aid for problems that I should've solved with better UX, more accessible navigation, and tighter copy.
-
-<br>
 
 ## When is a website fast enough?
 
@@ -134,8 +122,6 @@ Lastly—and this is one of the most overlooked aspects of this conversation—*
 It's inevitable that sooner or later, you and I will see pages slowing down.
 
 That's why it's always a good idea to continuously monitor and iterate. Because when you give a website all the care and attention it needs, it'll stay high-performing four years in (almost) like it did on day one.
-
-<br>
 
 ---
 

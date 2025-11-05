@@ -20,13 +20,13 @@ eleventyComputed:
 </div>
 
 
-<ul class="plain-list pad-top-lg pad-btt-md">
+<ul class="plain-list pad-top-lg pad-btt-md no-list-style">
 	  {%- for post in collections.blog | filterByCategory(category) | reverse -%}
 	    <li class="pad-btt-md blog-post-item">
             {% if post.data.image %}
 			<a href="{{ post.url | url }}" class="blog-post-image"><img src="{{ post.data.image }}" width="345" height="134" {% if post.data.imageAlt %}alt="{{ post.data.imageAlt }}"{% else %}alt=""{% endif %} loading="lazy" decoding="async" /></a>
 		  {% endif %}
-	      <div class="blog-post-content">
+	      <div class="blog-post-item">
 	        <div class="post-header"><h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2><small>{{ post.date | readableDate }}</small></div>
 	        {% if post.data.teaser %}
 	          <p class="pad-top-md cap-width">{{ post.data.teaser }}</p>{% endif %}</div></li>{%- endfor -%}

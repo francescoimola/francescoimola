@@ -1,0 +1,18 @@
+<div class="simple-sb-flex pad-btt-md cap-width">
+	<h2 style="margin: 0;">From the blog</h2>
+	<a href="/blog">See all blog posts</a>
+</div>
+	<ul class="plain-list pad-top-lg pad-btt-md no-list-style">
+		{%- for post in collections.blog | reverse | limit(2) -%}
+		<li class="pad-btt-md pop cap-width">
+			<article class="blog-post-item">
+				<div class="simple-column">
+					<h3 style="margin:0;"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
+					<p class="pad-top-sm light">{{ post.date | readableDate }}</p>
+				</div>
+				{% if post.data.teaser %}<p class="pad-top-sm">{{ post.data.teaser }}</p>
+				{% endif %}
+			</article>
+		</li>
+		{%- endfor -%}
+	</ul>

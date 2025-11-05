@@ -530,7 +530,7 @@ hr {
   color: map.get($colors, text-more-subtle);
 }
 
-ul.plain-list {
+.plain-list {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -538,9 +538,14 @@ ul.plain-list {
   align-content: start;
   flex-wrap: nowrap;
   gap: map.get($spacing, xs);
-  margin-left: 0;
   color: map.get($colors, text-subtle);
+  padding-left: map.get($spacing, sm);
+}
+
+.no-list-style {
   list-style: none;
+  padding: 0;
+  margin-left: 0;
 }
 
 .side-by-grid {
@@ -568,7 +573,7 @@ ul.plain-list {
   }
 }
 
-.blog-post-item {
+.blog-post-preview {
   display: flex;
   gap: map.get($spacing, lg);
   align-items: flex-start;
@@ -590,7 +595,18 @@ ul.plain-list {
     }
   }
 
-  .blog-post-content {
+  @media only screen and (max-width: map.get($breakpoints, base)) {
+    flex-direction: column;
+    gap: map.get($spacing, sm);
+
+    a.blog-post-image {
+      width: 100%;
+      max-width: none;
+    }
+  }
+}
+
+.blog-post-item {
     flex: 1;
     min-height: 0;
 
@@ -602,15 +618,19 @@ ul.plain-list {
       overflow: hidden;
       text-overflow: ellipsis;
     }
+}
+
+.post-content {
+  h2 {
+    margin-top: map.get($spacing, xl);
   }
 
-  @media only screen and (max-width: map.get($breakpoints, base)) {
-    flex-direction: column;
-    gap: map.get($spacing, sm);
+  img {
+    margin: map.get($spacing, xl) 0;
 
-    a.blog-post-image {
-      width: 100%;
-      max-width: none;
+    & + small{
+      margin: calc(map.get($spacing, lg) * -1.333) 0 map.get($spacing, lg) 0;
+      text-align: end;
     }
   }
 }
