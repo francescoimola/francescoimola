@@ -12,6 +12,13 @@
       document.querySelectorAll("p, h1, h2, h3, li, .prevent-orphan").forEach((element) => {
         try {
           if (element.classList.contains("no-wrap")) return;
+
+          // Skip if element contains only a single child with no surrounding text
+          if (element.children.length === 1 &&
+              element.textContent.trim() === element.children[0].textContent.trim()) {
+            return;
+          }
+
           const content = element.innerHTML;
           element.innerHTML = content.replace(/ ([^ ]*)$/, "&nbsp;$1");
         } catch (error) {}
