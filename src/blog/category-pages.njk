@@ -12,7 +12,7 @@ eleventyComputed:
 ---
 <div class="cap-width">
   <div class="tags-filter">
-    <a href="/blog">All</a>
+    <a href="/blog/">All</a>
     {%- for tag in collections.blogCategories -%}
       <a href="/blog/{{ tag | slugify }}/"{% if tag == category %} class="current"{% endif %}>{{ tag }}</a>
     {%- endfor -%}

@@ -57,4 +57,4 @@ Why not! I'm always up for meeting clients face to face. I'm based in Folkestone
 
 ## How can I learn more about this website? {.light}
 
-Great questions. [There's a page for that.](/colophon)
+Great questions. [There's a page for that.](/colophon/)

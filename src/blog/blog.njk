@@ -27,7 +27,7 @@ return data.blog.description;
 
 <div class="cap-width">
   <div class="tags-filter">
-    <a href="/blog" class="current">All</a>
+    <a href="/blog/" class="current">All</a>
     {%- for tag in collections.blogCategories -%}
     <a href="/blog/{{ tag | slugify }}/">{{ tag }}</a>
     {%- endfor -%}

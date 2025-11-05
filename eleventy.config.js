@@ -40,6 +40,8 @@ module.exports = function (eleventyConfig) {
     // Passthrough copy for static assets
     eleventyConfig.addPassthroughCopy("fonts");
     eleventyConfig.addPassthroughCopy("assets");
+    eleventyConfig.addPassthroughCopy("src/_redirects");
+    eleventyConfig.addPassthroughCopy("src/robots.txt");
 
     // Add split filter for Nunjucks
     eleventyConfig.addFilter("split", function(str, separator) {
