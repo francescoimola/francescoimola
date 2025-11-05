@@ -1,0 +1,128 @@
+{#- Schema.org markup using JSON-LD format -#}
+{%- set isHomepage = page.url == '/' -%}
+{%- set isBlogPost = layout == '_post-base.njk' -%}
+{%- set isBlogListing = '/blog' in page.url and not isBlogPost -%}
+
+{#- Organization/Person schema for homepage -#}
+{%- if isHomepage -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "{{ site.url }}/#person",
+      "name": "{{ site.name }}",
+      "url": "{{ site.url }}",
+      "image": "{{ site.image }}",
+      "description": "{{ site.description }}",
+      "email": "{{ blog.author.email }}",
+      "jobTitle": "Web Designer & Developer",
+      "sameAs": []
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}/#website",
+      "url": "{{ site.url }}",
+      "name": "{{ site.name }}",
+      "description": "{{ site.description }}",
+      "publisher": {
+        "@id": "{{ site.url }}/#person"
+      },
+      "inLanguage": "en-GB"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "{{ site.url }}{{ page.url }}#webpage",
+      "url": "{{ site.url }}{{ page.url }}",
+      "name": "{{ title }} | {{ site.name }}",
+      "isPartOf": {
+        "@id": "{{ site.url }}/#website"
+      },
+      "about": {
+        "@id": "{{ site.url }}/#person"
+      },
+      "description": "{{ description or site.description }}",
+      "inLanguage": "en-GB"
+    }
+  ]
+}
+</script>
+{%- endif -%}
+
+{#- BlogPosting schema for individual blog posts -#}
+{%- if isBlogPost and date -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ title }}",
+  "description": "{{ teaser }}",
+  "image": "{{ image }}",
+  "datePublished": "{{ date | dateToRfc3339 }}",
+  "dateModified": "{{ date | dateToRfc3339 }}",
+  "author": {
+    "@type": "Person",
+    "@id": "{{ site.url }}/#person",
+    "name": "{{ blog.author.name }}",
+    "url": "{{ site.url }}"
+  },
+  "publisher": {
+    "@type": "Person",
+    "@id": "{{ site.url }}/#person",
+    "name": "{{ blog.author.name }}",
+    "url": "{{ site.url }}"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ site.url }}{{ page.url }}"
+  },
+  "url": "{{ site.url }}{{ page.url }}",
+  "inLanguage": "en-GB",
+  {%- if categories %}
+  "keywords": "{{ categories | join(', ') }}",
+  "articleSection": "{{ categories[0] }}"
+  {%- endif %}
+}
+</script>
+{%- endif -%}
+
+{#- Blog/CollectionPage schema for blog listing pages -#}
+{%- if isBlogListing -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "{{ blog.title }}",
+  "description": "{{ blog.description }}",
+  "url": "{{ blog.url }}",
+  "publisher": {
+    "@type": "Person",
+    "@id": "{{ site.url }}/#person",
+    "name": "{{ blog.author.name }}",
+    "url": "{{ site.url }}"
+  },
+  "inLanguage": "en-GB"
+}
+</script>
+{%- endif -%}
+
+{#- Generic WebPage schema for all other pages -#}
+{%- if not isHomepage and not (isBlogPost and date) and not isBlogListing -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "{{ title }} | {{ site.name }}",
+  "description": "{{ description or site.description }}",
+  "url": "{{ site.url }}{{ page.url }}",
+  "publisher": {
+    "@type": "Person",
+    "@id": "{{ site.url }}/#person",
+    "name": "{{ site.name }}",
+    "url": "{{ site.url }}"
+  },
+  "inLanguage": "en-GB"
+}
+</script>
+{%- endif -%}
