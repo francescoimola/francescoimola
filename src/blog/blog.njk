@@ -1,14 +1,28 @@
----
-layout: _base.njk
-title: "{{ blog.title }}"
-description: "{{ blog.description }}"
-navtitle: Blog
-eleventyExcludeFromCollections: true
-permalink: /blog/{% if pagination.pageNumber > 0 %}page-{{ pagination.pageNumber + 1 }}/{% endif %}
-pagination:
-  data: collections.blog
-  size: 10
-  alias: blog
+---js
+{
+  layout: "_base.njk",
+  navtitle: "Blog",
+  eleventyExcludeFromCollections: true,
+  permalink: function(data) {
+    if (data.pagination.pageNumber > 0) {
+      return `/blog/page-${data.pagination.pageNumber + 1}/`;
+    }
+    return `/blog/`;
+  },
+  pagination: {
+    data: "collections.blog",
+    size: 10,
+    alias: "posts"
+  },
+  eleventyComputed: {
+    title: function(data) {
+      return data.blog.title;
+    },
+    description: function(data) {
+      return data.blog.description;
+    }
+  }
+}
 ---
 
 <div class="cap-width">
@@ -21,7 +35,7 @@ pagination:
 </div>
 
 <ul class="plain-list pad-top-lg pad-btt-md">
-	  {%- for post in collections.blog | reverse -%}
+	  {%- for post in posts | reverse -%}
 	    <li class="pad-btt-md blog-post-item">
             {% if post.data.image %}
 			<a href="{{ post.url | url }}" class="blog-post-image"><img src="{{ post.data.image }}" width="345" height="134" {% if post.data.imageAlt %}alt="{{ post.data.imageAlt }}"{% else %}alt=""{% endif %} loading="lazy" decoding="async" /></a>
