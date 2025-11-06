@@ -246,12 +246,10 @@ hr {
     display: inline-block;
     flex: 0 0 auto;
     width: auto;
-    height: calc(map.get($spacing, 2xl) * 4);
+    height: clamp(calc(map.get($spacing, 2xl) * 2), 40vh, calc(map.get($spacing, 2xl) * 4));
     border: $border-width solid map.get($colors, text-subtle);
     border-radius: map.get($spacing, xs);
     opacity: 1;
-  }
-    }
   }
 }
 
@@ -311,13 +309,10 @@ hr {
 .mailing-list-card {
   position: relative;
   overflow: clip;
-  height: calc(map.get($spacing, 2xl) * 10);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 
-  h2, p , label, li, span, small {
-    color: map.get($colors, bg);
   >div {
     position: relative;
     z-index: 2;
