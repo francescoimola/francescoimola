@@ -6,10 +6,14 @@ permalink: '/services/'
 navtitle: Services & Pricing
 ---
 {%- from "_cta.njk" import ctaSection -%}
+{%- from "_selected-work-card.njk" import selectedWorkCard -%}
 
 <!-- Website Consulting Sessions -->
 <section id="consulting" class="pop services-card">
-  <h2>Website consultation</h2>
+  <div class="service-card__header" style="margin-bottom: -0.33rem;">
+    <h2>Website consultation</h2>
+    <span class="service-icon streamline-freehand--conversation-question-text-1"></span>
+  </div>
   <div>
     <p>Undistracted time to talk about any challenges with your website. We always start with reviewing your site, and can move on onto discussing your goals, assessing if your strategy aligns with your values, planning next steps, brainstorming, or introducing you to helpful tools.</p>
     <div class="pricing-grid">
@@ -33,7 +37,10 @@ navtitle: Services & Pricing
 
 <!-- Website Design & Copywriting -->
 <section id="website-design" class="pop pad-top-md services-card">
-  <h2>Web Design, Writing & Development</h2>
+  <div class="service-card__header" style="margin-bottom: -0.5rem;">
+    <h2>Web Design, Writing & Development</h2>
+    <span class="service-icon streamline-freehand--website-development-build"></span>
+  </div>
   <div>
     <p>Get a futureproof, intuitive website built to guide people, not send them going around in circles. It'll load fast. It'll work on every device. And it'll be stupid easy to update yourself—if you wish so.</p>
     <div class="pricing-grid pad-top-md">
@@ -60,7 +67,10 @@ navtitle: Services & Pricing
 
 <!-- Email Marketing -->
 <section id="email-marketing" class="pop pad-top-md services-card">
-  <h2>Email marketing</h2>
+  <div class="service-card__header" style="margin-bottom: -0.33rem;">
+    <h2>Email marketing</h2>
+    <span class="service-icon streamline-freehand--send-email-paper-plane-1"></span>
+  </div>
   <div>
     <p>A solid email strategy is the backbone of your marketing. It gets your message right to your audience AND you can automate (most) of it in the background while you focus on more important work. I can set a system up for you or audit your existing setup and recommend improvements.</p>
     <div class="pricing-grid">
@@ -77,15 +87,16 @@ navtitle: Services & Pricing
         <span>£400</span>
       </div>
     </div>
-  
     <p><br>Template design, multi-step nurture sequences, and list maintenance are available for a custom fee.</p>
-    
   </div>
 </section>
 
 <!-- Do-it-Together Sessions -->
 <section id="do-it-together" class="pop pad-top-md pad-btt-md services-card">
-  <h2>Do-it-together sessions</h2>
+  <div class="service-card__header" style="margin-bottom: -0.5rem;">
+    <h2>Do-it-together sessions</h2>
+    <span class="service-icon streamline-freehand--business-management-teamwork-clap"></span>
+  </div>
   <div>
     <p>Group body-doubling sessions to work side-by-side, focus, and make progress in a supportive environment. Perfect for tackling tasks like website updates, email writing, or business admin.</p>
     <div class="pricing-grid">
@@ -102,37 +113,27 @@ navtitle: Services & Pricing
     </div>
 </section>
 
+{{ ctaSection(
+	"Ready to get started?",
+	"Let's schedule a no-pressure half-hour chat (online or IRL) to discuss your challenges, goals, and how I can help. Two clicks is all it takes.",
+	"Book our intro chat"
+) }}
+
 <section class="pad-top-md pad-btt-md">
     <h2>How do we work together?</h2>
-     <p>I'll untangle the chaos in your marketing, strip away what's not working, and together we'll build what needs building to drive long-term results.</p>
+     <p>I'll untangle all those messy figure-eight knots in your marketing and strip away what's not working. Then together, we'll lay new foundations and build what needs building to drive long-term growth.</p>
      <p>All services (except for do-it-together sessions) start with a free no-obligation introductory call and end with a clear plan for implementation.</p>
-     <a href="/how-i-work/" class="button-like white-button pad-top-sm">This is how I work</a>
+     <a href="/how-i-work/" class="button-like white-button pad-top-sm">Here's what to expect</a>
 </section>
 
 <!-- Payment Information -->
 <section class="pad-top-md pad-btt-md">
   <h2>Are prices flexible?</h2>
   <p>Sessions are priced as shown. Website and email projects are estimates, with the final cost depending on scope, timeline, and level of client involvement. You'll get an exact quote before we start.</p>
-  <p>I offer non-stackable discounts on payment terms to everyone. <a href="/faqs/#concessions">Learn more about concessions</a>.</p>
+  <p>I offer <a href="/faqs/#concessions">non-stackable discounts</a> on payment terms to everyone.</p>
 </section>
 
-<section class="pad-btt-md cap-width selected-work-card">
-	<a href="/portfolio/">
-		<h2>See what I was trusted to make. <span class="light">Some of my best work from the last
-				decade.</span></h2>
-		<picture>
-			<source srcset="https://res.cloudinary.com/dax6x2pto/image/upload/f_avif,q_auto:good,w_1400,c_limit/ezgif.com-optipng_pao87g.png"
-				type="image/avif" />
-			<source srcset="https://res.cloudinary.com/dax6x2pto/image/upload/f_webp,q_auto:good,w_1400,c_limit/ezgif.com-optipng_pao87g.png"
-				type="image/webp" />
-			<img src="https://res.cloudinary.com/dax6x2pto/image/upload/f_auto,q_auto:good,w_1400,c_limit/ezgif.com-optipng_pao87g.png"
-				width="1400" height="787" alt="showcase of projects as a fast-moving carousel" loading="lazy" decoding="async">
-		</picture>
-	</a>
-</section>
-
-{{ ctaSection(
-	"Put a face to the price tag",
-	"Let's schedule a no-pressure 30min chat to see if we're the right fit. You tell me about your project, and I'll tell you a bit about how I work.",
-	"Book a free intro"
+{{ selectedWorkCard(
+	"See what I was trusted to make.",
+	"Some of my best work from the last decade."
 ) }}

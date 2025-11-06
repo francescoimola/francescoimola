@@ -5,7 +5,7 @@
 	<ul class="plain-list pad-top-lg pad-btt-md no-list-style">
 		{%- for post in collections.blog | reverse | limit(2) -%}
 		<li class="pad-btt-md pop cap-width">
-			<article class="blog-post-item">
+			<article>
 				<div class="simple-column">
 					<h3 style="margin:0;"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
 					<p class="pad-top-sm light">{{ post.date | readableDate }}</p>

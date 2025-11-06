@@ -9,7 +9,7 @@ date: 2025-11-01
 draft: false
 teaser: Website speed matters. For your SEO, UX, and carbon footprint. Learn how to make websites load faster, show up in more searches, reduce friction in your journey, and keep people coming back.
 image: https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_1290,f_auto/dpr_auto/timothy-dykes-KCjzVioAG6A-unsplash_z0kuee.webp
-imageAlt: a snail on a red surface
+imageAlt: a person working on their laptop on a bus
 ---
 
 **Short answer: Yes. Your slow website is annoying your visitors, hurting your Google rankings, and probably contributing to climate change.**
@@ -62,11 +62,9 @@ Sounds tiny? Think of it as the equivalent of CO2e that one mature tree absorbs 
 
 The easiest way to stop guessing is to test your site, right now. These free tools take minutes to show you actionable results, and you'll see exactly where you stand:
 
-[PageSpeed Insights](https://pagespeed.web.dev/) is Google's official tool
-
-[GTmetrix](https://gtmetrix.com/) shows you detailed performance metrics
-
-[Website Carbon Calculator](https://www.websitecarbon.com/) measures your environmental impact
+- [PageSpeed Insights](https://pagespeed.web.dev/) is Google's official tool
+- [GTmetrix](https://gtmetrix.com/) shows you detailed performance metrics
+- [Website Carbon Calculator](https://www.websitecarbon.com/) measures your environmental impact
 
 ![Screenshot of a GTmetrix Report](https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_1290,f_auto/dpr_auto/GTmetrix-image-audits_ahebil.webp)
 <small>What a typical report looks like | <a href="https://gtmetrix.com/blog/a-designers-guide-integrating-image-optimization-performance-culture/" target="_blank" rel="noopener">Source: GTmetrix</a></small>
@@ -75,7 +73,7 @@ If you're scoring below 75/100 or "B" on page speed metrics, don't panic. You're
 
 Here's what you can do.
 
-## The changes that matter
+## This is how switched gear and made everything faster
 
 After seeing my test results from months ago, I made some changes. Bear in mind that the needs of your website might be different from mine, and these are simply the things that made a difference for me:
 
@@ -83,23 +81,21 @@ After seeing my test results from months ago, I made some changes. Bear in mind 
 
 I had a wonderful full-resolution image as the background of my footer. It was 2MB when it could have been 200KB. Before I eventually got rid of it altogether, I switched from PNG to WebP (a better-compressed format) and implemented [lazy loading](https://css-tricks.com/the-complete-guide-to-lazy-loading-images/). This alone cut my load time by a third.
 
-These days, I use as few images as possible, and when I need them, I upload them to Cloudinary before linking them back to my code. Cloudinary is a tool that dynamically optimizes image quality, file size, and format based on the browser of who's accessing your site, and it does it without code.
+These days, I use as few images as possible, and when I need them, I upload them to [Cloudinary](https://cloudinary.com/) before linking them back to my code. Cloudinary is a tool that dynamically optimizes image quality, file size, and format based on the browser of who's accessing your site, and it does it without code.
 
 2. **I was loading way too many fonts.**
 
-I'm a typography snob. I love custom fonts. But they're costly. I switched to using just one versatile font—[Ronzino by Collletttivo](https://www.collletttivo.it/typefaces/ronzino)—delivered as WOFF2 (a modern compressed format). I pre-loaded it so it would be available sooner, and used CSS to control how it renders. The result? Text appears before you've blinked instead of flashing or shifting around.
+I'm a typography snob. I love custom fonts. But they're costly, and not just to my wallet. Each takes milliseconds to load, and together that adds up. I packed light, switching to using just one versatile font—[Ronzino](https://www.collletttivo.it/typefaces/ronzino)—delivered as WOFF2, a modern compressed format. I also pre-loaded it so it would be available sooner, and I used CSS to control how it renders. The result? Text now appears immediately instead of flashing or shifting around.
 
 3. **Too much JavaScript I didn't need.**
 
-I wanted all the fancy features of a modern website (what is a modern website anyway). The tooltips, the slide-in calendar widgets, the parallax effects, the gorgeous animations. They're all reliant on JavaScript code, and while one or two alone don't hurt, altogether they slow you down.
+I wanted all the fancy features of a modern website (what is a modern website anyway?). The tooltips, the slide-in calendar widgets, the parallax effects, the gorgeous animations. They're all reliant on JavaScript code, and while one or two alone don't hurt, altogether they slow you down. A LOT.
 
-It took me weeks to come to terms with the sacrifices needed, but once I did, I removed everything that wasn't essential: pop-ups, analytics trackers, and embedded iframes. Besides, it also turned out that much of this JavaScript was a band-aid for problems that I should've solved with better UX, more accessible navigation, and tighter copy.
+It took me weeks to come to terms with the sacrifices needed, but once I did, I removed everything that wasn't essential: pop-ups, embedded iframes, and all but one analytics tracker. It also turned out that much of this JavaScript was a band-aid for problems that I should've solved with better UX, more accessible navigation, and tighter copy.
 
 ## When is a website fast enough?
 
-**Bad performance frustrates users, drains their data plans, and consumes battery life.** 
-
-When I redesigned my website, I wanted my visitors to have none of these problems.
+**Bad performance frustrates users, drains their data plans, and consumes battery life.** When I redesigned my website, I wanted my visitors to have none of these problems.
 
 Currently, the homepage at francescoimola.com, which is also the longest page on the website, [gets a 100% score](https://pagespeed.web.dev/analysis/https-francescoimola-com/veciq5feip?form_factor=mobile) on Google Page Speed Insights across board. That for both performance, accessibility, best practices and SEO.
 
@@ -117,7 +113,7 @@ This is my website, after all. I built it from static code and I'm in charge of 
 
 I could do it myself because I'm my own client. I picked my goals and gave myself all the time necessary to achieve them. When I build new sites from scratch for others, I always aim for a 100% score at site launch, but there's so much at stake! You just don't have control over everything. Even I as as a web designer can only do so much to influence how someone's entire business operates and what part their website plays in it.
 
-Lastly—and this is one of the most overlooked aspects of this conversation—**websites aren't one-and-done projects**. They're living organisms that if they seem big now, they'll need even more room to grow as needs evolve. And, as we all know, with growth comes good and bad news (spoiler: the bad is unnecessary bloat).
+Lastly—and this is one of the most overlooked aspects of this conversation—**websites aren't one-and-done projects**. They're living organisms that if they seem big now, they'll need even more room to grow as needs evolve. And, as we all know, with growth comes unnecessary baggage.
 
 It's inevitable that sooner or later, you and I will see pages slowing down.
 
@@ -131,15 +127,11 @@ This blog post is just scratching the surface. If I got you curious to learn mor
 
 For more information, check out these in-depth resources:
 
-[Why Speed Matters](https://web.dev/learn/performance/why-speed-matters) - Google's comprehensive guide
-
-[Is 100/100 PageSpeed score enough? The answer is No.](https://www.semrush.com/blog/pagespeed-score-enough/) - Find several interesting optimization techniques to apply to your websites
-
-[Page Speed and SEO](https://www.cloudflare.com/en-gb/learning/performance/how-website-speed-boosts-seo/) - Technical but thorough
-
-[Green Web Foundation](https://www.thegreenwebfoundation.org/) - Check if your website runs on renewable energy
-
-[Impact of Page Load Time on Conversions](https://www.browserstack.com/guide/why-website-speed-is-important) - Learn why site speed matters for conversions, SEO and UX
+- [Why Speed Matters](https://web.dev/learn/performance/why-speed-matters) - Google's comprehensive guide
+- [Is 100/100 PageSpeed score enough? The answer is No.](https://www.semrush.com/blog/pagespeed-score-enough/) - Find several interesting optimization techniques to apply to your websites
+- [Page Speed and SEO](https://www.cloudflare.com/en-gb/learning/performance/how-website-speed-boosts-seo/) - Technical but thorough
+- [Green Web Foundation](https://www.thegreenwebfoundation.org/) - Check if your website runs on renewable energy
+- [Impact of Page Load Time on Conversions](https://www.browserstack.com/guide/why-website-speed-is-important) - Learn why site speed matters for conversions, SEO and UX
 
 ---
 

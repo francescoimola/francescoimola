@@ -1,0 +1,18 @@
+{%- macro selectedWorkCard(heading, lightHeading, linkUrl = '/portfolio/', image = {}) -%}
+<section class="pad-btt-md cap-width selected-work-card give-border">
+	<a href="{{ linkUrl | default('/portfolio/') }}">
+		<h2>{{ heading }} <span class="light">{{ lightHeading }}</span></h2>
+		<picture>
+			<source
+				srcset="{{ image.avif | default('https://res.cloudinary.com/dax6x2pto/image/upload/f_avif,q_auto:good,w_1400,c_limit/ezgif.com-optipng_pao87g.avif') }}"
+				type="image/avif" />
+			<source
+				srcset="{{ image.webp | default('https://res.cloudinary.com/dax6x2pto/image/upload/f_webp,q_auto:good,w_1400,c_limit/ezgif.com-optipng_pao87g.webp') }}"
+				type="image/webp" />
+			<img src="{{ image.src | default('https://res.cloudinary.com/dax6x2pto/image/upload/f_apng,q_auto:good,w_1400,c_limit/ezgif.com-optipng_pao87g.png') }}"
+				width="{{ image.width | default('1400') }}" height="{{ image.height | default('787') }}" alt="{{ image.alt | default('fast-moving showcase of past project imagery') }}" fetchpriority="{{ image.fetchpriority | default('high') }}"
+				decoding="async">
+		</picture>
+	</a>
+</section>
+{%- endmacro -%}

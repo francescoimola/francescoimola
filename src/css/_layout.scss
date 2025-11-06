@@ -89,7 +89,7 @@ nav {
   width: 100%;
   margin: 0;
 
-  *{
+  * {
     white-space: nowrap;
   }
 
@@ -145,9 +145,9 @@ nav {
     }
 
     .home-icon {
-        display: none;
-        visibility: hidden;
-      }
+      display: none;
+      visibility: hidden;
+    }
   }
 }
 
@@ -290,11 +290,42 @@ nav {
 }
 
 .services-card {
-  @include flex(row, map.get($spacing, md));
+  @include flex(row, map.get($spacing, 2xl));
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: stretch;
+  flex-wrap: nowrap;
   width: 100%;
 
+  @media only screen and (max-width: map.get($breakpoints, md)) {
+    flex-direction: column;
+    max-width: $container-w;
+  }
+
+  .service-card__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: map.get($spacing, xl);
+    align-items: flex-start;
+    max-height: none;
+
+    @media only screen and (max-width: map.get($breakpoints, md)) {
+      flex-direction: row;
+      width: 100%;
+    }
+
+    .service-icon {
+      display: inline-block;
+      width: clamp(map.get($spacing, xl), 12vw, calc(map.get($spacing, 2xl) * $golden-ratio));
+      height: auto;
+      padding-inline: map.get($spacing, sm);
+      vertical-align: -0.125em;
+
+      @media only screen and (max-width: map.get($breakpoints, md)) {
+      padding-inline: 0;
+      }
+    }
+  }
 }
 
 // ===================================
@@ -306,21 +337,22 @@ footer {
   h4 {
     margin-bottom: map.get($spacing, sm);
   }
-    .badges {
-      @include flex(row, map.get($spacing, sm));
-      justify-content: flex-start;
-      align-items: flex-start;
-      flex-wrap: nowrap;
-      width: fit-content;
 
-        svg {
-          height: calc(map.get($spacing, 2xl)*$perfect-fourth);
-          width: auto;
+  .badges {
+    @include flex(row, map.get($spacing, sm));
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    width: fit-content;
 
-          &.c4c-badge {
-            width: calc(map.get($spacing, 2xl)*$golden-ratio);
-          }
-        }
+    svg {
+      height: calc(map.get($spacing, 2xl)*$perfect-fourth);
+      width: auto;
 
+      &.c4c-badge {
+        width: calc(map.get($spacing, 2xl)*$golden-ratio);
+      }
     }
+
+  }
 }

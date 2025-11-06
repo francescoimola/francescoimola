@@ -25,6 +25,8 @@ return data.blog.description;
 }
 ---
 
+{# NOTE: This markup is duplicated in category-pages.njk #}
+
 <div class="cap-width">
   <div class="tags-filter">
     <a href="/blog/" class="current">All</a>
@@ -39,17 +41,17 @@ return data.blog.description;
   <li class="pad-btt-md">
     <article class="blog-post-preview">
       {% if post.data.image %}
-      <a href="{{ post.url | url }}" class="blog-post-image"><img src="{{ post.data.image }}" width="345" height="134" {%
-          if post.data.imageAlt %}alt="{{ post.data.imageAlt }}" {% else %}alt="" {% endif %} loading="lazy"
+      <a href="{{ post.url | url }}" class="blog-post-preview__image"><img src="{{ post.data.image }}" width="320" height="160"
+        {% if post.data.imageAlt %}alt="{{ post.data.imageAlt }}" {% else %}alt="" {% endif %} loading="lazy"
           decoding="async" /></a>
       {% endif %}
-      <div class="cap-width">
-        <div class="post-header">
+      <div class="blog-post-preview__content cap-width">
+        <div class="blog-post-preview__header">
           <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
           <small>{{ post.date | readableDate }}</small>
         </div>
         {% if post.data.teaser %}
-        <p class="pad-top-md cap-width">{{ post.data.teaser }}</p>{% endif %}
+        <p class="blog-post-preview__teaser">{{ post.data.teaser }}</p>{% endif %}
       </div>
     </article>
   </li>

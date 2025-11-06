@@ -6,6 +6,7 @@ permalink: '/'
 navtitle: Home
 ---
 {%- from "_cta.njk" import ctaSection -%}
+{%- from "_selected-work-card.njk" import selectedWorkCard -%}
 
 <div class="intro-wrapper pad-btt-md">
 	<div class="secondary-header pad-btt-lg">
@@ -60,23 +61,10 @@ navtitle: Home
 	</div>
 </section>
 
-<section class="pad-btt-md cap-width selected-work-card give-border">
-	<a href="/portfolio/">
-		<h2>Explore selected projects. <span class="light">Some of the best thinking and making I was trusted
-				with.</span></h2>
-		<picture>
-			<source
-				srcset="https://res.cloudinary.com/dax6x2pto/image/upload/f_avif,q_auto:good,w_1400,c_limit/ezgif.com-optipng_pao87g.avif"
-				type="image/avif" />
-			<source
-				srcset="https://res.cloudinary.com/dax6x2pto/image/upload/f_webp,q_auto:good,w_1400,c_limit/ezgif.com-optipng_pao87g.webp"
-				type="image/webp" />
-			<img src="https://res.cloudinary.com/dax6x2pto/image/upload/f_auto,q_auto:good,w_1400,c_limit/ezgif.com-optipng_pao87g.png"
-				width="1400" height="787" alt="fast-moving showcase of past project imagery" fetchpriority="high"
-				decoding="async" style="border: none;">
-		</picture>
-	</a>
-</section>
+{{ selectedWorkCard(
+	"Explore selected projects.",
+	"Some of the best thinking and making I was trusted with."
+) }}
 
 {%- include "_testimonials.njk" -%}
 
