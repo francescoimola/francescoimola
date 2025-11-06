@@ -289,6 +289,14 @@ nav {
   }
 }
 
+.services-card {
+  @include flex(row, map.get($spacing, md));
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+
+}
+
 // ===================================
 // FOOTER
 // ===================================

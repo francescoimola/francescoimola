@@ -1,5 +1,5 @@
 ---
-layout: _post-base.njk
+layout: ./_post-base.njk
 title: On Inner Desires
 description: We have more time than we ever needed to look for answers where none seem to exist. Like a beach ball that we’ve been pushing underwater for too long, our inner self has come flying up out of the water and hit us square in the face. So do we push it down again and hope for the best, or do we analyse it?
 permalink: "/playground/on-inner-desires/"
