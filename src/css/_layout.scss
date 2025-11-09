@@ -313,18 +313,6 @@ nav {
       flex-direction: row;
       width: 100%;
     }
-
-    .service-icon {
-      display: inline-block;
-      width: clamp(map.get($spacing, xl), 12vw, calc(map.get($spacing, 2xl) * $golden-ratio));
-      height: auto;
-      padding-inline: map.get($spacing, sm);
-      vertical-align: -0.125em;
-
-      @media only screen and (max-width: map.get($breakpoints, md)) {
-      padding-inline: 0;
-      }
-    }
   }
 }
 
