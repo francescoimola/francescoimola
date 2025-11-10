@@ -8,105 +8,125 @@ navtitle: Home
 {%- from "_cta.njk" import ctaSection -%}
 {%- from "_selected-work-card.njk" import selectedWorkCard -%}
 
-<div class="intro-wrapper pad-btt-md">
+<div class="intro-wrapper">
 	<div class="secondary-header pad-btt-lg">
 		<h1 class="cap-width-sm">Delightful things with pixels and words for people who love what they do. Made by <span
 				class="green-text">{{ site.name }}</span> from a seaside town in Kent.</h1>
 		{% include "_links.njk" %}
 	</div>
 
-	<section class="separate-below cap-width">
+	<section class="cap-width pad-btt-md">
 		<img src="https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_320,f_auto/dpr_auto/francesco_kngh32.webp"
-			width="160" height="160" alt="close up of Francesco" loading="lazy" decoding="async" />
-		<h2 class="pad-top-lg ">Hello, I'm Francesco (he/him). <span class="light">A designer, marketer, and cultural
-				worker based in
-				Folkestone, Kent.</span>
-		</h2>
-		<p class="pad-top-sm">I spent the best part of a decade helping to platform emerging talent. Now I show people
-			what intentional design and marketing can do for them.</p>
-		<div class="pad-top buttons-wrapper"><a href="/services" class="button-like pad-top-sm">Explore my
-				offering</a><a href="/how-i-work/" class="button-like white-button pad-top-sm">See how I work</a></div>
+			width="160" height="160" alt="close up of Francesco" loading="lazy" decoding="async" fetchpriority="high"
+			as="image" />
+		<h2 class="pad-top-lg">Hello, I'm Francesco (he/him)</h2>
+		<p>I'm a designer, marketer, and cultural
+			worker based in Folkestone, Kent. I spent the best part of a decade helping to platform emerging talent. Now
+			I partner with small businesses, solopreneurs and artists to work both in and on their marketing.</p>
+		<div class="pad-top-md buttons-wrapper"><a href="/contact" class="button-like">Let's talk</a>
+			<button-sibling class="light">or keep browsing</button-sibling>
+		</div>
 	</section>
 </div>
 
+{{ selectedWorkCard(
+"Explore selected projects"
+) }}
+
 <section class="pad-btt-md cap-width">
-	<div class="simple-sb-flex">
-		<h2>Where I can help</h2>
-		<a href="/services/" class="light">See all services</a>
-	</div>
-	<p>I partner with small businesses, solopreneurs and artists to work both in and on their marketing. As a crew of
-		(almost
-		always) one, I can be a versatile extension of your team without the agency overheads.</p>
-	<div class="side-by-grid pad-top-lg">
-		<div class="pop">
-			<h3>Done for you</h3>
-			<p>You get the basics, done properly. A website built to last. Words that says like it is. Email
-				marketing without the bullsh*t.</p>
-		</div>
-		<div class="pop">
-			<h3>Consultations</h3>
-			<p>Space to figure out the best way forward. We dig into your challenges, what's working, what's not, and
-				where to simplify.</p>
-		</div>
-		<div class="pop">
-			<h3>Ongoing partnerships</h3>
-			<p>Need more than project work? I'm open to long-term arrangements where we build momentum over months and
-				years.</p>
-		</div>
-		<div class="pop">
-			<h3><s>Guided work</s> (coming soon)</h3>
-			<p>We work side-by-side in focused body-doubling sessions to reflect, plan,
-				troubleshoot, and build on our successes.</p>
-		</div>
-	</div>
+	<h2>Where I can help</h2>
+	<p>For fear of acknowledging that marketing is not hard science, marketers and designers can make their work sound
+		very mysterious. I like to keep it simple.</p>
+	<p>I help you create systems that don't eat your life. The kind that run while you sleep, age like good wine and
+		never ask you to dance for an algorithm. It's the marketing that lets you get on with it.</p>
+			<div class="two-by-grid pad-top-lg">
+				<card class="give-bkg">
+					<h3>Web design</h3>
+					<p class="small-like">I design, write and build lightweight websites that look the part and will never lead you down a dead end.
+					</p>
+					<ul class="list-subgrid">
+							<li><span class="small-like">Responsive web design</span></li>
+							<li><span class="small-like">Website copywriting</span></li>
+							<li><span class="small-like">UX, UI & SEO fundamentals</span></li>
+							<li><span class="small-like">Framer & Webflow builds</span></li>
+					</ul>
+				</card>
+
+				<card class="give-bkg">
+					<h3>Email marketing</h3>
+					<p class="small-like">I build the foundations to help you capture and retain new email subscribers in the simplest way possible.</p>
+					<ul class="list-subgrid">
+						<li><span class="small-like">List & Platform setup</span></li>
+						<li><span class="small-like">Nurturing sequences</span></li>
+						<li><span class="small-like">Automated workflows</span></li>
+						<li><span class="small-like">Template design</span></li>
+					</ul>
+				</card>
+				<card class="give-bkg">
+					<h3>Strategy</h3>
+					<p class="small-like">I help shape no-BS customer journeys and marketing operations by helping you exit the labyrinth of messy marketing.</p>
+					<ul class="list-subgrid">
+						<li><span class="small-like">Website consultations</span></li>
+						<li><span class="small-like">User journey mapping</span></li>
+						<li><span class="small-like">Creative direction</span></li>
+						<li><span class="small-like">Workflow optimisation</span></li>
+					</ul>
+				</card>
+
+				<card class="give-bkg">
+					<h3>In-team collaboration</h3>
+					<p class="small-like">For a month, a season, or year, I can step into your team as a creative marketer on contract to help you level up your marketing efforts.</p>
+					<ul class="list-subgrid">
+						<li><span class="small-like">Workshops</span></li>
+						<li><span class="small-like">Brainstorming sessions</span></li>
+						<li><span class="small-like">Admin & ad-hoc support</span></li>
+						<li><span class="small-like">Any service mentioned previously</span></li>
+					</ul>
+				</card>
+			</div>
 </section>
 
-{{ selectedWorkCard(
-	"Explore selected projects.",
-	"Some of the best thinking and making I was trusted with."
-) }}
+<section class="pad-btt-md cap-width">
+	<h2>Who is my work for</h2>
+	<p>My work is for small businesses and freelancers who want clean, standout design without the agency overheads. If you appreciate moving fast, avoiding the endless back and forth, and you see marketing as a tool for genuine connection over exploitation, we’ll probably get along.
+	</p>
+</section>
+
 
 {%- include "_testimonials.njk" -%}
 
 <figure class="pad-btt-md separate-above cap-width">
 	<img src="https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_1290,f_auto/dpr_auto/dither_it_Pacioli_g8pabn.webp"
-		width="645" height="363"
-		alt="Portrait of a friar mathematician Luca Pacioli with a student (Guidobaldo da Montefeltro?)" loading="lazy"
+		width="645"
+		height="363"
+		class="give-bkg"
+		alt="folks directory website"
+		loading="lazy"
 		decoding="async" />
-	<figcaption class="light simple-sb-flex"><small class="light">This could be us but you <s>playing</s>, erm, still
-			considering your options</small><a href="https://commons.wikimedia.org/wiki/File:Pacioli.jpg"
-			target="_blank" rel="noopener" style="margin-bottom: 0;"><small>Source</small></a></figcaption>
 </figure>
 
 <section class="pad-btt-md cap-width">
-	<h2>Built to last</h2>
-	<p>Websites. UX Copy. Email strategies. Booking flows. Wherever people come into contact with your business, I
-		design it to adapt to your current and future needs. So it will stay clear, fast and maintainable for six
-		months, a year, five years. And there's only one way we can do this: by always keeping your time, ongoing costs,
-		and resources in mind.</p>
-	<p>Because after years working across communications and marketing in two of the UK's fastest-changing industries, I
-		learned
-		one thing: most people don't need an award-winning agency to rebrand them or set them up with a 17-step
-		marketing strategy. They need to stop fragmenting their marketing efforts and make better use of their
-		resources. I can help with that.
+	<h2>About me</h2>
+	<p>I'm a designer at heart, although you can often find me building bridges across the murky waters of marketing, art, and creating resources for the public good.</p>
+	<p>I've previously worked with teams from <a href="https://www.gre.ac.uk/las/design" target="_blank" rel="noopener">University of Greenwich</a>, <a href="https://www.seatingplan.com/" target="_blank" rel="noopener">Mega Seating Plan</a>, and <a href="https://blueberrycreatives.co.uk/" target="_blank" rel="noopener">Blueberry</a>, in both B2B and B2C environments. In this lifetime, I've also been a music producer, exhibition curator, visual artist, social media manager, photographer, runner, barista, and <a href="/playground">many other things</a>.</p>
+	<p>These days, I partner with people who want to do good and do it well. I help them solve problems, usually connected with their website, digital operations, or inbound marketing strategy. </p>
+	<p>Mind you, I'm no specialist.</p>
+	<p>Where specialists see websites, emails, marketing strategy and operations as separate problems, I can see the whole mess because I'm not stuck in one corner of it. And I can help you untangle it with good copy and design.
 	</p>
-	<a href="/how-i-work/" class="button-like white-button">How we can work together</a>
-</section>
-
-<section class="pad-btt-md cap-width ">
-	<h2>Planet-aware design for creatives and small businesses</h2>
-	<p>There is a better way to approach design and marketing. One that puts people and the planet ahead of huge
-		profits. Nothing I do is perfect, but I do everything I can to ensure my work is as sustainable and ethical as
-		possible. This way, we can achieve great results that benefit both the environment and the people who use what
-		we create.</p>
 </section>
 
 {{ ctaSection(
-"Let me take it from here",
-"If you're ready to stop hacking things together alone, let's schedule a free 30-minute call to see what I can do for
-you.",
+"Wanna stop scrolling? ",
+"Let me take it from here. Book a free call to tell me about your project.",
 "Book a free intro"
 ) }}
+
+<section class="pad-btt-md cap-width ">
+	<h2>Planet-aware design</h2>
+	<p>There is a better way to do this work: rethink what is important and put people and the planet first.</p>
+	<p>My mission is to do good creative work, but "good" creative work is only achievable by refusing to work with big polluters. This is why I don't partner with fossil fuel clients or those who are directly associated with the fossil fuel industry.</p>
+	<p>My work isn't perfect, but I use every project as an opportunity to shape the change I want to see in the world while bringing valuable ideas, solutions and enthusiasm to the table.</p>
+</section>
 
 
 <figure class="pad-btt-md separate-above cap-width">
@@ -120,16 +140,13 @@ you.",
 
 <section class="cap-width pad-btt-md">
 	<h2>Where I work</h2>
-	<p>I'm a designer and creative marketer based in Folkestone. I operate globally (on a GMT timezone) but I especially
-		love working with people and teams in Kent, the South East,
-		and London.</p>
-	<p>
-		Most of my work with local businesses is web design and email marketing for small businesses and creatives
-		who've outgrown
-		the DIY approach. I'm also open to creative direction, SEO, or curatorial work if it's worth doing.
-	</p>
+	<p>I operate globally on a GMT timezone, but I especially love working with people and teams in Kent, the South
+		East, and London.</p>
+	<p>While most of my local work is web design and email marketing for small businesses and creatives who've outgrown
+		the DIY approach, I'm also open to step into creative direction, SEO, or curatorial roles if I'm particularly
+		connected to the work.</p>
 	<p>If you're a business or creative based in Folkestone or the surrounding areas, and you're looking for help, a
-		fresh perspective, and someone you can talk to IRL, I've been waiting (especially) for you.</p>
+		fresh perspective, and someone you can also talk to IRL, I've been waiting especially for you.</p>
 	<a href="/contact/" class="button-like white-button pad-top-sm">Get in touch</a>
 </section>
 

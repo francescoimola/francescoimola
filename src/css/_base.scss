@@ -298,6 +298,7 @@ body {
   letter-spacing: $letter-spacing-base;
   color: map.get($colors, text);
   background: map.get($colors, bg-translucent);
+  text-rendering: optimizeLegibility;
 
   // Webkit scrollbar styling (Safari, Chrome)
   &::-webkit-scrollbar {
@@ -333,14 +334,13 @@ h2,
 h3,
 h4,
 h5,
-h6 {
-  margin: 0 0 map.get($spacing, md) 0;
+h6, as-h {
+  margin: 0 0 map.get($spacing, sm) 0;
   font-weight: 500;
-  font-size: $font-large;
-  letter-spacing: $letter-spacing-large;
-  line-height: $lh-tight;
+  font-size: $font-base;
+  letter-spacing: $letter-spacing-base;
+  line-height: $lh-base;
   color: map.get($colors, text);
-  text-rendering: optimizeLegibility;
 }
 
 h1, h3.phone, h3.email {
@@ -352,7 +352,7 @@ h1, h3.phone, h3.email {
 }
 
 p {
-  margin: 0 0 map.get($spacing, md) 0;
+  margin: 0 0 calc(map.get($spacing, sm) *$perfect-fourth) 0;
   color: map.get($colors, text-subtle);
   text-rendering: optimizeSpeed;
   max-width: $container-w;
@@ -375,7 +375,7 @@ small, .small-like {
 a {
   width: fit-content;
   color: currentColor;
-  text-decoration: calc($unit/($perfect-fourth * 2)) underline;
+  text-decoration: 1px underline;
   text-underline-offset: map.get($spacing, xs);
 
   &:hover,
@@ -410,18 +410,18 @@ sup {
   top: calc(map.get($spacing, sm) * -10);
   left: 45%;
   right: auto;
-  background: map.get($colors, text);
+  background: map.get($colors, text-subtle);
   color: map.get($colors, bg);
   padding: map.get($spacing, sm) map.get($spacing, md);
   text-decoration: none;
   z-index: 10000;
-  border-radius: map.get($spacing, md);
+  border-radius: map.get($spacing, sm);
   transition: all 0.25s ease-in-out;
 
   &:focus {
     top: map.get($spacing, lg);
     color: map.get($colors, bg);
-    outline: 2px solid map.get($colors, links);
+    outline: 1px solid map.get($colors, links);
   }
 }
 
@@ -473,9 +473,17 @@ img {
   image-rendering: crisp-edges;
 }
 
-img, .give-border {
-  border: $border-width solid map.get($colors, text-subtle);
+img, .give-border, .rounded {
   border-radius: map.get($spacing, xs);
+  overflow: clip;
+}
+
+.give-bkg {
+  background: map.get($colors, bg);
+}
+
+.give-border {
+  border: $border-width solid map.get($colors, text-subtle);
 }
 
 figure {
@@ -529,9 +537,5 @@ details>summary {
   button,
   .button-like {
     border-width: 2px !important;
-  }
-
-  a {
-    text-decoration-thickness: 2px !important;
   }
 }

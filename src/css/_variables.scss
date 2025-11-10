@@ -17,7 +17,7 @@ $font-family: 'Inter Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI',
 $scale-ratio: 1.414; // Type scale ratio
 
 $font-base: clamp($base-rem, 1.3vw, 1.2rem);
-$font-sm: calc($font-base / $scale-ratio);
+$font-sm: calc($font-base / $perfect-fourth);
 $font-large: calc($font-base * $scale-ratio);
 $font-xl: calc($font-large * $scale-ratio);
 
@@ -42,13 +42,13 @@ $spacing: (
 
 // Colors
 $colors: (
-  bg: #f9f3f3,
+  bg: #faf5f5,
   text: #061308,
   text-subtle: color-mix(in srgb, #061308 80%, #f9f3f3),
   text-more-subtle: color-mix(in srgb, #061308 65%, #f9f3f3),
   links: #00610f,
   links-subtle: #86cb90,
-  bg-translucent: color-mix(in srgb, #f9f3f3 97%, #061308),
+  bg-translucent: color-mix(in srgb, #f9f3f3 94%, #061308),
   bg-more-translucent: color-mix(in srgb, #f6f6f6 87%, #061308),
   border: color-mix(in srgb, #f9f3f3 75%, #061308),
 );

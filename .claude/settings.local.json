@@ -6,7 +6,8 @@
       "Bash(npm run build:*)",
       "Bash(cat:*)",
       "Bash(rm:*)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(start \"\" \"c:\\Users\\frnim\\Documents\\GitHub\\atlantic-pet\\test-orphan-improved.html\")"
     ],
     "deny": [],
     "ask": []

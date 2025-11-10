@@ -1,12 +1,12 @@
 {%- macro ctaSection(heading, description, primaryButtonText, secondaryButtonText) -%}
-<section class="pad-btt-md pop cap-width invert-bg" id="book-intro">
+<card class="pad-btt-md cap-width invert-bg" id="book-intro">
 	<h2>{{ heading }}</h2>
 	<p>{{ description }}</p>
-	<div class="buttons-wrapper">
+	<div class="buttons-wrapper pad-top-md">
 		<a href="https://cal.com/francescoimola/intro" class="button-like inverted-button" type="button" target="_blank">{{ primaryButtonText }}</a>
 		{%- if secondaryButtonText !== false %}
 		<a href="mailto:hi@francescoimola.com" class="button-like white-button">{{ secondaryButtonText | default("Copy email instead") }}</a>
 		{%- endif %}
 	</div>
-</section>
+</card>
 {%- endmacro -%}
