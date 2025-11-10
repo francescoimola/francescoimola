@@ -113,15 +113,10 @@ hr {
   margin: map.get($spacing, lg) 0;
 }
 
-.pop {
+card, .card {
   display: block;
   padding: map.get($spacing, md) map.get($spacing, md) calc(map.get($spacing, md) * $perfect-fourth) map.get($spacing, md);
-  background: map.get($colors, bg);
-  border: $border-width solid map.get($colors, text-subtle);
   border-radius: map.get($spacing, xs);
-
-  h2 {
-    margin-bottom: map.get($spacing, sm);
   overflow: clip;
 }
 
