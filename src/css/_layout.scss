@@ -289,30 +289,41 @@ nav {
   }
 }
 
-.services-card {
+.service-card {
   @include flex(row, map.get($spacing, 2xl));
   justify-content: space-between;
   align-items: stretch;
   flex-wrap: nowrap;
   width: 100%;
+  padding: 0;
 
   @media only screen and (max-width: map.get($breakpoints, md)) {
     flex-direction: column;
     max-width: $container-w;
   }
 
-  .service-card__header {
+  service-card__header {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: map.get($spacing, xl);
     align-items: flex-start;
+    width: 100%;
     max-height: none;
+    padding: map.get($spacing, md);
+    background: map.get($colors, links);
+
+    * {color: map.get($colors, bg);}
 
     @media only screen and (max-width: map.get($breakpoints, md)) {
       flex-direction: row;
       width: 100%;
     }
+  }
+
+  service-card__body {
+    width: 100%;
+    padding: map.get($spacing, md);
   }
 }
 

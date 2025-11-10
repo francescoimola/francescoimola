@@ -1,58 +1,56 @@
 <section class="pad-btt-md cap-width">
   <h2 class="pad-top-md">Mmmm, whatcha say?</h2>
-  <p>What folks I worked with have to say about me</p>
-  <div class="quote pop">
-      <p>"Francesco has the rare talent of being able to embed himself in a niche
-        that he previously knew nothing about, quickly understanding the
-        intricacies and writing with the confidence of an insider"</p>
-      <div>
-        <div class="credit">
-          <p><b>Rob Cowen</b></p>
-          <p>
-            Founder, <a
-              href="https://www.seatingplan.com/"
-              target="_blank"
-              rel="noopener"
-              >Mega Seating Plan</a>
-          </p>
-        </div>
-      </div>
+  <p>Kind words people have to say about me</p>
+
+  <div class="testimonial-carousel" role="region" aria-roledescription="carousel" aria-label="Testimonials">
+    <div class="testimonial-carousel__track-container">
+      <ul class="testimonial-carousel__track">
+        <li id="testimonial-slide-1" class="testimonial-carousel__slide current-slide rounded give-bkg">
+            <p>"Francesco has the rare talent of being able to embed himself in a niche
+              that he previously knew nothing about, quickly understanding the
+              intricacies and writing with the confidence of an insider"</p>
+            <br />
+            <div>
+              <strong class="small-like">Rob Cowen</strong>
+              <p class="small-like">
+                Founder, <a href="https://www.seatingplan.com/" target="_blank" rel="noopener">Mega Seating Plan</a>
+              </p>
+            </div>
+        </li>
+        <li id="testimonial-slide-2" class="testimonial-carousel__slide rounded give-bkg">
+            <p>"Fran has been great to work with, he helped me to rework my website
+              copy to align with a new direction I wanted to take. He is quick,
+              responsive and a brilliant copywriter"</p>
+            <div>
+              <strong class="small-like">Sarah Brown</strong>
+              <p class="small-like"><a href="https://www.sarahyuklan.com/" target="_blank" rel="noopener">Holistic Coach</a></p>
+            </div>
+        </li>
+        <li id="testimonial-slide-3" class="testimonial-carousel__slide rounded give-bkg">
+            <p>"A dream collaborator. Organised and strategic, he asks the right
+              questions, does his research, and presents fantastic options"</p>
+            <div>
+              <strong class="small-like">Carly Anchal</strong>
+              <p class="small-like"><a href="https://www.linkedin.com/in/carly-anchal-nee-little-3a9b7112" target="_blank" rel="noopener">PR &
+                  Marketing Manager</a></p>
+            </div>
+        </li>
+      </ul>
     </div>
 
-    <div class="quote pop pad-top-md">
-      <p>"Fran has been great to work with, he helped me to rework my website
-        copy to align with a new direction I wanted to take. He is quick,
-        responsive and a brilliant copywriter"</p>
+    <div class="testimonial-carousel__nav pad-top-sm">
+      <div></div>
+      <div role="tablist" aria-label="Testimonial slides">
+        <button class="testimonial-carousel__indicator current-slide" role="tab" aria-selected="true" aria-controls="testimonial-slide-1" aria-label="Go to testimonial 1"></button>
+        <button class="testimonial-carousel__indicator" role="tab" aria-selected="false" aria-controls="testimonial-slide-2" aria-label="Go to testimonial 2"></button>
+        <button class="testimonial-carousel__indicator" role="tab" aria-selected="false" aria-controls="testimonial-slide-3" aria-label="Go to testimonial 3"></button>
+      </div>
       <div>
-        <div class="credit">
-          <p><b>Sarah Brown</b></p>
-          <p
-            ><a
-              href="https://www.sarahyuklan.com/"
-              target="_blank"
-              rel="noopener"
-              >Holistic Coach</a
-            ></p
-          >
-        </div>
+        <button class="testimonial-carousel__button testimonial-carousel__button--left is-hidden" aria-label="Previous testimonial">←</button>
+        <button class="testimonial-carousel__button testimonial-carousel__button--right" aria-label="Next testimonial">→</button>
       </div>
     </div>
-
-    <div class="quote pop pad-top-md">
-      <p>"A dream collaborator. Organised and strategic, he asks the right
-        questions, does his research, and presents fantastic options"</p>
-      <div>
-        <div class="credit">
-          <p><b>Carly Anchal</b></p>
-          <p
-            ><a
-              href="https://www.linkedin.com/in/carly-anchal-nee-little-3a9b7112"
-              target="_blank"
-              rel="noopener"
-              >PR & Marketing Manager</a
-            ></p
-          >
-        </div>
-      </div>
-    </div>
+    <!-- live region for screen reader announcements -->
+    <div aria-live="polite" aria-atomic="true" class="testimonial-carousel__live" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0"></div>
+  </div>
 </section>

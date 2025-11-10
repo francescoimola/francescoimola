@@ -9,12 +9,12 @@ navtitle: Services & Pricing
 {%- from "_selected-work-card.njk" import selectedWorkCard -%}
 
 <!-- Website Consulting Sessions -->
-<section id="consulting" class="pop services-card">
-  <div class="service-card__header" style="margin-bottom: -0.33rem;">
+<card id="consulting" class="service-card give-bkg rounded">
+  <service-card__header style="margin-bottom: -0.33rem;">
     <h2>Website consultation</h2>
     <span class="service-icon streamline-freehand--conversation-question-text-1"></span>
-  </div>
-  <div>
+  </service-card__header>
+  <service-card__body>
     <p>Undistracted time to talk about any challenges with your website. We always start with reviewing your site, and can move on onto discussing your goals, assessing if your strategy aligns with your values, planning next steps, brainstorming, or introducing you to helpful tools.</p>
     <div class="pricing-grid">
       <div class="pricing-row pricing-header">
@@ -30,18 +30,17 @@ navtitle: Services & Pricing
         <span>£595</span>
       </div>
     </div>
-    <p><br>Each session is 1 hour and includes a 1:1 chat, a pre-session deep dive, a website review, a short questionnaire,
-      and follow-up notes.</p>
-  </div>
-</section>
+    <p><br>Each session is 1 hour and includes a 1:1 chat, a pre-session deep dive, a website review, and follow-up notes.</p>
+  </service-card__body>
+</card>
 
 <!-- Website Design & Copywriting -->
-<section id="website-design" class="pop pad-top-md services-card">
-  <div class="service-card__header" style="margin-bottom: -0.5rem;">
+<card id="website-design" class="pad-top-md service-card give-bkg rounded">
+  <service-card__header style="margin-bottom: -0.5rem;">
     <h2>Web Design, Writing & Development</h2>
     <span class="service-icon streamline-freehand--website-development-build"></span>
-  </div>
-  <div>
+  </service-card__header>
+  <service-card__body>
     <p>Get a futureproof, intuitive website built to guide people, not send them going around in circles. It'll load fast. It'll work on every device. And it'll be stupid easy to update yourself—if you wish so.</p>
     <div class="pricing-grid pad-top-md">
       <div class="pricing-row pricing-header">
@@ -62,16 +61,16 @@ navtitle: Services & Pricing
       </div>
     </div>
     <p><br>Copywriting and SEO basics are always included. Websites are built either on Framer or Webflow. Each project includes one revision, with more available for an additional fee. You'll get an exact quote before we start.</p>
-  </div>
-</section>
+  </service-card__body>
+</card>
 
 <!-- Email Marketing -->
-<section id="email-marketing" class="pop pad-top-md services-card">
-  <div class="service-card__header" style="margin-bottom: -0.33rem;">
+<card id="email-marketing" class="pad-top-md service-card give-bkg rounded">
+  <service-card__header style="margin-bottom: -0.33rem;">
     <h2>Email marketing</h2>
     <span class="service-icon streamline-freehand--send-email-paper-plane-1"></span>
-  </div>
-  <div>
+  </service-card__header>
+  <service-card__body>
     <p>A solid email strategy is the backbone of your marketing. It gets your message right to your audience AND you can automate (most) of it in the background while you focus on more important work. I can set a system up for you or audit your existing setup and recommend improvements.</p>
     <div class="pricing-grid">
       <div class="pricing-row pricing-header">
@@ -88,17 +87,17 @@ navtitle: Services & Pricing
       </div>
     </div>
     <p><br>Template design, multi-step nurture sequences, and list maintenance are available for a custom fee.</p>
-  </div>
-</section>
+  </service-card__body>
+</card>
 
 <!-- Do-it-Together Sessions -->
-<section id="do-it-together" class="pop pad-top-md pad-btt-md services-card">
-  <div class="service-card__header" style="margin-bottom: -0.5rem;">
+<card id="do-it-together" class="pad-top-md pad-btt-md service-card give-bkg rounded">
+  <service-card__header style="margin-bottom: -0.5rem;">
     <h2>Do-it-together sessions</h2>
-    <span class="service-icon streamline-freehand--business-management-teamwork-clap"></span>
-  </div>
-  <div>
-    <p>Group body-doubling sessions to work side-by-side, focus, and make progress in a supportive environment. Perfect for tackling tasks like website updates, email writing, or business admin.</p>
+    <span class="service-icon streamline-freehand--clap"></span>
+  </service-card__header>
+  <service-card__body>
+    <p>Group body-doubling sessions to work two-by-grid-side, focus, and make progress in a supportive environment. Perfect for tackling tasks like website updates, email writing, or business admin.</p>
     <div class="pricing-grid">
       <div class="pricing-row pricing-header">
         <span>Upcoming sessions</span>
@@ -109,9 +108,10 @@ navtitle: Services & Pricing
         <span>(sliding scale) £5-20</span>
       </div>
     </div>
-    <p><br>Sessions are currently being planned. <a href="/contact">Get in touch</a> if you'd like to be notified when they launch.</p>
-    </div>
-</section>
+    <p class="pad-top-md">Sessions are currently being planned. Subscribe to our Luma page to be notified when we launch.</p>
+    <a href="https://luma.com/productiveish" target="_blank" rel="noopener" class="button-like pad-top-sm">Subscribe on Luma</a>
+    </service-card__body>
+</card>
 
 {{ ctaSection(
 	"Ready to get started?",
@@ -134,6 +134,5 @@ navtitle: Services & Pricing
 </section>
 
 {{ selectedWorkCard(
-	"See what I was trusted to make.",
-	"Some of my best work from the last decade."
+	"See what I was trusted to make"
 ) }}

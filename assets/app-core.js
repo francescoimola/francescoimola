@@ -20,7 +20,9 @@
           }
 
           const content = element.innerHTML;
-          element.innerHTML = content.replace(/ ([^ ]*)$/, "&nbsp;$1");
+          // Match last space + text/tags, avoiding spaces inside HTML tags
+          // Pattern: space + (optional opening tags) + (text) + (optional closing tags) at end
+          element.innerHTML = content.replace(/ ((?:<[^>]+>)*[^<>\s]+(?:<[^>]+>)*)$/, "&nbsp;$1");
         } catch (error) {}
       });
     } catch (error) {}
@@ -66,6 +68,13 @@
     if (document.getElementById('signup-form')) {
       import('./app-signup.js').catch(err => {
         console.error('Failed to load signup module:', err);
+      });
+    }
+
+    // Load carousel functionality if carousel exists
+    if (document.querySelector('.testimonial-carousel')) {
+      import('./app-carousel.js').catch(err => {
+        console.error('Failed to load carousel module:', err);
       });
     }
   }

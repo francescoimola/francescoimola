@@ -1,9 +1,9 @@
 ---
 layout: _base.njk
-title: How I work and what to expect
-description: Here’s how I work and what to expect from a collaboration. From discovery to launch, I focus on building things that stand the test of time.
-permalink: '/how-i-work/'
-navtitle: How I work
+title: Web design and development
+description: Build a sustainable, high-performing website that grows with your business and never look back.
+permalink: '/websites/'
+navtitle: Web design and low-code development
 ---
 {%- from "_cta.njk" import ctaSection -%}
 
@@ -16,7 +16,7 @@ navtitle: How I work
 	<p>Good news: there are.</p>
 </section>
 
-<card cap-width invert-bg green-bg">
+<card class="cap-width invert-bg green-bg">
 	<h2 class="cap-width">What I can do</h2>
 	<p>I'll untangle the chaos in your marketing, strip away what's not working, and together we'll build what needs building to drive long-term results.</p>
 	<p>We start with a free 30-min call: you tell me what's not working, I tell you if I can help. If we're a fit, we pick ONE thing to tackle first. From there, I can either: do it for you, work on it with you, or help you find clarity.</p>
@@ -34,7 +34,7 @@ navtitle: How I work
 	</ul>
 </card>
 
-<card class="pad-btt-md cap-width">
+<section class="pad-btt-md cap-width">
 	<h2>Before I build anything</h2>
 	<p>We always work with your resources and your long-term journey in mind. That's how you get results built for where you're going, not just where you are.</p>
 	<p>Can you actually maintain this? Will this website structure work when you add new services? Will the copy still make sense a year from now? How will your newsletter scale? How will advancements in AI affect what we've built?</p>
@@ -43,7 +43,7 @@ navtitle: How I work
 		<a href="/services/" class="button-like white-button">Explore services & pricing</a>
 		<a href="/portfolio/">See portfolio</a>
 	</div>
-</card>
+</section>
 
 <section class="pad-btt-md cap-width">
 	<h2>What to expect</h2>
