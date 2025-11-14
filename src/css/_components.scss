@@ -130,11 +130,22 @@ hr {
 .full-screen {
   margin-inline: auto;
   width: fit-content;
-  padding: map.get($spacing, 2xl) calc(map.get($spacing, 2xl)*2);
+  padding-block: map.get($spacing, 2xl);
+  padding-inline: calc(map.get($spacing, 2xl)*2);
     border-radius: 50%;
     *{text-align: center; margin: 0 auto;}
     .buttons-wrapper {justify-content: center;}
     #there-is-more {color: map.get($colors, bg-translucent);}
+
+     @media only screen and (max-width: map.get($breakpoints, md)) {
+      padding-inline: map.get($spacing, 2xl);
+      padding-block: calc(map.get($spacing, 2xl)*2);
+     }
+
+      @media only screen and (max-width: map.get($breakpoints, sm)) {
+       padding-block: calc(map.get($spacing, 2xl)*4);
+      padding-inline: map.get($spacing, xl);
+     }
   }
 
 .invert-bg {
