@@ -334,7 +334,7 @@ h2,
 h3,
 h4,
 h5,
-h6, as-h {
+h6 {
   margin: 0 0 map.get($spacing, sm) 0;
   font-weight: 500;
   font-size: $font-base;
@@ -343,7 +343,7 @@ h6, as-h {
   color: map.get($colors, text);
 }
 
-h1, h3.phone, h3.email {
+h1, .as-h1 {
   font-size: $font-xl;
   font-weight: 700;
   letter-spacing: $letter-spacing-xl;

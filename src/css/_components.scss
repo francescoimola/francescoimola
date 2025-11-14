@@ -113,7 +113,7 @@ hr {
   margin: map.get($spacing, lg) 0;
 }
 
-.card {
+.card, .full-screen {
   padding: map.get($spacing, md) map.get($spacing, md) calc(map.get($spacing, md) * $perfect-fourth) map.get($spacing, md);
 
   &.ratio-1-1 {
@@ -127,16 +127,27 @@ hr {
   }
 }
 
+.full-screen {
+  margin-inline: auto;
+  width: fit-content;
+  padding: map.get($spacing, 2xl) calc(map.get($spacing, 2xl)*2);
+    border-radius: 50%;
+    *{text-align: center; margin: 0 auto;}
+    .buttons-wrapper {justify-content: center;}
+    #there-is-more {color: map.get($colors, bg-translucent);}
+  }
+
 .invert-bg {
   background: map.get($colors, text);
 
   h2,
-  p {
+  p, small {
     color: map.get($colors, bg);
   }
 
-  a:not(.button-like){
+  a:not(.button-like) {
     color: map.get($colors, bg);
+
     &:hover {
       color: map.get($colors, bg-more-translucent);
       text-decoration-color: map.get($colors, bg-more-translucent);
@@ -528,6 +539,7 @@ hr {
 
   &.footer-links-wrapper {
     grid-template-columns: 1fr 1fr 1fr;
+
     @media only screen and (max-width: map.get($breakpoints, sm)) {
       grid-template-columns: 1fr;
       gap: map.get($spacing, lg);
@@ -735,7 +747,8 @@ hr {
     border-top: $border-width solid map.get($colors, text);
   }
 
-  h2, arrow-right-icon {
+  h2,
+  arrow-right-icon {
     width: fit-content;
     max-width: 100%;
     margin: 0;
@@ -755,10 +768,12 @@ hr {
     border-color: map.get($colors, links);
 
     .simple-sb-flex {
-      background: map.get($colors, links);;
+      background: map.get($colors, links);
+      ;
     }
 
-    h2, arrow-right-icon {
+    h2,
+    arrow-right-icon {
       color: map.get($colors, bg);
     }
   }
@@ -813,7 +828,9 @@ hr {
   }
 }
 
-.streamline-freehand--phone-retro-1::after, .streamline-freehand--send-email-fly::after, .solar--arrow-to-down-left-bold::after {
+.streamline-freehand--phone-retro-1::after,
+.streamline-freehand--send-email-fly::after,
+.solar--arrow-to-down-left-bold::after {
   display: inline-block;
   width: $base-rem;
   height: $base-rem;
