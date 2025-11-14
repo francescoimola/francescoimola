@@ -2,18 +2,15 @@
 	<h2 style="margin: 0;">From the blog</h2>
 	<a href="/blog/">See all blog posts</a>
 </div>
-	<ul class="plain-list pad-top-lg pad-btt-md no-list-style">
-		{%- for post in collections.blog | reverse | limit(2) -%}
-		<li class="pad-btt-md cap-width">
+	<ul class="pad-top-lg pad-btt-md no-list-style image-scroll">
+		{%- for post in collections.blog | reverse | limit(3) -%}
+		<li class="cap-width-sm card give-bkg ratio-1-1">
 			<article>
-				<div class="simple-column">
-					<h3 style="margin:0;"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
-					<p class="pad-top-sm light">{{ post.date | readableDate }}</p>
-				</div>
+				<h3 style="margin:0;"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
 				{% if post.data.teaser %}<p class="pad-top-sm">{{ post.data.teaser }}</p>
+				<p class="pad-top-sm light">{{ post.date | readableDate }}</p>
 				{% endif %}
 			</article>
 		</li>
-		{% if collections.blog | length > 1 %}<hr>{% endif %}
 		{%- endfor -%}
 	</ul>

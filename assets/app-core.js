@@ -77,6 +77,13 @@
         console.error('Failed to load carousel module:', err);
       });
     }
+
+    // Load tooltip functionality if tooltips exist
+    if (document.querySelectorAll('[data-tooltip]').length) {
+      import('./app-tooltips.js').catch(err => {
+        console.error('Failed to load tooltip module:', err);
+      });
+    }
   }
 
   // Initialize core features on page load

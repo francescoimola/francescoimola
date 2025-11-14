@@ -368,8 +368,9 @@ h3 {
 
 small, .small-like {
   font-size: $font-sm;
-  color: map.get($colors, text-subtle);
+  color: inherit;
   display: block;
+  margin-bottom: map.get($spacing, sm);
 }
 
 a {
@@ -438,7 +439,7 @@ ul,
 ol {
   margin: 0 0 0 map.get($spacing, md);
   padding: 0;
-  color: map.get($colors, text-subtle);
+  color: inherit;
 
   li:last-child {
     margin-bottom: 0;
@@ -473,8 +474,9 @@ img {
   image-rendering: crisp-edges;
 }
 
-img, .give-border, .rounded {
+img, .give-border, .rounded, .card {
   border-radius: map.get($spacing, xs);
+  border: $border-width solid currentColor;
   overflow: clip;
 }
 

@@ -108,7 +108,10 @@
 
   // central helper to go to an index (updates dots, arrows, accessibility)
   const goToIndex = (targetIndex) => {
-    if (targetIndex < 0 || targetIndex >= slides.length) return;
+    // Handle looping: wrap around if out of bounds
+    if (targetIndex < 0) targetIndex = slides.length - 1;
+    if (targetIndex >= slides.length) targetIndex = 0;
+
     const currentSlide = track.querySelector('.current-slide');
     const targetSlide = slides[targetIndex];
     const currentDot = dotsNav.querySelector('.current-slide');
@@ -119,26 +122,13 @@
     updateDots(currentDot, targetDot);
     // update aria-selected on dots
     dots.forEach((d, i) => d.setAttribute('aria-selected', i === targetIndex ? 'true' : 'false'));
-    // update arrows
-    hideShowArrows(slides, prevButton, nextButton, targetIndex);
+    // arrows always visible for looping carousel
+    prevButton.classList.remove("is-hidden");
+    nextButton.classList.remove("is-hidden");
     // announce for screen readers
     announceCurrent();
     // move focus to the activated tab/indicator for clarity
     try { targetDot.focus(); } catch (e) {}
-  };
-
-  // Hide/show navigation arrows
-  const hideShowArrows = (slides, prevButton, nextButton, targetIndex) => {
-    if (targetIndex === 0) {
-      prevButton.classList.add("is-hidden");
-      nextButton.classList.remove("is-hidden");
-    } else if (targetIndex === slides.length - 1) {
-      prevButton.classList.remove("is-hidden");
-      nextButton.classList.add("is-hidden");
-    } else {
-      prevButton.classList.remove("is-hidden");
-      nextButton.classList.remove("is-hidden");
-    }
   };
 
   // Update indicator dots
@@ -149,24 +139,14 @@
 
   // Next button click handler
   nextButton.addEventListener("click", (e) => {
-    const currentSlide = track.querySelector(".current-slide");
-    const nextSlide = currentSlide.nextElementSibling;
-    const currentDot = dotsNav.querySelector(".current-slide");
-    const nextDot = currentDot.nextElementSibling;
-    if (!nextSlide || !nextDot) return;
-    const nextIndex = slides.findIndex((slide) => slide === nextSlide);
-    goToIndex(nextIndex);
+    const currentIndex = slides.findIndex((s) => s.classList.contains('current-slide'));
+    goToIndex(currentIndex + 1); // goToIndex handles wrapping to 0
   });
 
   // Previous button click handler
   prevButton.addEventListener("click", (e) => {
-    const currentSlide = track.querySelector(".current-slide");
-    const prevSlide = currentSlide.previousElementSibling;
-    const currentDot = dotsNav.querySelector(".current-slide");
-    const prevDot = currentDot.previousElementSibling;
-    if (!prevSlide || !prevDot) return;
-    const prevIndex = slides.findIndex((slide) => slide === prevSlide);
-    goToIndex(prevIndex);
+    const currentIndex = slides.findIndex((s) => s.classList.contains('current-slide'));
+    goToIndex(currentIndex - 1); // goToIndex handles wrapping to last slide
   });
 
   // Indicator dots click handler
@@ -191,9 +171,9 @@
     e.preventDefault();
     const currentIndex = slides.findIndex((s) => s.classList.contains('current-slide'));
     if (key === 'ArrowLeft') {
-      goToIndex(Math.max(0, currentIndex - 1));
+      goToIndex(currentIndex - 1); // loops to last slide
     } else if (key === 'ArrowRight') {
-      goToIndex(Math.min(slides.length - 1, currentIndex + 1));
+      goToIndex(currentIndex + 1); // loops to first slide
     } else if (key === 'Home') {
       goToIndex(0);
     } else if (key === 'End') {

@@ -9,7 +9,6 @@
 	</header>
 
 	<main class="page-margins">
-		<div class="margin-fix">
 			{% if page.url != '/' %}
 			<div class="secondary-header pad-btt-lg">
 				<h1>{{ navtitle | default(title) }}</h1>
@@ -17,12 +16,16 @@
 			</div>
 			{% endif %}
 			<div id="main-content">{{ content | safe }}</div>
-		</div>
 	</main>
 
 	{%- include "_footer.njk" -%}
 
 	<script src="/assets/app-core.js" defer></script>
+	<script
+  src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+  async
+  defer
+></script>
 </body>
 
 </html>

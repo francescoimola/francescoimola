@@ -8,7 +8,6 @@
 	</header>
 
 	<main class="page-margins pad-btt-md">
-		<div class="margin-fix">
 			<div class="secondary-header pad-btt-md">
 				<div>
 					<h1>{{ navtitle | default(title) }}</h1>
@@ -33,7 +32,6 @@
 			<img src="{{ image }}" width="645" height="323" {% if imageAlt %}alt="{{ imageAlt }}"{% else %}alt=""{% endif %} loading="lazy" decoding="async" />
 			{% endif %}
 			<section class="pad-top-lg cap-width post-content">{{ content | safe }}</section>
-		</div>
 	</main>
 
 	{%- include "_footer.njk" -%}

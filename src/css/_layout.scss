@@ -18,31 +18,6 @@ main {
   width: 100%;
   position: relative;
   z-index: 1;
-
-  &::before {
-    content: '';
-    position: fixed;
-    left: clamp(0.25rem, 2vw, $base-rem);
-    top: 0;
-    height: 100vh;
-    border-left: $border-width dotted map.get($colors, text-more-subtle);
-    z-index: -1;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: calc(-1 * clamp(0.25rem, 2vw, $base-rem));
-    width: 100vw;
-    border-top: $border-width dotted map.get($colors, text-more-subtle);
-    pointer-events: none;
-  }
-}
-
-.margin-fix {
-  padding-right: map.get($spacing, sm);
-  position: relative;
 }
 
 section {
@@ -50,8 +25,7 @@ section {
 }
 
 .page-margins {
-  margin: map.get($spacing, sm) 0 0 clamp(0.25rem, 2vw, $base-rem);
-  padding: map.get($spacing, sm) clamp(0.5rem, 4vw, 2rem) map.get($spacing, md) clamp(0.25rem, 2vw, $base-rem);
+  padding: map.get($spacing, sm) clamp(0.5rem, 2vw, $base-rem) map.get($spacing, md) clamp(0.5rem, 2vw, $base-rem);
 }
 
 // ===================================
@@ -104,12 +78,6 @@ nav {
     }
   }
 
-  .home-icon {
-    width: map.get($spacing, md);
-    height: auto;
-    padding-top: map.get($spacing, xs);
-  }
-
   .nav-links {
     @include flex(row, map.get($spacing, sm));
     justify-content: center;
@@ -144,7 +112,7 @@ nav {
       position: relative;
     }
 
-    .home-icon {
+    .home-link {
       display: none;
       visibility: hidden;
     }
@@ -195,7 +163,7 @@ nav {
 
   &[open] .hamburger {
     span:first-child {
-      transform: translateY(calc(map.get($spacing, xs) / $golden-ratio + 3px)) rotate(45deg);
+      transform: translateY(calc(map.get($spacing, xs) / $golden-ratio + 4px)) rotate(45deg);
     }
 
     span:nth-child(2) {
@@ -247,13 +215,16 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: map.get($spacing, xs);
 }
 
 .secondary-links {
   gap: map.get($spacing, sm);
   align-items: flex-end;
   margin-top: map.get($spacing, xs);
+
+  .small-like {
+    margin: 0;
+  }
 
   @media only screen and (max-width: calc(map.get($breakpoints, md)*1.333)) {
     display: none;
@@ -300,6 +271,7 @@ nav {
   @media only screen and (max-width: map.get($breakpoints, md)) {
     flex-direction: column;
     max-width: $container-w;
+    gap: map.get($spacing, xs);
   }
 
   service-card__header {

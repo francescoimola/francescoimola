@@ -8,8 +8,14 @@ navtitle: Services & Pricing
 {%- from "_cta.njk" import ctaSection -%}
 {%- from "_selected-work-card.njk" import selectedWorkCard -%}
 
+<section class="pad-btt-md">
+	<h2>Websites, and all that goes with them</h2>
+    	<p>I sow the seeds that will help grow your business by taking care of nearly everything digital: from web design to email marketing and strategic consultations. My expertise lies in accessible experiences and non-coercive inbound marketing.
+        </p>
+</section>
+
 <!-- Website Consulting Sessions -->
-<card id="consulting" class="service-card give-bkg rounded">
+<section id="consulting" class="service-card give-bkg rounded">
   <service-card__header style="margin-bottom: -0.33rem;">
     <h2>Website consultation</h2>
     <span class="service-icon streamline-freehand--conversation-question-text-1"></span>
@@ -22,20 +28,19 @@ navtitle: Services & Pricing
         <span>Investment</span>
       </div>
       <div class="pricing-row">
-        <span>One session</span>
+        <div><span>One session</span><span data-tooltip="Each session is 1 hour and includes a 1:1 chat, a pre-session deep dive, a website review, and follow-up notes">&#9432;</span></div>
         <span>£225</span>
       </div>
       <div class="pricing-row">
-        <span>Three sessions</span>
+        <div><span>Three sessions</span><span data-tooltip="Each session is 1 hour and includes a 1:1 chat, a pre-session deep dive, a website review, and follow-up notes">&#9432;</span></div>
         <span>£595</span>
       </div>
     </div>
-    <p><br>Each session is 1 hour and includes a 1:1 chat, a pre-session deep dive, a website review, and follow-up notes.</p>
   </service-card__body>
-</card>
+</section>
 
 <!-- Website Design & Copywriting -->
-<card id="website-design" class="pad-top-md service-card give-bkg rounded">
+<section id="website-design" class="pad-top-md service-card give-bkg rounded">
   <service-card__header style="margin-bottom: -0.5rem;">
     <h2>Web Design, Writing & Development</h2>
     <span class="service-icon streamline-freehand--website-development-build"></span>
@@ -62,10 +67,10 @@ navtitle: Services & Pricing
     </div>
     <p><br>Copywriting and SEO basics are always included. Websites are built either on Framer or Webflow. Each project includes one revision, with more available for an additional fee. You'll get an exact quote before we start.</p>
   </service-card__body>
-</card>
+</section>
 
 <!-- Email Marketing -->
-<card id="email-marketing" class="pad-top-md service-card give-bkg rounded">
+<section id="email-marketing" class="pad-top-md service-card give-bkg rounded">
   <service-card__header style="margin-bottom: -0.33rem;">
     <h2>Email marketing</h2>
     <span class="service-icon streamline-freehand--send-email-paper-plane-1"></span>
@@ -88,10 +93,10 @@ navtitle: Services & Pricing
     </div>
     <p><br>Template design, multi-step nurture sequences, and list maintenance are available for a custom fee.</p>
   </service-card__body>
-</card>
+</section>
 
 <!-- Do-it-Together Sessions -->
-<card id="do-it-together" class="pad-top-md pad-btt-md service-card give-bkg rounded">
+<section id="do-it-together" class="pad-top-md pad-btt-md service-card give-bkg rounded">
   <service-card__header style="margin-bottom: -0.5rem;">
     <h2>Do-it-together sessions</h2>
     <span class="service-icon streamline-freehand--clap"></span>
@@ -111,19 +116,6 @@ navtitle: Services & Pricing
     <p class="pad-top-md">Sessions are currently being planned. Subscribe to our Luma page to be notified when we launch.</p>
     <a href="https://luma.com/productiveish" target="_blank" rel="noopener" class="button-like pad-top-sm">Subscribe on Luma</a>
     </service-card__body>
-</card>
-
-{{ ctaSection(
-	"Ready to get started?",
-	"Let's schedule a no-pressure half-hour chat (online or IRL) to discuss your challenges, goals, and how I can help. Two clicks is all it takes.",
-	"Book our intro chat"
-) }}
-
-<section class="pad-top-md pad-btt-md">
-    <h2>How do we work together?</h2>
-     <p>I'll untangle all those messy figure-eight knots in your marketing and strip away what's not working. Then together, we'll lay new foundations and build what needs building to drive long-term growth.</p>
-     <p>All services (except for do-it-together sessions) start with a free no-obligation introductory call and end with a clear plan for implementation.</p>
-     <a href="/how-i-work/" class="button-like white-button pad-top-sm">Here's what to expect</a>
 </section>
 
 <!-- Payment Information -->
@@ -131,8 +123,15 @@ navtitle: Services & Pricing
   <h2>Are prices flexible?</h2>
   <p>Sessions are priced as shown. Website and email projects are estimates, with the final cost depending on scope, timeline, and level of client involvement. You'll get an exact quote before we start.</p>
   <p>I offer <a href="/faqs/#concessions">non-stackable discounts</a> on payment terms to everyone.</p>
+  <a href="/faqs" class="button-like pad-top-sm white-button">Read all FAQS</a>
 </section>
 
 {{ selectedWorkCard(
 	"See what I was trusted to make"
+) }}
+
+{{ ctaSection(
+	"Ready to get started?",
+	"Let's schedule a short, no-pressure introductory chat to discuss your challenges, goals, and how I can help. One click is all it takes.",
+	"Book free intro call"
 ) }}
