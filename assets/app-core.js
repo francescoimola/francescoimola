@@ -99,3 +99,11 @@
     loadFeatures();
   }
 })();
+
+// Global callback for Turnstile verification (must be defined before widget loads)
+window.enableSubmit = function() {
+  const submitButton = document.getElementById('submit-button');
+  if (submitButton) {
+    submitButton.disabled = false;
+  }
+};

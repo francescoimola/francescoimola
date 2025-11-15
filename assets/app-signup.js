@@ -99,13 +99,6 @@
     }
   }
 
-  // Global callback for Turnstile verification
-  window.enableSubmit = function() {
-    if (submitButton) {
-      submitButton.disabled = false;
-    }
-  };
-
   // Initialize immediately since module is only loaded when form exists
   initSignupForm();
 })();
