@@ -127,6 +127,13 @@ hr {
   }
 }
 
+.center-contents {
+  .card * {
+    margin-inline: auto;
+    text-align: center;
+  }
+}
+
 .full-screen {
   margin-inline: auto;
   width: fit-content;
@@ -541,19 +548,22 @@ hr {
   grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
   gap: map.get($spacing, sm);
 
-  >div {
-    @include flex(column, 0);
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-  }
-
   &.footer-links-wrapper {
     grid-template-columns: 1fr 1fr 1fr;
 
     @media only screen and (max-width: map.get($breakpoints, sm)) {
       grid-template-columns: 1fr;
       gap: map.get($spacing, lg);
+    }
+  }
+
+  &.center-contents-mobile {
+    @media only screen and (max-width: map.get($breakpoints, sm)) {
+      text-align: center;
+      p{
+        max-width: calc($container-w / $golden-ratio);
+        margin-inline: auto;
+      }
     }
   }
 }

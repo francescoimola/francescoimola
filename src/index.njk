@@ -40,7 +40,7 @@ navtitle: Home
 	<p>Marketers and designers can make their work sound very mysterious. I like to keep it simple: I help you design
 		systems that don't eat your life. The kind that run while you sleep, age like good wine and
 		never ask you to dance for an algorithm. It's the marketing that lets you get on with it.</p>
-	<a class="button-like white-space pad-top-sm" href="/services/">Learn more</a>
+	<a class="button-like white-space pad-top-sm" href="/services/"><span style="display:inline-block; line-height: 1; height: 1rem; width: 1rem; vertical-align: baseline;">→</span>&nbsp;&nbsp;Learn more</a>
 	<div class="two-by-grid pad-top-lg pad-btt-sm">
 		<section class="card give-bkg">
 			<h3>Website design</h3>
@@ -82,7 +82,7 @@ navtitle: Home
 			<h3>Ad-hoc support</h3>
 			<p class="small-like">For a month, a season, or year, I can step into your team as a creative marketer on
 				contract to help you level up your marketing efforts.</p>
-			<ul class="list-subgrid">
+			<ul class="list-subgrid light">
 				<li><span class="small-like">Workshops</span></li>
 				<li><span class="small-like">Content creation</span></li>
 				<li><span class="small-like">Admin & operations</span></li>
@@ -94,9 +94,9 @@ navtitle: Home
 
 {%- include "_testimonials.njk" -%}
 
-<section class="pad-btt-sm cap-width">
+<section class="pad-btt-md cap-width">
 	<h2>Who is my work for</h2>
-	<div class="two-by-grid pad-top-md">
+	<div class="two-by-grid pad-top-md center-contents-mobile">
 		<section class="card give-bkg">
 			<div>{%- include "_icons/_freelancer.svg" -%}</div>
 			<p><strong>Freelancers and solopreneurs</strong> who value honest communication over growth hacks.</p>
@@ -106,22 +106,19 @@ navtitle: Home
 			<p><strong>Small businesses and social enterprises</strong> who need top work without the agency markup.</p>
 		</section>
 		<section class="card give-bkg">
-			<div>{%- include "_icons/_local-owner.svg" -%}</div>
-			<p><strong>Local businesses and orgs</strong> who value honest communication over growth hacks.</p>
-		</section>
-		<section class="card give-bkg">
 			<div>{%- include "_icons/_artist.svg" -%}</div>
-			<p><strong>Makers and artists</strong> who've wasted enough time DIY-ing their marketing.</p>
+			<p><strong>Makers, artists and creators</strong> who've wasted enough time DIY-ing their marketing.</p>
 		</section>
+		<div class="center-contents">
+	{{ ctaSection(
+	"Is this you?",
+	"Let’s discuss your next project in a free, 30-min introductory call. A quick way to see if we're a good fit. No obligation or chasing afterward.",
+	"Book a free intro",
+	false
+	) }}
+</div>
 	</div>
 </section>
-
-{{ ctaSection(
-"Is this you?",
-"Let’s discuss your next project in a free, 30-min introductory call. A quick way to see if we're a good fit. No obligation or chasing afterward.",
-"Book a free intro",
-false
-) }}
 
 <figure class="pad-btt-md separate-above cap-width">
 	<img src="https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_1290,f_auto/dpr_auto/dither_it_Pacioli_g8pabn.webp"
@@ -143,7 +140,7 @@ false
 	<p>Mind you, I'm no specialist. But where specialists see websites, emails, marketing strategy and operations as separate problems, I can see the
 		whole mess because I'm not stuck in one corner and I can help you untangle it.
 	</p>
-	<a href="/portfolio" class="button-like white-button pad-top-sm"><span style="display:inline-block; line-height: 1; height: 1rem; width: 1rem; vertical-align: 0.025em;">→</span>&nbsp;&nbsp;My work</a>
+	<a href="/portfolio" class="button-like white-button pad-top-sm"><span style="display:inline-block; line-height: 1; height: 1rem; width: 1rem; vertical-align: baseline;">→</span>&nbsp;&nbsp;My work</a>
 </section>
 
 <section class="pad-btt-md cap-width ">

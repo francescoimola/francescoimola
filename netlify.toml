@@ -1,0 +1,27 @@
+[build]
+  command = "npm run build"
+  functions = "functions"
+publish = "public"
+
+[functions]
+  directory = "functions"
+
+[[redirects]]
+  from = "/on-inner-desires"
+  to = "/playground/on-inner-desires/"
+  status = 301
+
+[[redirects]]
+  from = "/how-i-work"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "http://www.francescoimola.com/"
+  to = "https://francescoimola.com"
+  status = 301
+
+[[redirects]]
+  from = "https://www.francescoimola.com/"
+  to = "https://francescoimola.com"
+  status = 301

@@ -20,3 +20,5 @@ src/css/*.css.map
 # macOS related files
 .DS_Store
 
+# Local Netlify folder
+.netlify

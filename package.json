@@ -1,12 +1,12 @@
 {
-  "name": "Francesco Imola",
+  "name": "francesco-imola",
   "version": "3.0.3",
   "description": "Delightful things with pixels and words made by Francesco Imola from a seaside town in Kent.",
   "main": "index.html",
   "url": "https://francescoimola.com",
   "scripts": {
-    "start": "eleventy --serve",
-    "build": "cross-env NODE_ENV=production eleventy && npm run minify:js",
+    "start": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy && npm run minify:js",
     "minify:js": "terser assets/app-core.js -o public/assets/app-core.js -c -m && terser assets/app-modal.js -o public/assets/app-modal.js -c -m && terser assets/app-signup.js -o public/assets/app-signup.js -c -m"
   },
   "repository": {
@@ -26,13 +26,14 @@
     "not dead"
   ],
   "devDependencies": {
-    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy": "^3.1.2",
     "@11ty/eleventy-img": "^6.0.4",
     "@11ty/eleventy-plugin-rss": "^2.0.4",
     "cross-env": "^10.1.0",
     "eleventy-plugin-date": "^1.0.0",
     "image-size": "^2.0.2",
     "jsdom": "^27.0.1",
+    "netlify-cli": "^23.11.0",
     "terser": "^5.44.0"
   }
 }

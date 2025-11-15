@@ -26,6 +26,7 @@ section {
 
 .page-margins {
   padding: map.get($spacing, sm) clamp(0.5rem, 2vw, $base-rem) map.get($spacing, md) clamp(0.5rem, 2vw, $base-rem);
+  border: $border-width dotted map.get($colors, text-more-subtle);
 }
 
 // ===================================
@@ -304,6 +305,7 @@ nav {
 // ===================================
 
 footer {
+  background: map.get($colors, bg);
 
   h4 {
     margin-bottom: map.get($spacing, sm);
