@@ -1,10 +1,6 @@
 [build]
   command = "npm run build"
-  functions = "functions"
-publish = "public"
-
-[functions]
-  directory = "functions"
+  publish = "public"
 
 [[redirects]]
   from = "/on-inner-desires"

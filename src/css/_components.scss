@@ -115,6 +115,8 @@ hr {
 
 .card, .full-screen {
   padding: map.get($spacing, md) map.get($spacing, md) calc(map.get($spacing, md) * $perfect-fourth) map.get($spacing, md);
+  height: 100%;
+  width: 100%;
 
   &.ratio-1-1 {
     width: 100%;
@@ -409,30 +411,6 @@ hr {
       outline: 2px solid map.get($colors, links);
       outline-offset: 2px;
     }
-  }
-}
-
-.form-message {
-  display: none;
-  width: fit-content;
-  margin-top: map.get($spacing, md);
-  padding: map.get($spacing, md);
-  border-radius: map.get($spacing, xs);
-  font-size: $font-sm;
-  text-align: left;
-
-  &.success {
-    display: block;
-    background: map.get($colors, links-subtle);
-    color: map.get($colors, text);
-    border: $border-width solid map.get($colors, links);
-  }
-
-  &.error {
-    display: block;
-    background: color-mix(in srgb, #dc2626 20%, #f9f3f3);
-    color: #7f1d1d;
-    border: $border-width solid #dc2626;
   }
 }
 

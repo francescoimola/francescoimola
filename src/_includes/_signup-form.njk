@@ -1,5 +1,14 @@
 <div class="separate-above">
-	<form id="signup-form" class="email-signup-form pad-btt-md cap-width">
+	<form
+	id="signup-form"
+	class="email-signup-form pad-btt-md cap-width"
+	name="mailinglist"
+  	method="POST"
+  	action="/thank-you/"
+  	netlify-honeypot="bot-field"
+	data-netlify-recaptcha="true"
+  	data-netlify="true"
+	>
 			<h2>Join my mailing list</h2>
 			<p>Finally, something decent in your inbox. Sign up now and get intentional (no spam or AI slop) email updates about:</p>
 			<ul class="plain-list no-list-style">
@@ -8,9 +17,14 @@
 				<li>💸 Special offers and (occasional) surprises</li>
 			</ul>
 			<div class="form-field pad-top-md">
-				<label for="email" class="pad-top-sm"><b>Email</b></label>
-				<input type="email" id="email" name="email" placeholder="your@email.com" required />
+				<label for="femail" class="pad-top-sm"><b>Email</b></label>
+				<input type="email" id="femail" name="femail" placeholder="your@email.com" required minlength="2" maxlength="254" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Valid email address"/>
 			</div>
+			<p class="hidden">
+    <label>
+      Don’t fill this out if you’re human: <input name="bot-field" type="text" />
+    </label>
+  </p>
 			<div class="form-field checkbox-field">
 				<label>
 					<input style="margin-bottom: 2px" type="checkbox" id="privacyConsent" name="privacyConsent" required />
@@ -19,16 +33,9 @@
 							target="_blank">see Privacy Notice</a>)</span>
 				</label>
 			</div>
-			<div
-    class="cf-turnstile pad-btt-sm"
-    data-sitekey="0x4AAAAAACA5_dnjRRsZq-E-"
-	data-theme="light"
-    data-size="compact"
-    data-callback="enableSubmit"
-  ></div>
-			<button type="submit" class="button-like" id="submit-button" disabled>
+			<div data-netlify-recaptcha="true"></div>
+			<button type="submit" class="button-like" id="submit-button">
 				Yes, keep me posted
 			</button>
-			<div id="form-message" class="form-message"></div>
 	</form>
 </div>

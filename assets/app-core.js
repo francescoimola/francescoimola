@@ -64,13 +64,6 @@
       });
     }
 
-    // Load signup form functionality if form exists
-    if (document.getElementById('signup-form')) {
-      import('./app-signup.js').catch(err => {
-        console.error('Failed to load signup module:', err);
-      });
-    }
-
     // Load carousel functionality if carousel exists
     if (document.querySelector('.testimonial-carousel')) {
       import('./app-carousel.js').catch(err => {
@@ -99,11 +92,3 @@
     loadFeatures();
   }
 })();
-
-// Global callback for Turnstile verification (must be defined before widget loads)
-window.enableSubmit = function() {
-  const submitButton = document.getElementById('submit-button');
-  if (submitButton) {
-    submitButton.disabled = false;
-  }
-};
