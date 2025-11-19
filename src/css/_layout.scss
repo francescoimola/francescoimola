@@ -287,10 +287,13 @@ nav {
     max-height: none;
     padding: map.get($spacing, md);
     background: map.get($colors, links);
+    border-right: $border-width solid map.get($colors, text-subtle);
 
     * {color: map.get($colors, bg);}
 
     @media only screen and (max-width: map.get($breakpoints, md)) {
+      border-right: 0 solid transparent;
+      border-bottom: $border-width solid map.get($colors, text-subtle);
       flex-direction: row;
       width: 100%;
     }

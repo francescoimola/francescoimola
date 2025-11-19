@@ -482,7 +482,7 @@ img {
 
 img, .give-border, .rounded, .card {
   border-radius: map.get($spacing, xs);
-  border: $border-width solid currentColor;
+  border: $border-width solid map.get($colors, text-subtle);
   overflow: clip;
 }
 

@@ -191,7 +191,7 @@ hr {
   }
 
   & .white-button {
-    border: $border-width solid map.get($colors, text);
+    border: $border-width solid map.get($colors, text-subtle);
 
     &:hover,
     &:focus-visible {
@@ -293,7 +293,6 @@ hr {
     flex: 0 0 auto;
     width: auto;
     height: clamp(calc(map.get($spacing, 2xl) * 2), 40vh, calc(map.get($spacing, 2xl) * 4));
-    border: $border-width solid map.get($colors, text-subtle);
     border-radius: map.get($spacing, xs);
     opacity: 1;
   }
