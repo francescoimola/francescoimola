@@ -1,27 +1,29 @@
 ---
 layout: _base.njk
-title: Thank you for signing up
+title: Thanks for signing up
 description: You're on the list! Check your inbox for a confirmation email.
 permalink: "/thank-you/"
 noindex: true
 ---
 
 <section class="pad-btt-md cap-width">
-    <h1>You're on the list!</h1>
-    <p>Thanks for signing up to my mailing list. You should receive a confirmation email shortly—if you don't see it, check your spam folder.</p>
-    <p>I promise to only send you intentional updates about new projects, invites to gatherings, and the occasional surprise. Never any spam or AI slop.</p>
+    <h2>You're on the list!</h2>
+    <p>Thank you. I'm chuffed. You should receive a welcome email shortly. If you don't see it, check your spam folder.</p>
+    <p>You won't be getting a regular newsletter—<a href="https://notbadnotbad.substack.com/welcome" target="_blank" rel="noopener noreferrer">that's what my Substack is for</a>—but I will send you occasional and intentional updates about new projects, invites to gatherings, and the rare surprises. Never any spam or AI slop.</p>
     <p class="pad-top-md">
-        <a href="/" class="button-like">
-            <span>Back to home</span>
+        <a href="/" class="button-like white-button">
+            <span><span style="vertical-align: baseline;">←</span>Back to home</span>
         </a>
     </p>
 </section>
 
 {%- from "_cta.njk" import ctaSection -%}
 
-{{ ctaSection(
-"Want to talk sooner?",
-"Don't wait for my next email. Book a free intro call or drop me a message anytime.",
-"Schedule a call",
-"Copy email"
-) }}
+<div class="pad-btt-md">
+    {{ ctaSection(
+    "Want to talk sooner?",
+    "Don't wait for my next email. Book a free 30 min intro call or drop me a message anytime.",
+    "Schedule a call",
+    "Copy email"
+    ) }}
+</div>
