@@ -67,7 +67,7 @@ The easiest way to stop guessing is to test your site, right now. These free too
 - [Website Carbon Calculator](https://www.websitecarbon.com/) measures your environmental impact
 
 ![Screenshot of a GTmetrix Report](https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_1290,f_auto/dpr_auto/GTmetrix-image-audits_ahebil.webp)
-<small>What a typical report looks like | <a href="https://gtmetrix.com/blog/a-designers-guide-integrating-image-optimization-performance-culture/" target="_blank" rel="noopener">Source: GTmetrix</a></small>
+<small>What a typical report looks like | <a href="https://gtmetrix.com/blog/a-designers-guide-integrating-image-optimization-performance-culture/" target="_blank" rel="noopener noreferrer">Source: GTmetrix</a></small>
 
 If you're scoring below 75/100 or "B" on page speed metrics, don't panic. You're in good company, most sites built with website builders, or that haven't ben optimised at all, score poorly.
 

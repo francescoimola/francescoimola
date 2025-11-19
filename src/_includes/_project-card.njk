@@ -1,6 +1,5 @@
 {%- macro projectCard(role, description, image) -%}
 <div class="work">
-  <figure>
     {% if image %}
       <img
         width="{{ image.width | default('100%') }}"
@@ -9,18 +8,19 @@
         src="{{ image.src }}"
         alt="{{ image.alt }}"
         loading="lazy"
-        class="give-bkg"
+        class="give-bg"
       />
       {% if image.title %}
-        <figcaption>{{ image.title }}</figcaption>
       {% endif %}
     {% endif %}
-  </figure>
-  {% if role %}
-    <span class="role">{{ role }}</span>
-  {% endif %}
+    <div class="simple-sb-flex">
+      <h3 class="small-like pad-top-sm" style="margin-bottom:0;">{{ image.title }}</h3>
+    </div>
+    {% if role %}
+    <span class="role small-like">{{ role }}</span>
+    {% endif %}
   {% if description %}
-    <span class="description prevent-orphan">{{ description | safe }}</span>
+    <span class="description small-like">{{ description | safe }}</span>
   {% endif %}
 </div>
 {%- endmacro -%}

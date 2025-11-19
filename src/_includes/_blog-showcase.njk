@@ -4,7 +4,7 @@
 </div>
 	<ul class="pad-top-lg pad-btt-md no-list-style image-scroll">
 		{%- for post in collections.blog | reverse | limit(3) -%}
-		<li class="cap-width-sm card give-bkg ratio-1-1">
+		<li class="cap-width-sm card give-bg ratio-1-1">
 			<article>
 				<h3 style="margin:0;"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
 				{% if post.data.teaser %}<p class="pad-top-sm">{{ post.data.teaser }}</p>

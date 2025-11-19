@@ -300,6 +300,14 @@ body {
   background: map.get($colors, bg-translucent);
   text-rendering: optimizeLegibility;
 
+  @supports (text-wrap: avoid-short-last-lines) {
+    text-wrap: avoid-short-last-lines;
+  }
+
+  @supports not (text-wrap: avoid-short-last-lines) {
+    text-wrap: pretty;
+  }
+
   // Webkit scrollbar styling (Safari, Chrome)
   &::-webkit-scrollbar {
     width: $unit;
@@ -355,7 +363,6 @@ p {
   margin: 0 0 calc(map.get($spacing, sm) *$perfect-fourth) 0;
   color: map.get($colors, text-subtle);
   text-rendering: optimizeSpeed;
-  max-width: $container-w;
 
   &:last-child {
     margin-bottom: 0;
@@ -368,9 +375,14 @@ h3 {
 
 small, .small-like {
   font-size: $font-sm;
-  color: inherit;
   display: block;
-  margin-bottom: map.get($spacing, sm);
+}
+
+sup{
+  font-size: $font-sm;
+  color: map.get($colors, text-more-subtle);
+  font-weight: normal;
+  vertical-align: super;
 }
 
 a {
@@ -397,9 +409,10 @@ a {
 
 }
 
-sup {
-  vertical-align: super;
-  font-size: smaller;
+mark {
+  background: linear-gradient(-100deg, hsla(129,45%,80%,.3), hsla(129,45%,80%,.7) 95%, hsla(129,45%,80%,.1));
+  border-radius: map.get($spacing, xs) 0;
+  padding: map.get($spacing, xs);
 }
 
 // ===================================
@@ -435,30 +448,22 @@ b, strong {
   font-weight: 500;
 }
 
-ul,
-ol {
+ul, ol {
   margin: 0 0 0 map.get($spacing, md);
   padding: 0;
-  color: inherit;
-
-  li:last-child {
-    margin-bottom: 0;
-  }
+  color: map.get($colors, text-subtle);
 }
 
 ol {
   list-style: decimal;
   padding-left: map.get($spacing, xs);
-
-  li {
-    display: list-item;
-    padding-bottom: map.get($spacing, sm);
-  }
 }
 
 li {
   margin: 0;
   line-height: normal;
+  display: list-item;
+  margin-bottom: map.get($spacing, sm);
 }
 
 // ===================================
@@ -481,7 +486,7 @@ img, .give-border, .rounded, .card {
   overflow: clip;
 }
 
-.give-bkg {
+.give-bg {
   background: map.get($colors, bg);
 }
 

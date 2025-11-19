@@ -6,28 +6,6 @@
 (function() {
   "use strict";
 
-  // Unorphanize - Prevent text widows
-  function unorphanize() {
-    try {
-      document.querySelectorAll("p, h1, h2, h3, li, .prevent-orphan").forEach((element) => {
-        try {
-          if (element.classList.contains("no-wrap")) return;
-
-          // Skip if element contains only a single child with no surrounding text
-          if (element.children.length === 1 &&
-              element.textContent.trim() === element.children[0].textContent.trim()) {
-            return;
-          }
-
-          const content = element.innerHTML;
-          // Match last space + text/tags, avoiding spaces inside HTML tags
-          // Pattern: space + (optional opening tags) + (text) + (optional closing tags) at end
-          element.innerHTML = content.replace(/ ((?:<[^>]+>)*[^<>\s]+(?:<[^>]+>)*)$/, "&nbsp;$1");
-        } catch (error) {}
-      });
-    } catch (error) {}
-  }
-
   // Copy email to clipboard with visual feedback
   function initEmailCopy() {
     const mailtoLinks = document.querySelectorAll('a[href^="mailto:"]');
@@ -82,12 +60,10 @@
   // Initialize core features on page load
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", function() {
-      unorphanize();
       initEmailCopy();
       loadFeatures();
     });
   } else {
-    unorphanize();
     initEmailCopy();
     loadFeatures();
   }

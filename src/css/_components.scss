@@ -16,6 +16,7 @@ button,
   width: fit-content;
   height: fit-content;
   padding: map.get($spacing, xs) map.get($spacing, sm);
+  border: thin solid map.get($colors, links);
   border-radius: map.get($spacing, xs);
   font-size: $font-base;
   font-family: inherit;
@@ -130,9 +131,20 @@ hr {
 }
 
 .center-contents {
-  .card * {
+  place-self: stretch stretch;
+  >.card * {
     margin-inline: auto;
     text-align: center;
+  }
+
+  >.card.invert-bg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    p {margin: 0;}
   }
 }
 
@@ -158,11 +170,11 @@ hr {
   }
 
 .invert-bg {
-  background: map.get($colors, text);
+  background: map.get($colors, text-subtle);
 
   h2,
-  p, small {
-    color: map.get($colors, bg);
+  p, small, li, strong {
+    color: map.get($colors, bg-translucent);
   }
 
   a:not(.button-like) {
@@ -223,10 +235,8 @@ hr {
 
 .work {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  flex-direction: column;
   gap: map.get($spacing, sm);
-  flex-wrap: wrap;
 
   .role {
     color: map.get($colors, text-subtle);
@@ -418,6 +428,11 @@ hr {
 // UTILITIES
 // ===================================
 
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
 .tags-filter {
   @include flex(row, map.get($spacing, xs));
   flex-wrap: wrap;
@@ -510,9 +525,8 @@ hr {
   justify-content: flex-start;
   align-content: start;
   flex-wrap: nowrap;
-  gap: map.get($spacing, xs);
-  color: map.get($colors, text-subtle);
   padding-left: map.get($spacing, sm);
+  padding-right: calc($base-rem + map.get($spacing, sm));
 }
 
 .no-list-style {
@@ -525,6 +539,11 @@ hr {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
   gap: map.get($spacing, sm);
+  place-items: start;
+
+  .span-2 {
+    grid-column: 1 / span 2;
+  }
 
   &.footer-links-wrapper {
     grid-template-columns: 1fr 1fr 1fr;
@@ -535,13 +554,10 @@ hr {
     }
   }
 
-  &.center-contents-mobile {
+  &.center-contents-mobile p {
     @media only screen and (max-width: map.get($breakpoints, sm)) {
-      text-align: center;
-      p{
         max-width: calc($container-w / $golden-ratio);
         margin-inline: auto;
-      }
     }
   }
 }
@@ -556,6 +572,10 @@ hr {
     display: inline-block;
     width: 0.5rem;
     height: 0.5rem;
+  }
+
+  li {
+    margin: 0;
   }
 
   span {
@@ -654,10 +674,6 @@ hr {
     margin: map.get($spacing, 2xl) 0 map.get($spacing, md) 0;
     padding-bottom: map.get($spacing, md);
     border-bottom: $border-width solid map.get($colors, text-subtle);
-  }
-
-  li {
-    margin-bottom: map.get($spacing, sm);
   }
 
   ol li {
@@ -809,7 +825,7 @@ hr {
 }
 
 .illustration {
-  padding: 0 map.get($spacing, md) map.get($spacing, lg) map.get($spacing, md);
+  padding: map.get($spacing, sm) map.get($spacing, md) map.get($spacing, lg) map.get($spacing, md);
   width: clamp(35%, 15vw, 75%);
   max-height: calc(map.get($spacing, 2xl) * 3);
   margin: 0 auto;
@@ -863,7 +879,7 @@ hr {
 }
 
 .solar--arrow-to-down-left-bold::after {
-  vertical-align: -0.250em;
+  vertical-align: -0.175em;
   content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23374037' fill-rule='evenodd' d='M17.53 13.97a.75.75 0 0 1 0 1.06l-5 5a.75.75 0 0 1-1.06 0l-5-5a.75.75 0 1 1 1.06-1.06l3.72 3.72V9.5c0-.713-.22-1.8-.859-2.687C9.781 5.965 8.756 5.25 7 5.25a.75.75 0 0 1 0-1.5c2.244 0 3.72.952 4.609 2.187c.861 1.196 1.141 2.61 1.141 3.563v8.19l3.72-3.72a.75.75 0 0 1 1.06 0' clip-rule='evenodd'/%3E%3C/svg%3E");
 }
 

@@ -1,21 +1,26 @@
-<footer role="contentinfo" class="page-margins pad-btt-md separate-above" style="margin-top:0;">
+<footer role="contentinfo" class="page-margins" style="margin-top:0; margin-bottom: 3rem;">
   {% if page.url and ("/contact" not in page.url) %}
   <address>
-    <h3 class="as-h1">I love a good 'ol email</h3>
+    <h3 class="as-h1 pad-top-sm">I love a good 'ol email</h3>
     <div class="pad-top-sm">
-      <span class="streamline-freehand--send-email-fly"></span>&nbsp;&nbsp;<a href="mailto:hi@francescoimola.com" target="_blank" rel="noopener">Copy email address</a>
+      <span class="streamline-freehand--send-email-fly"></span>&nbsp;&nbsp;<a href="mailto:hi@francescoimola.com" target="_blank" rel="noopener noreferrer">Copy email address</a>
     </div>
   </address>
   <br>
   <address class="pad-btt-md pad-top-sm">
     <h3 class="as-h1">Call me instead</h3>
     <div class="pad-top-sm">
-      <span class="streamline-freehand--phone-retro-1"></span>&nbsp;&nbsp;<a href="https://cal.com/francescoimola/intro" target="_blank" rel="noopener">Book a free intro call</a>
+      <span class="streamline-freehand--phone-retro-1"></span>&nbsp;&nbsp;<a href="https://cal.com/francescoimola/intro" target="_blank" rel="noopener noreferrer">Book a free intro call</a>
     </div>
   </address>
   {% endif %}
 
-  <div class="two-by-grid cap-width separate-above footer-links-wrapper pad-btt-md">
+  <div class="
+  {% if page.url and ("/contact" in page.url) %}
+  two-by-grid cap-width footer-links-wrapper pad-btt-md pad-top-sm
+  {% else %}
+  two-by-grid cap-width separate-above footer-links-wrapper pad-btt-md
+  {% endif %}">
     <div>
       <h4>Quick links</h4>
       <ul class="plain-list no-list-style">
@@ -29,7 +34,7 @@
     <div>
       <h4>Procastinate</h4>
       <ul class="plain-list no-list-style">
-        <li><a href="https://notbadnotbad.substack.com/welcome" target="_blank" rel="noopener">Newsletter</a></li>
+        <li><a href="https://notbadnotbad.substack.com/welcome" target="_blank" rel="noopener noreferrer">Newsletter</a></li>
         <li><a href="/playground/">Playground</a></li>
         <li><a href="mailto:hi@francescoimola.com?subject=CV%20request">Request my CV</a></li>
         <li><a href="/colophon/">Colophon</a></li>
@@ -38,23 +43,23 @@
     <div>
       <h4>Elsewhere</h4>
       <ul class="plain-list no-list-style">
-        <li><a href="https://substack.com/@francescoimola" target="_blank" rel="noopener">Substack</a></li>
+        <li><a href="https://substack.com/@francescoimola" target="_blank" rel="noopener noreferrer">Substack</a></li>
         <li><a href="https://www.ninaprotocol.com/profiles/francescoimola?ref=CR1rTaVAEMud32pqEqRZRqxjYXjgia6xhZKmjFwkdUWP"
-		target="_blank" rel="noopener">Nina</a></li>
-        <li><a href="https://www.linkedin.com/in/francesco-imola/" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="https://sublime.app/fran" target="_blank" rel="noopener">Sublime</a></li>
+		target="_blank" rel="noopener noreferrer">Nina</a></li>
+        <li><a href="https://www.linkedin.com/in/francesco-imola/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://sublime.app/fran" target="_blank" rel="noopener noreferrer">Sublime</a></li>
       </ul>
     </div>
   </div>
-  <p class="cap-width">&copy; {{ site.name }}, 2025</p>
-  <p>This site has been designed by hand with love and anxiety and it's been built following low-carbon principles. It is <a
-      href="https://www.websitecarbon.com/website/francescoimola-com/" target="_blank" rel="noopener">cleaner than 80%
+  <p>&copy; Francesco Imola, 2025</p>
+  <p class="cap-width">This site has been designed by hand with love and anxiety and it's been built following low-carbon principles. It is <a
+      href="https://www.websitecarbon.com/website/francescoimola-com/" target="_blank" rel="noopener noreferrer">cleaner than 80%
       of all web pages globally</a>.</p>
   <br>
   <div class="badges cap-width">
-    <a href="https://designdeclares.com/" target="_blank" rel="noopener"
+    <a href="https://designdeclares.com/" target="_blank" rel="noopener noreferrer"
       title="Design Declares: global declaration of ecological emergency">{% include "_icons/_declares.njk" %}</a>
-      <a href="https://www.creativesforclimate.co/" target="_blank" rel="noopener"
+      <a href="https://www.creativesforclimate.co/" target="_blank" rel="noopener noreferrer"
       title="Creatives for Climate: global network of creative professionals taking action on climate change">{% include "_icons/_c4c.njk" %}</a>
   </div>
   <br>

@@ -12,7 +12,7 @@
     {
       "@type": "Person",
       "@id": "{{ site.url }}/#person",
-      "name": "{{ site.name }}",
+      "name": "Francesco Imola",
       "url": "{{ site.url }}",
       "image": "{{ site.image }}",
       "description": "{{ site.description }}",
@@ -24,7 +24,7 @@
       "@type": "WebSite",
       "@id": "{{ site.url }}/#website",
       "url": "{{ site.url }}",
-      "name": "{{ site.name }}",
+      "name": "Francesco Imola",
       "description": "{{ site.description }}",
       "publisher": {
         "@id": "{{ site.url }}/#person"
@@ -35,7 +35,7 @@
       "@type": "WebPage",
       "@id": "{{ site.url }}{{ page.url }}#webpage",
       "url": "{{ site.url }}{{ page.url }}",
-      "name": "{{ title }} | {{ site.name }}",
+      "name": "{{ title }} | Francesco Imola",
       "isPartOf": {
         "@id": "{{ site.url }}/#website"
       },
@@ -113,13 +113,13 @@
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "{{ title }} | {{ site.name }}",
+  "name": "{{ title }} | Francesco Imola",
   "description": "{{ description or site.description }}",
   "url": "{{ site.url }}{{ page.url }}",
   "publisher": {
     "@type": "Person",
     "@id": "{{ site.url }}/#person",
-    "name": "{{ site.name }}",
+    "name": "Francesco Imola",
     "url": "{{ site.url }}"
   },
   "inLanguage": "en-GB"
