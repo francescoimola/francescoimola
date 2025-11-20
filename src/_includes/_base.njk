@@ -18,6 +18,7 @@
 			<div id="main-content">{{ content | safe }}</div>
 	</main>
 
+	{% if signup %}{% include "_signup-form.njk" %}{% endif %}
 	{%- include "_footer.njk" -%}
 
 	<script src="/assets/app-core.js" defer></script>

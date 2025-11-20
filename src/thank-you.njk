@@ -6,6 +6,7 @@ permalink: "/thank-you/"
 noindex: true
 ---
 
+{%- from "_cta.njk" import ctaSection -%}
 <section class="pad-btt-md cap-width">
     <h2>You're on the list!</h2>
     <p>Thank you. I'm chuffed. You should receive a welcome email shortly. If you don't see it, check your spam folder.</p>
@@ -16,8 +17,6 @@ noindex: true
         </a>
     </p>
 </section>
-
-{%- from "_cta.njk" import ctaSection -%}
 
 <div class="pad-btt-md">
     {{ ctaSection(

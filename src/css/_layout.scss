@@ -26,9 +26,9 @@ section {
 
 .page-margins {
   padding: map.get($spacing, sm) clamp(0.5rem, 2vw, $base-rem) map.get($spacing, md) clamp(0.5rem, 2vw, $base-rem);
-  border-top: $border-width dotted map.get($colors, text-more-subtle);
-  border-right: $border-width dotted map.get($colors, text-more-subtle);
-  border-left: $border-width dotted map.get($colors, text-more-subtle);
+  border-top: thin dotted map.get($colors, text-more-subtle);
+  border-right: thin dotted map.get($colors, text-more-subtle);
+  border-left: thin dotted map.get($colors, text-more-subtle);
 }
 
 // ===================================
@@ -40,8 +40,7 @@ header {
   bottom: 0;
   left: 0;
   z-index: 999;
-  display: flex;
-  flex-direction: row;
+  @include flex(row);
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
@@ -50,7 +49,7 @@ header {
   padding-block: clamp(0.5rem, 1.25vh, $base-rem);
   column-gap: map.get($spacing, xl);
   background: map.get($colors, bg);
-  border-top: $border-width solid map.get($colors, text-more-subtle);
+  border-top: thin solid map.get($colors, text-more-subtle);
 
   // Fixed height on mobile for predictable positioning
   @media only screen and (max-width: map.get($breakpoints, md)) {
@@ -138,7 +137,7 @@ nav {
     }
 
     &:focus-visible {
-      outline: $border-width dotted map.get($colors, links);
+      outline: thin dotted map.get($colors, links);
       outline-offset: map.get($spacing, xs);
     }
 
@@ -184,7 +183,7 @@ nav {
     right: 0;
     bottom: $header-height;
     background: map.get($colors, bg);
-    border-top: $border-width solid map.get($colors, text-more-subtle);
+    border-top: thin solid map.get($colors, text-more-subtle);
     padding: map.get($spacing, md) map.get($spacing, md) map.get($spacing, xl) map.get($spacing, md);
     overflow: hidden;
     @include flex(row, map.get($spacing, md));
@@ -201,11 +200,9 @@ nav {
 
 .secondary-header {
   width: 100%;
-  display: flex;
-  flex-direction: row;
+  @include flex(row, map.get($spacing, xl));
   justify-content: space-between;
   align-items: start;
-  gap: map.get($spacing, xl);
   flex-wrap: wrap;
   position: relative;
 
@@ -215,8 +212,7 @@ nav {
 }
 
 .simple-column {
-  display: flex;
-  flex-direction: column;
+  @include flex;
   justify-content: flex-start;
 }
 
@@ -245,7 +241,7 @@ nav {
     left: calc(map.get($spacing, 2xl)* -1);
     bottom: 0;
     width: 150vw;
-    border-bottom: $border-width dotted map.get($colors, text-more-subtle);
+    border-bottom: thin dotted map.get($colors, text-more-subtle);
   }
 }
 
@@ -259,11 +255,12 @@ nav {
     left: calc(map.get($spacing, 2xl)* -1);
     top: 0;
     width: 150vw;
-    border-top: $border-width dotted map.get($colors, text-more-subtle);
+    border-top: thin dotted map.get($colors, text-more-subtle);
   }
 }
 
 .service-card {
+  @include card-base;
   @include flex(row, map.get($spacing, 2xl));
   justify-content: space-between;
   align-items: stretch;
@@ -278,22 +275,22 @@ nav {
   }
 
   service-card__header {
-    display: flex;
-    flex-direction: column;
+    @include flex(column, map.get($spacing, xl));
     justify-content: space-between;
-    gap: map.get($spacing, xl);
     align-items: flex-start;
     width: 100%;
     max-height: none;
     padding: map.get($spacing, md);
     background: map.get($colors, links);
-    border-right: $border-width solid map.get($colors, text-subtle);
+    border-right: thin solid map.get($colors, text-subtle);
 
-    * {color: map.get($colors, bg);}
+    * {
+      color: map.get($colors, bg);
+    }
 
     @media only screen and (max-width: map.get($breakpoints, md)) {
       border-right: 0 solid transparent;
-      border-bottom: $border-width solid map.get($colors, text-subtle);
+      border-bottom: thin solid map.get($colors, text-subtle);
       flex-direction: row;
       width: 100%;
     }

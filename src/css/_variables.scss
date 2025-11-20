@@ -42,13 +42,13 @@ $spacing: (
 
 // Colors
 $colors: (
-  bg: #faf5f5,
+  bg: hsl(0, 33%, 97%),
   text: hsl(129, 52%, 5%),
   text-subtle: color-mix(in srgb, #061308 80%, #f9f3f3),
   text-more-subtle: color-mix(in srgb, #061308 65%, #f9f3f3),
   links: hsl(129, 100%, 19%),
   links-subtle: hsl(129, 40%, 66%),
-  yellow: #EDC31D,
+  yellow: hsl(48, 33%, 66%),
   bg-translucent: color-mix(in srgb, #f9f3f3 94%, #061308),
   bg-more-translucent: color-mix(in srgb, #f6f6f6 87%, #061308),
   border: color-mix(in srgb, #f9f3f3 75%, #061308),
@@ -56,7 +56,6 @@ $colors: (
 
 // Layout
 $container-w: 54ch;
-$border-width: thin;
 $header-height: 3rem;
 
 // Breakpoints
@@ -73,4 +72,12 @@ $breakpoints: (
   @if $gap {
     gap: $gap;
   }
+}
+
+@mixin card-base {
+  padding: map.get($spacing, md) map.get($spacing, md) calc(map.get($spacing, md) * $perfect-fourth) map.get($spacing, md);
+  border-radius: map.get($spacing, xs);
+  border: thin solid map.get($colors, text-subtle);
+  background: map.get($colors, bg);
+  overflow: clip;
 }

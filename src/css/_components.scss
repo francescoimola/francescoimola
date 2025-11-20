@@ -51,7 +51,7 @@ button,
   &.secondary {
     background: map.get($colors, bg);
     color: map.get($colors, text-subtle);
-    border: $border-width solid map.get($colors, text-subtle);
+    border: thin solid map.get($colors, text-subtle);
 
     &:hover,
     &:focus-visible {
@@ -74,9 +74,7 @@ button,
 }
 
 .buttons-wrapper {
-  display: flex;
-  flex-direction: row;
-  gap: map.get($spacing, sm);
+  @include flex(row, map.get($spacing, sm));
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
@@ -88,7 +86,7 @@ button,
 }
 
 .white-button {
-  border: $border-width solid map.get($colors, text-subtle);
+  border: thin solid map.get($colors, text-subtle);
   color: map.get($colors, text);
   background: map.get($colors, bg);
 
@@ -100,7 +98,7 @@ button,
 }
 
 .inverted-button {
-  border: $border-width solid map.get($colors, bg);
+  border: thin solid map.get($colors, bg);
 }
 
 
@@ -110,12 +108,12 @@ button,
 
 hr {
   border: none;
-  border-bottom: $border-width solid map.get($colors, text-subtle);
+  border-bottom: thin solid map.get($colors, text-subtle);
   margin: map.get($spacing, lg) 0;
 }
 
-.card, .full-screen {
-  padding: map.get($spacing, md) map.get($spacing, md) calc(map.get($spacing, md) * $perfect-fourth) map.get($spacing, md);
+.card {
+  @include card-base;
   height: 100%;
   width: 100%;
 
@@ -149,14 +147,26 @@ hr {
 }
 
 .full-screen {
+  @include card-base;
   margin-inline: auto;
   width: fit-content;
+  height: 100%;
   padding-block: map.get($spacing, 2xl);
   padding-inline: calc(map.get($spacing, 2xl)*2);
-    border-radius: 50%;
-    *{text-align: center; margin: 0 auto;}
-    .buttons-wrapper {justify-content: center;}
-    #there-is-more {color: map.get($colors, bg-translucent);}
+  border-radius: 50%;
+  
+  * {
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  .buttons-wrapper {
+    justify-content: center;
+  }
+  
+  #there-is-more {
+    color: map.get($colors, bg-translucent);
+  }
 
      @media only screen and (max-width: map.get($breakpoints, md)) {
       padding-inline: map.get($spacing, 2xl);
@@ -191,18 +201,17 @@ hr {
   }
 
   & .white-button {
-    border: $border-width solid map.get($colors, text-subtle);
+    border: thin solid map.get($colors, text-subtle);
 
     &:hover,
     &:focus-visible {
-      border: $border-width solid map.get($colors, bg-translucent);
+      border: thin solid map.get($colors, bg-translucent);
     }
   }
 }
 
 .projects-showcase {
-  display: flex;
-  flex-direction: row;
+  @include flex(row);
   justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
@@ -234,9 +243,7 @@ hr {
 }
 
 .work {
-  display: flex;
-  flex-direction: column;
-  gap: map.get($spacing, sm);
+  @include flex(column, map.get($spacing, sm));
 
   .role {
     color: map.get($colors, text-subtle);
@@ -250,12 +257,10 @@ hr {
 
 .image-scroll {
   overscroll-behavior-x: contain;
-  display: flex;
-  flex-direction: row;
+  @include flex(row, map.get($spacing, sm));
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: map.get($spacing, sm);
   overflow-x: auto;
   overflow-y: hidden;
   width: 100%;
@@ -351,11 +356,10 @@ hr {
   }
 }
 
-.email-signup-form {
+form[name="mailinglist"] {
   position: relative;
   overflow: clip;
-  display: flex;
-  flex-direction: column;
+  @include flex;
   justify-content: flex-end;
 
   >div {
@@ -365,9 +369,7 @@ hr {
 }
 
 .form-field {
-  display: flex;
-  flex-direction: column;
-  gap: map.get($spacing, xs);
+  @include flex(column, map.get($spacing, xs));
   width: 100%;
   margin-bottom: map.get($spacing, sm);
 
@@ -380,7 +382,7 @@ hr {
   input,
   textarea {
     padding: map.get($spacing, sm);
-    border: $border-width solid map.get($colors, text-subtle);
+    border: thin solid map.get($colors, text-subtle);
     border-radius: map.get($spacing, xs);
     background: map.get($colors, bg);
     resize: vertical;
@@ -395,7 +397,7 @@ hr {
     }
 
     &:focus {
-      outline: $border-width solid map.get($colors, links);
+      outline: thin solid map.get($colors, links);
       background: map.get($colors, bg-more-translucent);
     }
   }
@@ -438,7 +440,7 @@ hr {
   justify-content: flex-start;
   align-items: center;
   padding: map.get($spacing, xs);
-  border: $border-width solid map.get($colors, text-subtle);
+  border: thin solid map.get($colors, text-subtle);
   border-radius: map.get($spacing, sm);
   width: fit-content;
   background: map.get($colors, bg);
@@ -447,7 +449,7 @@ hr {
     text-decoration: none;
     background: transparent;
     padding: map.get($spacing, xs) calc(map.get($spacing, xs) * $golden-ratio);
-    border: $border-width solid transparent;
+    border: thin solid transparent;
     border-radius: map.get($spacing, sm);
 
     &:hover,
@@ -457,7 +459,7 @@ hr {
     }
 
     &:focus-visible {
-      outline: $border-width solid map.get($colors, links);
+      outline: thin solid map.get($colors, links);
       outline-offset: 2px;
     }
   }
@@ -474,25 +476,43 @@ hr {
   max-width: revert;
 }
 
+// ===================================
+// LAYOUT UTILITIES
+// ===================================
+
+.stack {
+  @include flex(column, map.get($spacing, sm));
+}
+
 .space-btw {
-  display: flex;
-  flex-direction: column;
+  @include flex(column);
   justify-content: space-between;
   align-items: flex-start;
 }
 
-.pad-top-md {
-  margin-top: map.get($spacing, md);
+.cluster {
+  @include flex(row, map.get($spacing, sm));
+  flex-wrap: wrap;
 }
 
-.pad-top-sm {
-  margin-top: map.get($spacing, sm);
+.flex-between {
+  @include flex(row);
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  column-gap: map.get($spacing, lg);
+  row-gap: map.get($spacing, sm);
 }
 
-.pad-top-lg {
-  margin-top: map.get($spacing, lg);
+// Generate spacing utilities from spacing map
+@each $size, $value in $spacing {
+  .pad-top-#{$size} {
+    margin-top: $value;
+  }
 }
 
+// Special case overrides for non-standard values
 .pad-btt-md {
   margin-bottom: map.get($spacing, 2xl);
 }
@@ -505,6 +525,7 @@ hr {
   margin-bottom: calc(map.get($spacing, xl) * 4);
 }
 
+// Width utilities
 .cap-width {
   max-width: $container-w;
 }
@@ -517,9 +538,30 @@ hr {
   color: map.get($colors, text-more-subtle);
 }
 
+.list-subgrid {
+  margin-left: 0;
+  list-style: none;
+
+  li::before {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='%23000' d='M240 128a15.79 15.79 0 0 1-10.5 15l-63.44 23.07L143 229.5a16 16 0 0 1-30 0l-23.06-63.44L26.5 143a16 16 0 0 1 0-30l63.44-23.06L113 26.5a16 16 0 0 1 30 0l23.07 63.44L229.5 113a15.79 15.79 0 0 1 10.5 15'/%3E%3C/svg%3E");
+    vertical-align: 0.050em;
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+
+  li {
+    margin: 0;
+  }
+
+  span {
+    margin-left: 0.5em;
+    display: inline;
+  }
+}
+
 .plain-list {
-  display: flex;
-  flex-direction: column;
+  @extend .stack;
   width: 100%;
   justify-content: flex-start;
   align-content: start;
@@ -532,6 +574,10 @@ hr {
   list-style: none;
   padding: 0;
   margin-left: 0;
+
+  >li {
+    margin-bottom: 0;
+  }
 }
 
 .two-by-grid {
@@ -561,37 +607,15 @@ hr {
   }
 }
 
-.list-subgrid {
-  margin-left: 0;
-  list-style: none;
-
-  li::before {
-    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='%23000' d='M240 128a15.79 15.79 0 0 1-10.5 15l-63.44 23.07L143 229.5a16 16 0 0 1-30 0l-23.06-63.44L26.5 143a16 16 0 0 1 0-30l63.44-23.06L113 26.5a16 16 0 0 1 30 0l23.07 63.44L229.5 113a15.79 15.79 0 0 1 10.5 15'/%3E%3C/svg%3E");
-    vertical-align: 0.050em;
-    display: inline-block;
-    width: 0.5rem;
-    height: 0.5rem;
-  }
-
-  li {
-    margin: 0;
-  }
-
-  span {
-    margin-left: 0.5em;
-    display: inline;
-  }
-}
-
+// Legacy alias for .flex-between
 .simple-sb-flex {
-  display: flex;
-  flex-direction: row;
-  column-gap: map.get($spacing, lg);
-  row-gap: map.get($spacing, sm);
+  @include flex(row);
   justify-content: space-between;
   align-items: center;
   width: 100%;
   flex-wrap: wrap;
+  column-gap: map.get($spacing, lg);
+  row-gap: map.get($spacing, sm);
 }
 
 .blog-post-preview {
@@ -606,7 +630,7 @@ hr {
 
   a {
     &:focus-visible {
-      outline: $border-width solid map.get($colors, links);
+      outline: thin solid map.get($colors, links);
       outline-offset: map.get($spacing, xs);
     }
   }
@@ -635,9 +659,7 @@ hr {
 }
 
 .blog-post-preview__content {
-  display: flex;
-  flex-direction: column;
-  gap: clamp(map.get($spacing, sm), 3vw, map.get($spacing, md));
+  @include flex(column, clamp(map.get($spacing, sm), 3vw, map.get($spacing, md)));
   width: 100%;
 }
 
@@ -672,7 +694,7 @@ hr {
   h2 {
     margin: map.get($spacing, 2xl) 0 map.get($spacing, md) 0;
     padding-bottom: map.get($spacing, md);
-    border-bottom: $border-width solid map.get($colors, text-subtle);
+    border-bottom: thin solid map.get($colors, text-subtle);
   }
 
   ol li {
@@ -699,12 +721,12 @@ hr {
   grid-template-columns: 2fr 1fr;
   gap: map.get($spacing, md);
   padding: map.get($spacing, sm);
-  border-bottom: $border-width dashed map.get($colors, text-more-subtle);
+  border-bottom: thin dashed map.get($colors, text-more-subtle);
   align-items: center;
 
   &.pricing-header {
     font-weight: bold;
-    border-bottom: $border-width solid map.get($colors, text-more-subtle);
+    border-bottom: thin solid map.get($colors, text-more-subtle);
     grid-template-columns: 1fr 1fr;
   }
 
@@ -724,12 +746,11 @@ hr {
   padding-inline: map.get($spacing, sm);
 
   &>div {
+    @include card-base;
     @include flex(column, map.get($spacing, sm));
     justify-content: center;
     align-items: center;
-    padding: map.get($spacing, md);
-    background: map.get($colors, bg);
-    border: $border-width solid map.get($colors, text);
+    border-color: map.get($colors, text);
     border-radius: map.get($spacing, sm);
     text-align: center;
     max-width: calc($container-w / 1.618);
@@ -758,7 +779,7 @@ hr {
 
   .simple-sb-flex {
     padding: map.get($spacing, md);
-    border-top: $border-width solid map.get($colors, text);
+    border-top: thin solid map.get($colors, text);
   }
 
   h2,
@@ -772,7 +793,7 @@ hr {
     text-decoration: none;
 
     &:focus-visible {
-      outline: $border-width solid map.get($colors, links);
+      outline: thin solid map.get($colors, links);
       outline-offset: map.get($spacing, xs);
     }
   }
@@ -783,7 +804,6 @@ hr {
 
     .simple-sb-flex {
       background: map.get($colors, links);
-      ;
     }
 
     h2,
@@ -808,18 +828,7 @@ hr {
 }
 
 .noselect {
-  -webkit-touch-callout: none;
-  /* iOS Safari */
-  -webkit-user-select: none;
-  /* Safari */
-  -khtml-user-select: none;
-  /* Konqueror HTML */
-  -moz-user-select: none;
-  /* Old versions of Firefox */
-  -ms-user-select: none;
-  /* Internet Explorer/Edge */
   user-select: none;
-  /* Non-prefixed version, currently */
   -webkit-user-drag: none;
 }
 
@@ -908,19 +917,16 @@ hr {
 }
 
 .testimonial-carousel__slide {
-  display: flex;
-  flex-direction: column;
+  @include card-base;
+  @include flex(column, 0);
   justify-content: space-between;
-  gap: 0;
   position: absolute;
   top: 0;
   width: 100%;
   padding: map.get($spacing, md) map.get($spacing, md) calc(map.get($spacing, md) + 2px) map.get($spacing, md);
 
   article {
-    display: flex;
-    flex-direction: column;
-    gap: map.get($spacing, sm);
+    @include flex(column, map.get($spacing, sm));
 
     p {
       max-width: 100%;
@@ -929,7 +935,7 @@ hr {
 }
 
 .testimonial-carousel__button {
-  border: $border-width solid transparent;
+  border: thin solid transparent;
   background: none;
   border-radius: map.get($spacing, xs);
   cursor: pointer;
@@ -942,7 +948,7 @@ hr {
   &:focus-visible {
     color: map.get($colors, text-more-subtle);
     background: none;
-    outline: $border-width dotted map.get($colors, text-more-subtle);
+    outline: thin dotted map.get($colors, text-more-subtle);
   }
 
   &:active {

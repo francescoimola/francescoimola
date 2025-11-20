@@ -4,9 +4,11 @@ title: Francesco Imola | Web designer & Creative Marketer in Kent
 description: I help small businesses, freelancers and creatives drive long-term growth with futureproof websites, UX copy, email marketing and strategic consultations.
 permalink: '/'
 navtitle: Home
+signup: true
 ---
-{%- from "_cta.njk" import ctaSection -%}
+
 {%- from "_selected-work-card.njk" import selectedWorkCard -%}
+{%- from "_cta.njk" import ctaSection -%}
 
 <div class="intro-wrapper">
 	<div class="secondary-header pad-btt-lg">
@@ -35,12 +37,12 @@ navtitle: Home
 
 <section class="pad-btt-md cap-width">
 	<h2>Where I can help</h2>
-	<p>I help you design websites and all that goes with them. Think clever systems that don't eat your life, run while you sleep, and age like good wine. It's the marketing that lets you get on with it.</p>
+	<p>I look after <mark>your website and all that goes with it</mark>. Think clever systems that don't eat your life, run while you sleep, and age like good wine. It's the marketing that lets you get on with it.</p>
 	<a class="button-like white-space pad-top-sm" href="/services/">Learn more</a>
 	<div class="two-by-grid pad-top-lg pad-btt-sm">
-		<section class="card give-bg span-2">
+		<section class="card span-2">
 			<h3>Website design and no-code development</h3>
-			<p class="small-like">Get a snappy, no-nonsense website that looks the part, but with none of the endless back-and-forth, long retainers or agency overheads.
+			<p class="small-like">Get a snappy, no-nonsense website that looks the part—but with none of the endless back-and-forth, long retainers or agency overheads.
 			</p>
 			<ul class="list-subgrid">
 				<li><span class="small-like">Responsive web design</span></li>
@@ -50,7 +52,7 @@ navtitle: Home
 			</ul>
 		</section>
 
-		<section class="card give-bg">
+		<section class="card">
 			<h3>Email marketing</h3>
 			<p class="small-like">I build the foundations to help you capture, engage and retain new subscribers in the simplest way possible.</p>
 			<ul class="list-subgrid">
@@ -60,7 +62,7 @@ navtitle: Home
 				<li><span class="small-like">Template design</span></li>
 			</ul>
 		</section>
-		<section class="card give-bg">
+		<section class="card">
 			<h3>Strategy</h3>
 			<p class="small-like">I lead you out the labyrinth of chaotic marketing and help you open new doors for your audience to walk through.</p>
 			<ul class="list-subgrid">
@@ -78,15 +80,15 @@ navtitle: Home
 <section class="pad-btt-md cap-width">
 	<h2>Who is my work for</h2>
 	<div class="two-by-grid pad-top-md center-contents">
-		<section class="card give-bg">
+		<section class="card">
 			<div>{%- include "_icons/_freelancer.svg" -%}</div>
 			<p><strong>Freelancers and solopreneurs</strong> who value honest communication over growth hacks.</p>
 		</section>
-		<section class="card give-bg">
+		<section class="card">
 			<div>{%- include "_icons/_small-biz.svg" -%}</div>
 			<p><strong>Small businesses and social enterprises</strong> who need top work without the agency markup.</p>
 		</section>
-		<section class="card give-bg">
+		<section class="card">
 			<div>{%- include "_icons/_artist.svg" -%}</div>
 			<p><strong>Makers, artists and creators</strong> who've wasted enough time DIYing their marketing.</p>
 		</section>
@@ -103,7 +105,7 @@ navtitle: Home
 
 <figure class="pad-btt-md separate-above cap-width">
 	<img src="https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_1290,f_auto/dpr_auto/dither_it_Pacioli_g8pabn.webp"
-		width="645" height="363" class="give-bg" alt="folks directory website" loading="lazy" decoding="async" />
+		width="645" height="363" alt="folks directory website" loading="lazy" decoding="async" />
 </figure>
 
 <section class="pad-btt-md cap-width">
@@ -149,18 +151,14 @@ navtitle: Home
 	<a href="/contact/" class="button-like white-button pad-top-sm">Get in touch</a>
 </section>
 
-{% include "_signup-form.njk" %}
-
 {% if collections.blog | length > 0 %}
-<section class="separate-above">
-	{%- include "_blog-showcase.njk" -%}
-</section>
+{%- include "_blog-showcase.njk" -%}
 {% endif %}
 
 <div id="rebrand-modal" class="modal">
 	<div>
 		<p>This site was formerly <b>nevernotready.club</b> and it is now <b>francescoimola.com</b></p>
 		<p>Same work, same person, I'm just finally online under my own name.</p>
-		<button onclick="closeModal()" type="button">Makes sense, lemme in</button>
+		<button onclick="closeModal()" type="button">That's fine, lemme in</button>
 	</div>
 </div>

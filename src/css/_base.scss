@@ -104,19 +104,7 @@ video {
   vertical-align: baseline;
 }
 
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
+
 
 blockquote,
 q {
@@ -280,7 +268,6 @@ html {
   height: 100%;
   scroll-behavior: smooth;
   text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
   overflow: hidden;
   overscroll-behavior-x: none;
 }
@@ -328,7 +315,7 @@ body {
   }
 
   *:focus-visible {
-    outline: $border-width dotted map.get($colors, links);
+    outline: thin dotted map.get($colors, links);
     outline-offset: map.get($spacing, xs);
   }
 }
@@ -480,18 +467,11 @@ img {
   image-rendering: crisp-edges;
 }
 
-img, .give-border, .rounded, .card {
+img, .selected-work-card {
   border-radius: map.get($spacing, xs);
-  border: $border-width solid map.get($colors, text-subtle);
+  border: thin solid map.get($colors, text-subtle);
+  background-color: map.get($colors, bg);
   overflow: clip;
-}
-
-.give-bg {
-  background: map.get($colors, bg);
-}
-
-.give-border {
-  border: $border-width solid map.get($colors, text-subtle);
 }
 
 figure {
@@ -499,7 +479,7 @@ figure {
   width: fit-content;
 
   figcaption {
-    margin-top: calc(map.get($spacing, sm) + $border-width);
+    margin-top: calc(map.get($spacing, sm) + thin);
     text-align: baseline;
   }
 }
