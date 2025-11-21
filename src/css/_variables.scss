@@ -74,6 +74,11 @@ $breakpoints: (
   }
 }
 
+@mixin focus-outline {
+  outline: thin dotted map.get($colors, links);
+  outline-offset: map.get($spacing, xs);
+}
+
 @mixin card-base {
   padding: map.get($spacing, md) map.get($spacing, md) calc(map.get($spacing, md) * $perfect-fourth) map.get($spacing, md);
   border-radius: map.get($spacing, xs);

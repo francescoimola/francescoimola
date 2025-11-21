@@ -46,15 +46,18 @@ header {
   flex-wrap: wrap;
   width: 100%;
   padding-inline: clamp(0.25rem, 2vw, $base-rem);
-  padding-block: clamp(0.5rem, 1.25vh, $base-rem);
-  column-gap: map.get($spacing, xl);
   background: map.get($colors, bg);
   border-top: thin solid map.get($colors, text-more-subtle);
 
-  // Fixed height on mobile for predictable positioning
-  @media only screen and (max-width: map.get($breakpoints, md)) {
-    height: $header-height;
-    padding-block: 0;
+  // Mobile: Fixed height for predictable positioning
+  height: $header-height;
+  padding-block: 0;
+
+  // Larger screens: Auto height with padding
+  @media only screen and (min-width: map.get($breakpoints, md)) {
+    height: auto;
+    padding-block: clamp(0.5rem, 1.25vh, $base-rem);
+    column-gap: map.get($spacing, xl);
   }
 }
 
@@ -71,12 +74,15 @@ nav {
 
   .logo-plus-nav {
     @include flex(row, map.get($spacing, lg));
-    justify-content: flex-start;
     align-items: center;
     width: 100%;
 
-    @media only screen and (max-width: map.get($breakpoints, md)) {
-      justify-content: space-between;
+    // Mobile: Space between logo and menu
+    justify-content: space-between;
+
+    // Larger screens: Flex start
+    @media only screen and (min-width: map.get($breakpoints, md)) {
+      justify-content: flex-start;
     }
   }
 
@@ -93,30 +99,34 @@ nav {
     }
   }
 
-  // Mobile menu hidden by default
+  // Mobile: Show mobile menu, hide desktop nav
   .mobile-menu {
+    display: block;
+    position: relative;
+  }
+
+  .desktop-nav {
     display: none;
   }
 
-  // Show desktop nav by default
-  .desktop-nav {
-    display: flex;
+  .home-link {
+    display: none;
+    visibility: hidden;
   }
 
-  // Mobile breakpoint
-  @media only screen and (max-width: map.get($breakpoints, md)) {
+  // Larger screens: Show desktop nav, hide mobile menu
+  @media only screen and (min-width: map.get($breakpoints, md)) {
     .desktop-nav {
-      display: none;
+      display: flex;
     }
 
     .mobile-menu {
-      display: block;
-      position: relative;
+      display: none;
     }
 
     .home-link {
-      display: none;
-      visibility: hidden;
+      display: block;
+      visibility: visible;
     }
   }
 }
@@ -137,8 +147,7 @@ nav {
     }
 
     &:focus-visible {
-      outline: thin dotted map.get($colors, links);
-      outline-offset: map.get($spacing, xs);
+      @include focus-outline;
     }
 
     &:hover .hamburger span {
@@ -206,8 +215,12 @@ nav {
   flex-wrap: wrap;
   position: relative;
 
-  @media only screen and (max-width: map.get($breakpoints, md)) {
-    margin-bottom: map.get($spacing, xl);
+  // Mobile: Add bottom margin
+  margin-bottom: map.get($spacing, xl);
+
+  // Larger screens: Remove bottom margin
+  @media only screen and (min-width: map.get($breakpoints, md)) {
+    margin-bottom: 0;
   }
 }
 
@@ -221,13 +234,18 @@ nav {
   align-items: flex-end;
   margin-top: map.get($spacing, xs);
 
-  .small-like {
-    margin: 0;
+  // Mobile: Hidden
+  display: none;
+  visibility: hidden;
+
+  // Larger screens: Visible
+  @media only screen and (min-width: calc(map.get($breakpoints, md) * 1.333)) {
+    display: flex;
+    visibility: visible;
   }
 
-  @media only screen and (max-width: calc(map.get($breakpoints, md)*1.333)) {
-    display: none;
-    visibility: hidden;
+  .small-like {
+    margin: 0;
   }
 }
 
@@ -261,38 +279,40 @@ nav {
 
 .service-card {
   @include card-base;
-  @include flex(row, map.get($spacing, 2xl));
+  @include flex(column, map.get($spacing, xs));
   justify-content: space-between;
   align-items: stretch;
-  flex-wrap: nowrap;
   width: 100%;
+  max-width: $container-w;
   padding: 0;
 
-  @media only screen and (max-width: map.get($breakpoints, md)) {
-    flex-direction: column;
-    max-width: $container-w;
-    gap: map.get($spacing, xs);
+  // Larger screens: Row layout
+  @media only screen and (min-width: map.get($breakpoints, md)) {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    max-width: none;
+    gap: map.get($spacing, 2xl);
   }
 
   service-card__header {
-    @include flex(column, map.get($spacing, xl));
+    @include flex(row, map.get($spacing, xl));
     justify-content: space-between;
     align-items: flex-start;
     width: 100%;
     max-height: none;
     padding: map.get($spacing, md);
     background: map.get($colors, links);
-    border-right: thin solid map.get($colors, text-subtle);
+    border-bottom: thin solid map.get($colors, text-subtle);
 
     * {
       color: map.get($colors, bg);
     }
 
-    @media only screen and (max-width: map.get($breakpoints, md)) {
-      border-right: 0 solid transparent;
-      border-bottom: thin solid map.get($colors, text-subtle);
-      flex-direction: row;
-      width: 100%;
+    // Larger screens: Column layout with right border
+    @media only screen and (min-width: map.get($breakpoints, md)) {
+      flex-direction: column;
+      border-right: thin solid map.get($colors, text-subtle);
+      border-bottom: 0 solid transparent;
     }
   }
 

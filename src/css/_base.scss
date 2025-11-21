@@ -104,8 +104,6 @@ video {
   vertical-align: baseline;
 }
 
-
-
 blockquote,
 q {
   quotes: none;
@@ -119,6 +117,10 @@ q {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+aside {
+  display: inline;
 }
 
 // ===================================
@@ -315,8 +317,7 @@ body {
   }
 
   *:focus-visible {
-    outline: thin dotted map.get($colors, links);
-    outline-offset: map.get($spacing, xs);
+    @include focus-outline;
   }
 }
 
