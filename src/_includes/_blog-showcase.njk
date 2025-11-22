@@ -7,8 +7,8 @@
 		<li class="cap-width-sm card ratio-1-1">
 			<article>
 				<h3 style="margin:0;"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
-				{% if post.data.teaser %}<p class="pad-top-sm">{{ post.data.teaser }}</p>
-				<p class="pad-top-sm light">{{ post.date | readableDate }}</p>
+				{% if post.data.teaser %}<small class="pad-top-sm">{{ post.data.teaser }}</small>
+				<small class="pad-top-sm light">{{ post.date | readableDate }}</small>
 				{% endif %}
 			</article>
 		</li>
