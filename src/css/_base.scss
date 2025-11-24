@@ -1,5 +1,5 @@
-@use 'sass:map';
-@use 'variables' as *;
+@use "sass:map";
+@use "variables" as *;
 
 // ===================================
 // BASE STYLES
@@ -13,7 +13,7 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 html,
@@ -96,88 +96,88 @@ time,
 mark,
 audio,
 video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  font-size: 100%;
-  vertical-align: baseline;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	font-size: 100%;
+	vertical-align: baseline;
 }
 
 blockquote,
 q {
-  quotes: none;
+	quotes: none;
 
-  &::before,
-  &::after {
-    content: none;
-  }
+	&::before,
+	&::after {
+		content: none;
+	}
 }
 
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
 aside {
-  display: inline;
+	display: inline;
 }
 
 // ===================================
 // Load Fonts
 // ===================================
 @font-face {
-  font-family: 'Ronzino';
-  src: url('/assets/fonts/Ronzino-Regular.woff2') format('woff2'),
-    url('/assets/fonts/Ronzino-Regular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+	font-family: "Ronzino";
+	src: url("/assets/fonts/Ronzino-Regular.woff2") format("woff2"),
+		url("/assets/fonts/Ronzino-Regular.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
-  font-family: 'Ronzino';
-  src: url('/assets/fonts/Ronzino-Oblique.woff2') format('woff2'),
-    url('/assets/fonts/Ronzino-Oblique.woff') format('woff');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
+	font-family: "Ronzino";
+	src: url("/assets/fonts/Ronzino-Oblique.woff2") format("woff2"),
+		url("/assets/fonts/Ronzino-Oblique.woff") format("woff");
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
 }
 
 @font-face {
-  font-family: 'Ronzino';
-  src: url('/assets/fonts/Ronzino-MediumOblique.woff2') format('woff2'),
-    url('/assets/fonts/Ronzino-MediumOblique.woff') format('woff');
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
+	font-family: "Ronzino";
+	src: url("/assets/fonts/Ronzino-MediumOblique.woff2") format("woff2"),
+		url("/assets/fonts/Ronzino-MediumOblique.woff") format("woff");
+	font-weight: 500;
+	font-style: italic;
+	font-display: swap;
 }
 
 @font-face {
-  font-family: 'Ronzino';
-  src: url('/assets/fonts/Ronzino-Medium.woff2') format('woff2'),
-    url('/assets/fonts/Ronzino-Medium.woff') format('woff');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
+	font-family: "Ronzino";
+	src: url("/assets/fonts/Ronzino-Medium.woff2") format("woff2"),
+		url("/assets/fonts/Ronzino-Medium.woff") format("woff");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
-  font-family: 'Ronzino';
-  src: url('/assets/fonts/Ronzino-BoldOblique.woff2') format('woff2'),
-    url('/assets/fonts/Ronzino-BoldOblique.woff') format('woff');
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
+	font-family: "Ronzino";
+	src: url("/assets/fonts/Ronzino-BoldOblique.woff2") format("woff2"),
+		url("/assets/fonts/Ronzino-BoldOblique.woff") format("woff");
+	font-weight: 700;
+	font-style: italic;
+	font-display: swap;
 }
 
 @font-face {
-  font-family: 'Ronzino';
-  src: url('/assets/fonts/Ronzino-Bold.woff2') format('woff2'),
-    url('/assets/fonts/Ronzino-Bold.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+	font-family: "Ronzino";
+	src: url("/assets/fonts/Ronzino-Bold.woff2") format("woff2"),
+		url("/assets/fonts/Ronzino-Bold.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
 }
 
 // ===================================
@@ -187,69 +187,69 @@ aside {
 // to prevent layout shift when web fonts load
 
 @font-face {
-  font-family: 'Ronzino Fallback';
-  src: local('Arial');
-  font-weight: 400;
-  font-style: normal;
-  ascent-override: 87%;
-  descent-override: 23%;
-  line-gap-override: 0%;
-  size-adjust: 105%;
+	font-family: "Ronzino Fallback";
+	src: local("Arial");
+	font-weight: 400;
+	font-style: normal;
+	ascent-override: 87%;
+	descent-override: 23%;
+	line-gap-override: 0%;
+	size-adjust: 105%;
 }
 
 @font-face {
-  font-family: 'Ronzino Fallback';
-  src: local('Arial');
-  font-weight: 400;
-  font-style: italic;
-  ascent-override: 87%;
-  descent-override: 23%;
-  line-gap-override: 0%;
-  size-adjust: 105%;
+	font-family: "Ronzino Fallback";
+	src: local("Arial");
+	font-weight: 400;
+	font-style: italic;
+	ascent-override: 87%;
+	descent-override: 23%;
+	line-gap-override: 0%;
+	size-adjust: 105%;
 }
 
 @font-face {
-  font-family: 'Ronzino Fallback';
-  src: local('Arial');
-  font-weight: 500;
-  font-style: normal;
-  ascent-override: 86%;
-  descent-override: 24%;
-  line-gap-override: 0%;
-  size-adjust: 106%;
+	font-family: "Ronzino Fallback";
+	src: local("Arial");
+	font-weight: 500;
+	font-style: normal;
+	ascent-override: 86%;
+	descent-override: 24%;
+	line-gap-override: 0%;
+	size-adjust: 106%;
 }
 
 @font-face {
-  font-family: 'Ronzino Fallback';
-  src: local('Arial');
-  font-weight: 500;
-  font-style: italic;
-  ascent-override: 86%;
-  descent-override: 24%;
-  line-gap-override: 0%;
-  size-adjust: 106%;
+	font-family: "Ronzino Fallback";
+	src: local("Arial");
+	font-weight: 500;
+	font-style: italic;
+	ascent-override: 86%;
+	descent-override: 24%;
+	line-gap-override: 0%;
+	size-adjust: 106%;
 }
 
 @font-face {
-  font-family: 'Ronzino Fallback';
-  src: local('Arial Bold');
-  font-weight: 700;
-  font-style: normal;
-  ascent-override: 85%;
-  descent-override: 25%;
-  line-gap-override: 0%;
-  size-adjust: 107%;
+	font-family: "Ronzino Fallback";
+	src: local("Arial Bold");
+	font-weight: 700;
+	font-style: normal;
+	ascent-override: 85%;
+	descent-override: 25%;
+	line-gap-override: 0%;
+	size-adjust: 107%;
 }
 
 @font-face {
-  font-family: 'Ronzino Fallback';
-  src: local('Arial Bold');
-  font-weight: 700;
-  font-style: italic;
-  ascent-override: 85%;
-  descent-override: 25%;
-  line-gap-override: 0%;
-  size-adjust: 107%;
+	font-family: "Ronzino Fallback";
+	src: local("Arial Bold");
+	font-weight: 700;
+	font-style: italic;
+	ascent-override: 85%;
+	descent-override: 25%;
+	line-gap-override: 0%;
+	size-adjust: 107%;
 }
 
 // ===================================
@@ -257,68 +257,68 @@ aside {
 // ===================================
 
 :root {
-  font-family: Ronzino, 'Ronzino Fallback', Arial, sans-serif;
+	font-family: Ronzino, "Ronzino Fallback", Arial, sans-serif;
 }
 
 html,
 body {
-  overflow-x: hidden;
+	overflow-x: hidden;
 }
 
 html {
-  font-size: 100%;
-  height: 100%;
-  scroll-behavior: smooth;
-  text-size-adjust: 100%;
-  overflow: hidden;
-  overscroll-behavior-x: none;
+	font-size: 100%;
+	height: 100%;
+	scroll-behavior: smooth;
+	text-size-adjust: 100%;
+	overflow: hidden;
+	overscroll-behavior-x: none;
 }
 
 body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  font-size: $font-base;
-  font-weight: 400;
-  line-height: $lh-base;
-  letter-spacing: $letter-spacing-base;
-  color: map.get($colors, text);
-  background: map.get($colors, bg-translucent);
-  text-rendering: optimizeLegibility;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	font-size: $font-base;
+	font-weight: 400;
+	line-height: $lh-base;
+	letter-spacing: $letter-spacing-base;
+	color: map.get($colors, text);
+	background: map.get($colors, bg-translucent);
+	text-rendering: optimizeLegibility;
 
-  @supports (text-wrap: avoid-short-last-lines) {
-    text-wrap: avoid-short-last-lines;
-  }
+	@supports (text-wrap: avoid-short-last-lines) {
+		text-wrap: avoid-short-last-lines;
+	}
 
-  @supports not (text-wrap: avoid-short-last-lines) {
-    text-wrap: pretty;
-  }
+	@supports not (text-wrap: avoid-short-last-lines) {
+		text-wrap: pretty;
+	}
 
-  // Webkit scrollbar styling (Safari, Chrome)
-  &::-webkit-scrollbar {
-    width: $unit;
-  }
+	// Webkit scrollbar styling (Safari, Chrome)
+	&::-webkit-scrollbar {
+		width: $unit;
+	}
 
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
+	&::-webkit-scrollbar-track {
+		background: transparent;
+	}
 
-  &::-webkit-scrollbar-thumb {
-    background: map.get($colors, text-subtle);
-  }
+	&::-webkit-scrollbar-thumb {
+		background: map.get($colors, text-subtle);
+	}
 
-  // Standard scrollbar styling (Firefox) - only applied where supported
-  @supports (scrollbar-color: auto) {
-    scrollbar-width: auto;
-    scrollbar-color: map.get($colors, text-subtle) transparent;
-  }
+	// Standard scrollbar styling (Firefox) - only applied where supported
+	@supports (scrollbar-color: auto) {
+		scrollbar-width: auto;
+		scrollbar-color: map.get($colors, text-subtle) transparent;
+	}
 
-  *:focus-visible {
-    @include focus-outline;
-  }
+	*:focus-visible {
+		@include focus-outline;
+	}
 }
 
 // ===================================
@@ -331,76 +331,83 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0 0 map.get($spacing, sm) 0;
-  font-weight: 500;
-  font-size: $font-base;
-  letter-spacing: $letter-spacing-base;
-  line-height: $lh-base;
-  color: map.get($colors, text);
+	margin: 0 0 map.get($spacing, sm) 0;
+	font-weight: 500;
+	font-size: $font-base;
+	letter-spacing: $letter-spacing-base;
+	line-height: $lh-base;
+	color: map.get($colors, text);
 }
 
-h1, .as-h1 {
-  font-size: $font-xl;
-  font-weight: 700;
-  letter-spacing: $letter-spacing-xl;
-  line-height: $lh-packed;
-  margin: 0;
+h1,
+.as-h1 {
+	font-size: $font-xl;
+	font-weight: 700;
+	letter-spacing: $letter-spacing-xl;
+	line-height: $lh-packed;
+	margin: 0;
 }
 
 p {
-  margin: 0 0 calc(map.get($spacing, sm) *$perfect-fourth) 0;
-  color: map.get($colors, text-subtle);
-  text-rendering: optimizeSpeed;
+	margin: 0 0 calc(map.get($spacing, sm) * $perfect-fourth) 0;
+	color: map.get($colors, text-subtle);
+	text-rendering: optimizeSpeed;
 
-  &:last-child {
-    margin-bottom: 0;
-  }
+	&:last-child {
+		margin-bottom: 0;
+	}
 }
 
 h3 {
-  font-size: $font-base;
+	font-size: $font-base;
 }
 
-small, .small-like {
-  font-size: $font-sm;
-  display: block;
+small,
+.small-like {
+	font-size: $font-sm;
+	display: block;
 }
 
-sup{
-  font-size: $font-sm;
-  color: map.get($colors, text-more-subtle);
-  font-weight: normal;
-  vertical-align: super;
+sup {
+	font-size: $font-sm;
+	color: map.get($colors, text-more-subtle);
+	font-weight: 400;
+	vertical-align: super;
 }
 
 a {
-  width: fit-content;
-  color: currentColor;
-  text-decoration: 1px underline;
-  text-underline-offset: map.get($spacing, xs);
+	width: fit-content;
+	color: currentColor;
+	text-decoration: 1px underline;
+	text-underline-offset: map.get($spacing, xs);
 
-  &:hover,
-  &:focus-visible,
-  &.active:hover,
-  &.active:focus-visible {
-    color: map.get($colors, links);
-    text-decoration-color: map.get($colors, links);
-  }
+	&:hover,
+	&:focus-visible,
+	&.active:hover,
+	&.active:focus-visible {
+		color: map.get($colors, links);
+		text-decoration-color: map.get($colors, links);
+	}
 
-  &:active {
-    opacity: 0.8;
-  }
+	&:active {
+		opacity: 0.8;
+	}
 
-  h2 {
-    color: inherit;
-  }
-
+	h2 {
+		color: inherit;
+	}
 }
 
 mark {
-  background: linear-gradient(-100deg, hsla(129,45%,80%,.3), hsla(129,45%,80%,.7) 95%, hsla(129,45%,80%,.1));
-  border-radius: map.get($spacing, xs) 0;
-  padding: map.get($spacing, xs);
+	background: linear-gradient(
+		-100deg,
+		hsla(129, 45%, 80%, 0.3),
+		hsla(129, 45%, 80%, 0.7) 95%,
+		hsla(129, 45%, 80%, 0.1)
+	);
+	border-radius: map.get($spacing, xs) 0;
+	corner-shape: squircle;
+	padding: map.get($spacing, xs);
 }
 
 // ===================================
@@ -408,50 +415,65 @@ mark {
 // ===================================
 
 .skip-link {
-  position: absolute;
-  top: calc(map.get($spacing, sm) * -10);
-  left: 45%;
-  right: auto;
-  background: map.get($colors, text-subtle);
-  color: map.get($colors, bg);
-  padding: map.get($spacing, sm) map.get($spacing, md);
-  text-decoration: none;
-  z-index: 10000;
-  border-radius: map.get($spacing, sm);
-  transition: all 0.25s ease-in-out;
+	position: absolute;
+	top: calc(map.get($spacing, sm) * -10);
+	left: 45%;
+	right: auto;
+	background: map.get($colors, text-subtle);
+	color: map.get($colors, bg);
+	padding: map.get($spacing, sm) map.get($spacing, md);
+	text-decoration: none;
+	z-index: 10000;
+	border-radius: map.get($spacing, sm);
+	corner-shape: squircle;
+	outline: 1px solid transparent;
+	transition: top $base-transition, color $base-transition, outline-color $base-transition;
 
-  &:focus {
-    top: map.get($spacing, lg);
-    color: map.get($colors, bg);
-    outline: 1px solid map.get($colors, links);
-  }
+	&:focus {
+		top: map.get($spacing, lg);
+		color: map.get($colors, bg);
+		outline-color: map.get($colors, links);
+	}
 }
 
 i {
-  font-style: italic;
-  font-weight: inherit;
+	font-style: italic;
+	font-weight: inherit;
 }
 
-b, strong {
-  font-weight: 500;
+b,
+strong {
+	font-weight: 500;
 }
 
-ul, ol {
-  margin: 0 0 0 map.get($spacing, md);
-  padding: 0;
-  color: map.get($colors, text-subtle);
+ul,
+ol {
+	margin: 0 0 0 map.get($spacing, md);
+	padding: 0;
+	color: map.get($colors, text-subtle);
+	@include flex(column, map.get($spacing, sm));
+	width: 100%;
+	justify-content: flex-start;
+	align-content: start;
+	flex-wrap: nowrap;
+	padding-left: map.get($spacing, sm);
+	padding-right: calc($base-rem + map.get($spacing, sm));
 }
 
 ol {
-  list-style: decimal;
-  padding-left: map.get($spacing, xs);
+	list-style: decimal;
+	padding-left: map.get($spacing, xs);
 }
 
 li {
-  margin: 0;
-  line-height: normal;
-  display: list-item;
-  margin-bottom: map.get($spacing, sm);
+	margin: 0;
+	line-height: normal;
+	display: list-item;
+	margin-bottom: map.get($spacing, sm);
+
+	&:only-child {
+		margin-bottom: 0;
+	}
 }
 
 // ===================================
@@ -460,37 +482,61 @@ li {
 
 svg,
 img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  fill: map.get($colors, text);
-  image-rendering: webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+	display: block;
+	max-width: 100%;
+	height: auto;
+	fill: map.get($colors, text);
+	image-rendering: webkit-optimize-contrast;
+	image-rendering: crisp-edges;
 }
 
-img, .selected-work-card {
-  border-radius: map.get($spacing, xs);
-  border: thin solid map.get($colors, text-subtle);
-  background-color: map.get($colors, bg);
-  overflow: clip;
+img,
+.selected-work-card {
+	border-radius: map.get($spacing, xs);
+	border: thin solid map.get($colors, text-subtle);
+	background-color: map.get($colors, bg);
+	overflow: clip;
 }
 
 figure {
-  @include flex(column, map.get($spacing, sm));
-  width: fit-content;
+	display: grid;
+	width: fit-content;
+	z-index: 1;
 
-  figcaption {
-    margin-top: calc(map.get($spacing, sm) + thin);
-    text-align: baseline;
-  }
+	& > * {
+		grid-column: 1;
+		grid-row: 1;
+	}
+
+	figcaption {
+		z-index: 2;
+		width: max-content;
+		height: max-content;
+		place-self: end end;
+		color: map.get($colors, bg);
+		text-shadow: 0.125rem 0.0625rem 0.25rem map.get($colors, text);
+		margin: 0 map.get($spacing, sm) map.get($spacing, xs) 0;
+
+		a {
+			text-underline-offset: initial;
+
+			&:hover,
+			&:focus-visible,
+			&.active:hover,
+			&.active:focus-visible {
+				color: map.get($colors, bg-translucent);
+				text-decoration-color: map.get($colors, links-subtle);
+			}
+		}
+	}
 }
 
-details>summary {
-  gap: map.get($spacing, lg);
+details > summary {
+	gap: map.get($spacing, lg);
 
-  h2 {
-    display: inline;
-  }
+	h2 {
+		display: inline;
+	}
 }
 
 // ===================================
@@ -498,18 +544,18 @@ details>summary {
 // ===================================
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
 
-  html {
-    scroll-behavior: auto !important;
-  }
+	html {
+		scroll-behavior: auto !important;
+	}
 }
 
 // ===================================
@@ -517,14 +563,14 @@ details>summary {
 // ===================================
 
 @media (prefers-contrast: high) {
-  *:focus-visible,
-  *:focus {
-    outline-width: 2px !important;
-    outline-style: solid !important;
-  }
+	*:focus-visible,
+	*:focus {
+		outline-width: 2px !important;
+		outline-style: solid !important;
+	}
 
-  button,
-  .button-like {
-    border-width: 2px !important;
-  }
+	button,
+	.button-like {
+		border-width: 2px !important;
+	}
 }

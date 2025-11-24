@@ -36,10 +36,9 @@ return data.blog.description;
   </div>
 </div>
 
-<ul class="plain-list pad-top-lg pad-btt-md no-list-style">
+<ul class=" pad-top-lg pad-btt-md no-list-style">
   {%- for post in posts | reverse -%}
-  <li class="pad-btt-md">
-    <article class="blog-post-preview">
+  <li role="article" class="pad-btt-md blog-post-preview">
       {% if post.data.image %}
       <a href="{{ post.url | url }}" class="blog-post-preview__image"><img src="{{ post.data.image }}" width="320" height="160"
         {% if post.data.imageAlt %}alt="{{ post.data.imageAlt }}" {% else %}alt="" {% endif %} loading="lazy"
@@ -53,7 +52,6 @@ return data.blog.description;
         {% if post.data.teaser %}
         <p class="blog-post-preview__teaser">{{ post.data.teaser }}</p>{% endif %}
       </div>
-    </article>
   </li>
   {%- endfor -%}
 </ul>

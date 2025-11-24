@@ -1,5 +1,5 @@
-@use 'sass:map';
-@use 'variables' as *;
+@use "sass:map";
+@use "variables" as *;
 
 // ===================================
 // LAYOUT & STRUCTURE
@@ -25,7 +25,8 @@ section {
 }
 
 .page-margins {
-  padding: map.get($spacing, sm) clamp(0.5rem, 2vw, $base-rem) map.get($spacing, md) clamp(0.5rem, 2vw, $base-rem);
+  padding: map.get($spacing, sm) clamp(0.5rem, 2vw, $base-rem)
+    map.get($spacing, md) clamp(0.5rem, 2vw, $base-rem);
   border-top: thin dotted map.get($colors, text-more-subtle);
   border-right: thin dotted map.get($colors, text-more-subtle);
   border-left: thin dotted map.get($colors, text-more-subtle);
@@ -168,13 +169,15 @@ nav {
       height: 2px;
       background: map.get($colors, text);
       will-change: transform, opacity;
-      transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+      transition: transform $base-transition, opacity $base-transition,
+        background $base-transition;
     }
   }
 
   &[open] .hamburger {
     span:first-child {
-      transform: translateY(calc(map.get($spacing, xs) / $golden-ratio + 4px)) rotate(45deg);
+      transform: translateY(calc(map.get($spacing, xs) / $golden-ratio + 4px))
+        rotate(45deg);
     }
 
     span:nth-child(2) {
@@ -182,7 +185,8 @@ nav {
     }
 
     span:last-child {
-      transform: translateY(calc(-1 * (map.get($spacing, xs) / 2 + 1px))) rotate(-45deg);
+      transform: translateY(calc(-1 * (map.get($spacing, xs) / 2 + 1px)))
+        rotate(-45deg);
     }
   }
 
@@ -193,7 +197,8 @@ nav {
     bottom: $header-height;
     background: map.get($colors, bg);
     border-top: thin solid map.get($colors, text-more-subtle);
-    padding: map.get($spacing, md) map.get($spacing, md) map.get($spacing, xl) map.get($spacing, md);
+    padding: map.get($spacing, md) map.get($spacing, md) map.get($spacing, xl)
+      map.get($spacing, md);
     overflow: hidden;
     @include flex(row, map.get($spacing, md));
     justify-content: space-between;
@@ -254,9 +259,9 @@ nav {
   position: relative;
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
-    left: calc(map.get($spacing, 2xl)* -1);
+    left: calc(map.get($spacing, 2xl) * -1);
     bottom: 0;
     width: 150vw;
     border-bottom: thin dotted map.get($colors, text-more-subtle);
@@ -268,9 +273,9 @@ nav {
   position: relative;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
-    left: calc(map.get($spacing, 2xl)* -1);
+    left: calc(map.get($spacing, 2xl) * -1);
     top: 0;
     width: 150vw;
     border-top: thin dotted map.get($colors, text-more-subtle);
@@ -293,33 +298,56 @@ nav {
     max-width: none;
     gap: map.get($spacing, 2xl);
   }
+}
 
-  service-card__header {
-    @include flex(row, map.get($spacing, xl));
-    justify-content: space-between;
-    align-items: flex-start;
+.service-card__header {
+  @include flex(row, map.get($spacing, xl));
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-height: none;
+  padding: map.get($spacing, md);
+  border-bottom: thin solid map.get($colors, text-subtle);
+  overflow: clip;
+  position: relative;
+  background-color: map.get($colors, links);
+
+  &::before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 100%;
-    max-height: none;
-    padding: map.get($spacing, md);
-    background: map.get($colors, links);
-    border-bottom: thin solid map.get($colors, text-subtle);
-
-    * {
-      color: map.get($colors, bg);
-    }
-
-    // Larger screens: Column layout with right border
-    @media only screen and (min-width: map.get($breakpoints, md)) {
-      flex-direction: column;
-      border-right: thin solid map.get($colors, text-subtle);
-      border-bottom: 0 solid transparent;
-    }
+    height: 100%;
+    opacity: 0.4;
+    z-index: 0;
+  background-image: radial-gradient(
+      map.get($colors, bg) 0.45px,
+      transparent 0.45px
+    ),
+    radial-gradient(map.get($colors, bg) 0.45px, map.get($colors, links) 0.45px);
+  background-size: 1.25rem 1.25rem;
+  background-position: 0 0, 0.625rem 0.625rem;
   }
 
-  service-card__body {
-    width: 100%;
-    padding: map.get($spacing, md);
+  * {
+    position: relative;
+    z-index: 1;
+    color: map.get($colors, bg);
   }
+
+  // Larger screens: Column layout with right border
+  @media only screen and (min-width: map.get($breakpoints, md)) {
+    flex-direction: column;
+    border-right: thin solid map.get($colors, text-subtle);
+    border-bottom: 0 solid transparent;
+  }
+}
+
+.service-card__body {
+  width: 100%;
+  padding: map.get($spacing, md);
 }
 
 // ===================================
@@ -341,13 +369,12 @@ footer {
     width: fit-content;
 
     svg {
-      height: calc(map.get($spacing, 2xl)*$perfect-fourth);
+      height: calc(map.get($spacing, 2xl) * $perfect-fourth);
       width: auto;
 
       &.c4c-badge {
-        width: calc(map.get($spacing, 2xl)*$golden-ratio);
+        width: calc(map.get($spacing, 2xl) * $golden-ratio);
       }
     }
-
   }
 }

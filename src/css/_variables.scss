@@ -51,12 +51,15 @@ $colors: (
   yellow: hsl(48, 33%, 66%),
   bg-translucent: color-mix(in srgb, #f9f3f3 94%, #061308),
   bg-more-translucent: color-mix(in srgb, #f6f6f6 87%, #061308),
-  border: color-mix(in srgb, #f9f3f3 75%, #061308),
 );
 
 // Layout
 $container-w: 54ch;
 $header-height: 3rem;
+
+// Transition
+
+$base-transition: 0.2s ease-in-out;
 
 // Breakpoints
 $breakpoints: (
