@@ -9,17 +9,26 @@ noindex: true
 {%- from "_cta.njk" import ctaSection -%}
 <section class="pad-btt-md cap-width">
     <h2>Problems with your website?</h2>
-        <p>
-            Get a <mark>targeted website review</mark> focused on your main concerns, and <mark>1 hour of dedicated consultation time</mark> where I'll discuss findings, answer your questions, and offer recommendations for moving forward.
-        </p>
-    <a href="https://cal.com/francescoimola/website-consultation" class="button-like white-button pad-top-sm"
+        <p>Booking a consultation is the fastest way to get clarity on what's holding your website back and what to do
+        about it. You get a <mark>targeted website review</mark> and <mark>1 hour of dedicated consultation time</mark> to discuss findings, ask
+        questions, and get helpful recommendations.</p>
+    <a href="https://cal.com/francescoimola/website-consultation" class="button-like pad-top-sm"
         target="_blank" rel="noopener noreferrer">Book a consultation</a>
 </section>
 
-<section class="pad-btt-md cap-width separate-above pad-top-md">
+<section class="separate-above cap-width pad-btt-md" aria-label="Trusted by">
+    <h2>Clients who trusted my advice</h2>
+    <div class="logo-grid">
+        <div role="img" class="card" aria-label="Make and Mind">{% include "_icons/_makemind.njk" %}</div>
+        <div role="img" class="card" aria-label="The Collective">{% include "_icons/_thecollective.njk" %}</div>
+        <div role="img" class="card" aria-label="Blueberry">{% include "_icons/_blueberry.njk" %}</div>
+    </div>
+</section>
+
+<section class="pad-btt-md cap-width">
     <h2>What can we cover?</h2>
     <p>Maybe you know what's broken and need validation. Or you sense something isn't working, but don't know
-        what exactly. A consultation gives you clarity on both. These are the areas we'll typically cover:</p>
+        what exactly. A consultation gives you clarity in both cases. These are the areas we'll typically cover:</p>
 
     <div class="two-by-grid pad-top-md">
         <div class="card">
@@ -51,15 +60,6 @@ noindex: true
     </div>
 </section>
 
-<section class="pad-top-md cap-width pad-btt-md" aria-label="Trusted by">
-    <h2>Clients who trusted my advice</h2>
-    <div class="logo-grid">
-        <div role="img" class="card" aria-label="Make and Mind">{% include "_icons/_makemind.njk" %}</div>
-        <div role="img" class="card" aria-label="The Collective">{% include "_icons/_thecollective.njk" %}</div>
-        <div role="img" class="card" aria-label="Blueberry">{% include "_icons/_blueberry.njk" %}</div>
-    </div>
-</section>
-
 <section class="pad-btt-md cap-width pad-top-md">
     <h2>Investment</h2>
     <p>How much would it cost to know exactly where your website is falling short? Or to get guidance that saves you months of trial and error? The insights are hard to price. The consultation isn't.
@@ -67,7 +67,7 @@ noindex: true
     <p><mark>£225</mark></p>
     <p>That's the price I believe is standing between you and a site that's more aligned with your goals. A site that speaks to your people, draws them in, and ensures your name stands out from the rest.
     </p>
-    <a href="https://cal.com/francescoimola/website-consultation" class="button-like white-button pad-top-sm"
+    <a href="https://cal.com/francescoimola/website-consultation" class="button-like pad-top-sm"
         target="_blank" rel="noopener noreferrer">Book now</a>
 </section>
 
@@ -162,8 +162,8 @@ noindex: true
 
 <div class="pad-btt-md">
     {{ ctaSection(
-    "Book a consultation",
-    "Start seeing real improvements. Schedule a consultation to get clarity on what's holding your website back and what to do about it",
+    "Start seeing real improvements",
+    "Book a consultation to finally see what's holding your website back and what to do about it—from quick wins to big-picture improvements.",
     "Book a consultation",
     "",
     "https://cal.com/francescoimola/website-consultation",
