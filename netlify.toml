@@ -21,3 +21,28 @@
   from = "https://www.francescoimola.com/"
   to = "https://francescoimola.com"
   status = 301
+
+# Domain-level redirects from nevernotready.club to francescoimola.com
+[[redirects]]
+  from = "https://www.nevernotready.club/*"
+  to = "https://www.francescoimola.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://nevernotready.club/*"
+  to = "https://francescoimola.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.nevernotready.club/*"
+  to = "https://www.francescoimola.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://nevernotready.club/*"
+  to = "https://francescoimola.com/:splat"
+  status = 301
+  force = true
