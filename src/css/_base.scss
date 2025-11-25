@@ -367,8 +367,11 @@ small,
 .small-like {
 	font-size: $font-sm;
 	display: block;
-	color: map.get($colors, text-subtle);
 	text-rendering: optimizeSpeed;
+
+	&:not(.revert-color){
+		color: map.get($colors, text-subtle);
+	}
 }
 
 sup {
