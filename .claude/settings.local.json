@@ -9,7 +9,8 @@
       "Bash(npm install:*)",
       "Bash(start \"\" \"c:\\Users\\frnim\\Documents\\GitHub\\atlantic-pet\\test-orphan-improved.html\")",
       "Bash(git log:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(curl:*)"
     ],
     "deny": [],
     "ask": []

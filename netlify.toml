@@ -13,13 +13,8 @@
   status = 301
 
 [[redirects]]
-  from = "http://www.francescoimola.com/"
-  to = "https://francescoimola.com"
-  status = 301
-
-[[redirects]]
   from = "https://www.francescoimola.com/"
-  to = "https://francescoimola.com"
+  to = "https://francescoimola.com/"
   status = 301
 
 # Domain-level redirects from nevernotready.club to francescoimola.com

@@ -60,15 +60,15 @@ button,
     }
 
     &:disabled {
-      opacity: 0.6;
+      opacity: 0.8;
       cursor: not-allowed;
       background: map.get($colors, bg);
       color: map.get($colors, text-more-subtle);
-      border-color: map.get($colors, border);
+      border-color: map.get($colors, text-more-subtle);
 
       &:hover,
       &:focus-visible {
-        background: map.get($colors, bg);
+        background: unset;
       }
     }
   }
@@ -265,6 +265,37 @@ hr {
     color: map.get($colors, text-subtle);
   }
 }
+
+.ws-content {
+    @include flex(column, map.get($spacing, sm));
+
+    > aside {
+      width: 100%;
+
+      @media only screen and (min-width: map.get($breakpoints, sm)) {
+        min-width: 33%;
+        margin: 0 2% 1% 0;
+        place-self: safe end;
+      }
+
+      > button:disabled {
+        font-size: $font-sm;
+        cursor: wait;
+      }
+    }
+
+    > img {
+      object-fit: cover;
+
+      @media only screen and (min-width: map.get($breakpoints, base)) {
+        max-width: 71%;
+      }
+    }
+
+    @media only screen and (min-width: map.get($breakpoints, sm)) {
+      flex-direction: row;
+    }
+  }
 
 .image-scroll {
   overscroll-behavior-x: contain;
@@ -506,11 +537,6 @@ form[name="mailinglist"] {
   @include flex(column);
   justify-content: space-between;
   align-items: flex-start;
-}
-
-.cluster {
-  @include flex(row, map.get($spacing, sm));
-  flex-wrap: wrap;
 }
 
 .flex-between,
@@ -991,6 +1017,7 @@ form[name="mailinglist"] {
   &:focus-visible {
     color: map.get($colors, text-more-subtle);
     outline-color: map.get($colors, text-more-subtle);
+    background: transparent;
   }
 
   &:active {
@@ -1198,14 +1225,12 @@ form[name="mailinglist"] {
   grid-template-columns: 1fr 1fr 1fr;
   gap: map.get($spacing, sm);
   place-items: center;
-  width: 100%;
-  max-width: calc(map.get($spacing, 2xl) * 10);
-  margin-inline: auto;
 
   .card {
     padding-bottom: map.get($spacing, md);
     display: flex;
     align-items: center;
+    margin-inline: auto;
     line-height: 1;
   }
 

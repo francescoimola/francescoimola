@@ -348,6 +348,10 @@ h1,
 	margin: 0;
 }
 
+h3 {
+	font-size: $font-base;
+}
+
 p {
 	margin: 0 0 calc(map.get($spacing, sm) * $perfect-fourth) 0;
 	color: map.get($colors, text-subtle);
@@ -358,14 +362,13 @@ p {
 	}
 }
 
-h3 {
-	font-size: $font-base;
-}
 
 small,
 .small-like {
 	font-size: $font-sm;
 	display: block;
+	color: map.get($colors, text-subtle);
+	text-rendering: optimizeSpeed;
 }
 
 sup {
@@ -490,12 +493,15 @@ img {
 	image-rendering: crisp-edges;
 }
 
-img,
-.selected-work-card {
+img, .selected-work-card {
 	border-radius: map.get($spacing, xs);
 	border: thin solid map.get($colors, text-subtle);
 	background-color: map.get($colors, bg);
 	overflow: clip;
+
+	&.noborder {
+		border: revert;
+	}
 }
 
 figure {

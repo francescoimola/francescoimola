@@ -3,7 +3,6 @@ layout: _base.njk
 title: Website consultations
 description: Get feedback on your website in a professional consultation. Find issues, indentify missed opportunities, and get actionable advice.
 permalink: '/consultations/'
-noindex: true
 ---
 
 {%- from "_cta.njk" import ctaSection -%}
@@ -16,16 +15,7 @@ noindex: true
         target="_blank" rel="noopener noreferrer">Book a consultation</a>
 </section>
 
-<section class="separate-above cap-width pad-btt-md" aria-label="Trusted by">
-    <h2>Clients who trusted my advice</h2>
-    <div class="logo-grid">
-        <div role="img" class="card" aria-label="Make and Mind">{% include "_icons/_makemind.njk" %}</div>
-        <div role="img" class="card" aria-label="The Collective">{% include "_icons/_thecollective.njk" %}</div>
-        <div role="img" class="card" aria-label="Blueberry">{% include "_icons/_blueberry.njk" %}</div>
-    </div>
-</section>
-
-<section class="pad-btt-md cap-width">
+<section class="pad-btt-md cap-width separate-above ">
     <h2>What can we cover?</h2>
     <p>Maybe you know what's broken and need validation. Or you sense something isn't working, but don't know
         what exactly. A consultation gives you clarity in both cases. These are the areas we'll typically cover:</p>
@@ -60,7 +50,26 @@ noindex: true
     </div>
 </section>
 
-<section class="pad-btt-md cap-width pad-top-md">
+<section class="cap-width pad-btt-md" aria-label="Trusted by">
+    <h2>People who trusted my advice</h2>
+    <div class="logo-grid">
+        <div role="img" class="card" aria-label="Make and Mind">{% include "_icons/_makemind.njk" %}</div>
+        <div role="img" class="card" aria-label="The Collective">{% include "_icons/_thecollective.njk" %}</div>
+        <div role="img" class="card" aria-label="Blueberry">{% include "_icons/_blueberry.njk" %}</div>
+    </div>
+    <section class="card pad-top-sm">
+        <p class="small-like">"A dream collaborator. Francesco asks the right questions, does his research and presents fantastic options. He's highly organised, strategic, and thinks outside the box."</p>
+        <br>
+        <div class="small-like">
+            <small><strong>Carly Anchal</strong></small>
+            <a href="https://www.linkedin.com/in/carly-anchal-nee-little-3a9b7112" target="_blank"
+                    rel="noopener noreferrer">PR &
+                    Marketing Manager</a>
+        </div>
+    </section>
+</section>
+
+<section class="pad-btt-md cap-width separate-above">
     <h2>Investment</h2>
     <p>How much would it cost to know exactly where your website is falling short? Or to get guidance that saves you months of trial and error? The insights are hard to price. The consultation isn't.
     </p>
@@ -89,18 +98,29 @@ noindex: true
     </ul>
 </section>
 
-<section class="pad-btt-md cap-width">
-    <h2 class="pad-top-md">Other frequently asked questions</h2>
+<div class="pad-btt-md">
+    {{ ctaSection(
+    "Start seeing real improvements",
+    "Book a consultation to finally see what's holding your website back and what to do about it—from quick wins to big-picture improvements.",
+    "Book a consultation",
+    "",
+    "https://cal.com/francescoimola/website-consultation",
+    "https://cal.com/francescoimola/intro"
+    ) }}
+</div>
 
+<section class="pad-btt-md cap-width separate-above">
+    <h2 class="pad-top-md">Consultation FAQs</h2>
     <div class="faq-accordion pad-top-md">
-
         <details class="faq-item">
             <summary class="faq-question">
                 <span class="faq-number">1.</span>
                 <span class="faq-text">Will it be a long process?</span>
             </summary>
             <div class="faq-answer">
-                <p>This is a pretty straightforward website health check for busy people who want answers quickly without unnecessary admin. Besides the actual meeting, I just need 5 minutes of your time to complete a short questionnaire which I'll send to you immediately after booking.</p>
+                <p>This is a pretty straightforward website health check for busy people who want answers quickly
+                    without unnecessary admin. Besides the actual meeting, I just need 5 minutes of your time to
+                    complete a short questionnaire which I'll send to you immediately after booking.</p>
             </div>
         </details>
 
@@ -110,7 +130,8 @@ noindex: true
                 <span class="faq-text">How thorough is the website review?</span>
             </summary>
             <div class="faq-answer">
-                <p>Before the session, I will spend up to 4 hours auditing your website to get a rounded idea of what it is doing well and what needs work. I will focus my review on the area
+                <p>Before the session, I will spend up to 4 hours auditing your website to get a rounded idea of what it
+                    is doing well and what needs work. I will focus my review on the area
                     you told me you're struggling with the most (e.g. SEO, UX, UI, or something else).</p>
             </div>
         </details>
@@ -121,7 +142,10 @@ noindex: true
                 <span class="faq-text">Can you actually answer any question?</span>
             </summary>
             <div class="faq-answer">
-                <p>If we touch upon something that falls outside my expertise, I'll tell you upfront and I can point you toward resources or professionals who can help. For specialized technical questions (about your CMS, front-end stack, AI integrations, Google Ads etc.) I recommend booking with a specialist in that area instead.</p>
+                <p>If we touch upon something that falls outside my expertise, I'll tell you upfront and I can point you
+                    toward resources or professionals who can help. For specialized technical questions (about your CMS,
+                    front-end stack, AI integrations, Google Ads etc.) I recommend booking with a specialist in that
+                    area instead.</p>
             </div>
         </details>
 
@@ -142,7 +166,10 @@ noindex: true
                 <span class="faq-text">Do you guarantee results?</span>
             </summary>
             <div class="faq-answer">
-                    <p>No, and you should be wary of anyone who does. I'll give you honest advice based on my experience and the research I'll do. But since every situation is different, you'll ultimately decide which suggestions make sense for you. Think of it like a consultation with a personal trainer: you're paying for their experience and advice, not a
+                <p>No, and you should be wary of anyone who does. I'll give you honest advice based on my experience and
+                    the research I'll do. But since every situation is different, you'll ultimately decide which
+                    suggestions make sense for you. Think of it like a consultation with a personal trainer: you're
+                    paying for their experience and advice, not a
                     guarantee you'll agree with their fitness plan.</p>
             </div>
         </details>
@@ -152,21 +179,13 @@ noindex: true
                 <span class="faq-text">What if I need to cancel?</span>
             </summary>
             <div class="faq-answer">
-                <p>Life happens. You can cancel free of charge up to 72 hours before the session. After that, no refunds are
-                    available, as I'll have already invested time reviewing your website. If you need to reschedule with less
+                <p>Life happens. You can cancel free of charge up to 72 hours before the session. After that, no refunds
+                    are
+                    available, as I'll have already invested time reviewing your website. If you need to reschedule with
+                    less
                     than 24 hours notice, I'm always happy to find another if my calendar allows.</p>
             </div>
         </details>
     </div>
+    <div class="pad-top-md"><a href="/faqs/">Find answers to more questions</a></div>
 </section>
-
-<div class="pad-btt-md">
-    {{ ctaSection(
-    "Start seeing real improvements",
-    "Book a consultation to finally see what's holding your website back and what to do about it—from quick wins to big-picture improvements.",
-    "Book a consultation",
-    "",
-    "https://cal.com/francescoimola/website-consultation",
-    "https://cal.com/francescoimola/intro"
-    ) }}
-</div>

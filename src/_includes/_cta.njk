@@ -3,7 +3,7 @@
 	<h2>{{ heading }}</h2>
 	<p>{{ description }}</p>
 	<div class="buttons-wrapper pad-top-md">
-		<a href={{ primaryLink | default("href='https://cal.com/francescoimola/intro'") }} class="button-like white-button"
+		<a href={{ primaryLink | default("https://cal.com/francescoimola/intro") }} class="button-like white-button"
 			type="button" target="_blank" rel="noopener noreferrer">{{ primaryButtonText }}</a>
 		{%- if secondaryButtonText !== false %}
 		<a href={{ secondaryLink | default("mailto:hi@francescoimola.com") }} target="_blank" rel="noopener noreferrer">{{ secondaryButtonText | default("Copy
