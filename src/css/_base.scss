@@ -352,7 +352,11 @@ h3 {
 	font-size: $font-base;
 }
 
-p {
+p, .as-p {
+	font-size: inherit;
+	font-weight: inherit;
+	letter-spacing: inherit;
+	line-height: inherit;
 	margin: 0 0 calc(map.get($spacing, sm) * $perfect-fourth) 0;
 	color: map.get($colors, text-subtle);
 	text-rendering: optimizeSpeed;
