@@ -268,6 +268,7 @@ hr {
 
 .ws-content {
     @include flex(column, map.get($spacing, sm));
+    row-gap: $base-rem;
 
     > aside {
       width: 100%;
@@ -637,7 +638,9 @@ form[name="mailinglist"] {
   place-items: start;
 
   .span-2 {
-    grid-column: 1 / span 2;
+    @media only screen and (min-width: map.get($breakpoints, sm)) {
+      grid-column: 1 / span 2;
+    }
   }
 
   &.footer-links-wrapper {
@@ -771,7 +774,7 @@ form[name="mailinglist"] {
   display: grid;
   grid-template-columns: 3fr 1fr;
   gap: map.get($spacing, md);
-  padding: map.get($spacing, sm);
+  padding: map.get($spacing, xs);
   border-bottom: thin dashed map.get($colors, text-more-subtle);
   align-items: center;
 

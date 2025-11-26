@@ -289,12 +289,17 @@ body {
 	background: map.get($colors, bg-translucent);
 	text-rendering: optimizeLegibility;
 
-	@supports (text-wrap: avoid-short-last-lines) {
-		text-wrap: avoid-short-last-lines;
-	}
+	// Only apply text-wrap on desktop browsers with precise pointers (mouse/trackpad)
+	@media (hover: hover) and (pointer: fine) and (min-width: 600px) {
+		@supports (text-wrap: avoid-short-last-lines) {
+			text-wrap: avoid-short-last-lines;
+		}
 
-	@supports not (text-wrap: avoid-short-last-lines) {
-		text-wrap: pretty;
+		@supports not (text-wrap: avoid-short-last-lines) {
+			@supports (text-wrap: pretty) {
+				text-wrap: pretty;
+			}
+		}
 	}
 
 	// Webkit scrollbar styling (Safari, Chrome)
