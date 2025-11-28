@@ -2,6 +2,10 @@
   command = "npm run build"
   publish = "public"
 
+# ============================================================================
+# SPECIFIC PATH REDIRECTS (must come first)
+# ============================================================================
+
 [[redirects]]
   from = "/on-inner-desires"
   to = "/playground/on-inner-desires/"
@@ -12,15 +16,13 @@
   to = "/"
   status = 301
 
-[[redirects]]
-  from = "https://www.francescoimola.com/"
-  to = "https://francescoimola.com/"
-  status = 301
+# ============================================================================
+# EXTERNAL DOMAIN REDIRECTS - nevernotready.club to francescoimola.com
+# ============================================================================
 
-# Domain-level redirects from nevernotready.club to francescoimola.com
 [[redirects]]
   from = "https://www.nevernotready.club/*"
-  to = "https://www.francescoimola.com/:splat"
+  to = "https://francescoimola.com/:splat"
   status = 301
   force = true
 
@@ -32,12 +34,35 @@
 
 [[redirects]]
   from = "http://www.nevernotready.club/*"
-  to = "https://www.francescoimola.com/:splat"
+  to = "https://francescoimola.com/:splat"
   status = 301
   force = true
 
 [[redirects]]
   from = "http://nevernotready.club/*"
+  to = "https://francescoimola.com/:splat"
+  status = 301
+  force = true
+
+# ============================================================================
+# PRIMARY DOMAIN NORMALIZATION - francescoimola.com
+# All variations → https://francescoimola.com (canonical)
+# ============================================================================
+
+[[redirects]]
+  from = "http://www.francescoimola.com/*"
+  to = "https://francescoimola.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://francescoimola.com/*"
+  to = "https://francescoimola.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.francescoimola.com/*"
   to = "https://francescoimola.com/:splat"
   status = 301
   force = true
