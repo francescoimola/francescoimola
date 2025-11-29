@@ -120,9 +120,9 @@ hr {
   height: 100%;
   width: 100%;
 
-  &.ratio21 {
+  &.blog-card {
     width: 100%;
-    height: min-content;
+    height: max-content;
     aspect-ratio: 2/1;
     display: flex;
     flex-direction: column;
@@ -689,11 +689,6 @@ form[name="mailinglist"] {
   // Larger screens: Two column layout, reset typography
   @media only screen and (min-width: map.get($breakpoints, base)) {
     grid-template-columns: minmax(min(300px, 100%), 1fr) minmax(0, 2fr);
-
-    h2 {
-      font-size: initial;
-      letter-spacing: initial;
-    }
   }
 
   a {

@@ -141,10 +141,12 @@ nav {
   border: thin dotted map.get($colors, text-subtle);
   border-radius: map.get($spacing, xs);
   background-color: map.get($colors, bg);
+  user-select: none;
+  cursor: crosshair;
 
   & > * {
     display: inline-block;
-    animation: marquee 20s linear infinite;
+    animation: marquee 18s linear infinite;
     color: map.get($colors, links);
   }
 

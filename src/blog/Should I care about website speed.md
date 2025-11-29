@@ -52,11 +52,11 @@ In 2023, [Adobe improved its page speed from 7.2 seconds to 3.4 seconds](https:/
 
 Beyond SEO and user experience, speed also affects energy consumption.
 
-The internet produces about 3-4% of global carbon emissions, roughly the same as the airline industry. Your website contributes to this. Every time someone visits your site, servers wake up, data travels through miles of undersea cables, and devices use energy to display your content. And that's before we even talk about AI's growing footprint <sup>2</sup>, which deserves its own article.
+The internet produces about 3-4% of global carbon emissions, roughly the same as the airline industry. Your website contributes to this. Every time someone visits your site, servers wake up, data travels through miles of undersea cables, and devices use energy to display your content. "Globally, the average web page produces approximately 0.36 grams CO2 equivalent per pageview. For a website with 10,000 monthly page views, that's 43 kg CO2e per year." — [Website Carbon™ Calculator](https://www.websitecarbon.com/)
 
-"Globally, the average web page produces approximately 0.36 grams CO2 equivalent per pageview. For a website with 10,000 monthly page views, that's 43 kg CO2e per year." — [Website Carbon™ Calculator](https://www.websitecarbon.com/)
+But let's not forget context. The concept of a website footprint is borred from that of an individual's "carboon footprint", which was popularised by BP in the early 2000s. That's a fossil fuel giant who invented a convenient metric in their attempt to shift the blame onto consumers. That said, the majority of the internet's environmental impact today comes from data centres, cryptocurrency mining, and the AI boom. Your portfolio website with a contact form and a few case studies, put into perspective, is a rounding error.
 
-Sounds tiny? Think of it as the equivalent of CO2e that one mature tree absorbs from the atmosphere in 716 days, or roughly two years.
+But what's interesting is that the stuff that makes a website hungry for energy—think large images, excessive scripts, unnecessary requests to servers—are the exact same things that make it slow and frustrating to use. So if you're already optimising for speed and user experience (which you should be), the environmental benefit comes bundled in. For all that matters, it's less about shouldering responsibility that belongs elsewhere and more about recognising that fast websites and lower energy consumption happen to be on the same side of the coin.
 
 ## How to check how fast your website is
 
@@ -123,7 +123,7 @@ That's why it's always a good idea to continuously monitor and iterate. Because 
 
 ### Where to learn more
 
-This blog post is just scratching the surface. If I got you curious to learn more about page speed, that already means a lot to me. 
+This blog post is just scratching the surface. If I got you curious to learn more about page speed, that's already amazing. 
 
 For more information, check out these in-depth resources:
 
