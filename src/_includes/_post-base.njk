@@ -31,7 +31,12 @@
 			{% if image %}
 			<img src="{{ image }}" width="645" height="323" {% if imageAlt %}alt="{{ imageAlt }}"{% else %}alt=""{% endif %} loading="lazy" decoding="async" />
 			{% endif %}
-			<section class="pad-top-lg cap-width post-content">{{ content | safe }}</section>
+			<section class="pad-top-lg cap-width post-content">
+				{{ content | safe }}
+
+				{# Social share links #}
+				{% include "_social-share.njk" %}
+			</section>
 	</main>
 
 	{%- include "_footer.njk" -%}

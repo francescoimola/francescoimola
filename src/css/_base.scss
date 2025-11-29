@@ -272,6 +272,7 @@ html {
 	text-size-adjust: 100%;
 	overflow: hidden;
 	overscroll-behavior-x: none;
+	color: map.get($colors, text);
 }
 
 body {
@@ -285,7 +286,6 @@ body {
 	font-weight: 400;
 	line-height: $lh-base;
 	letter-spacing: $letter-spacing-base;
-	color: map.get($colors, text);
 	background: map.get($colors, bg-translucent);
 	text-rendering: optimizeLegibility;
 
@@ -391,7 +391,6 @@ sup {
 }
 
 a {
-	width: fit-content;
 	color: currentColor;
 	text-decoration: 1px underline;
 	text-underline-offset: map.get($spacing, xs);

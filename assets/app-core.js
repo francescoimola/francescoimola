@@ -35,13 +35,6 @@
 
   // Dynamic feature loading based on DOM elements
   function loadFeatures() {
-    // Load modal functionality if modal exists
-    if (document.getElementById('rebrand-modal')) {
-      import('./app-modal.js').catch(err => {
-        console.error('Failed to load modal module:', err);
-      });
-    }
-
     // Load carousel functionality if carousel exists
     if (document.querySelector('.testimonial-carousel')) {
       import('./app-carousel.js').catch(err => {

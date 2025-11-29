@@ -7,7 +7,7 @@
   "scripts": {
     "start": "npx @11ty/eleventy --serve",
     "build": "npx @11ty/eleventy && npm run minify:js",
-    "minify:js": "terser assets/app-core.js -o public/assets/app-core.js -c -m && terser assets/app-modal.js -o public/assets/app-modal.js -c -m"
+    "minify:js": "terser assets/app-core.js -o public/assets/app-core.js -c -m"
   },
   "repository": {
     "type": "git",

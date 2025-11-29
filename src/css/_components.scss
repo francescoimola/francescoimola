@@ -63,7 +63,7 @@ button,
       opacity: 0.8;
       cursor: not-allowed;
       background: map.get($colors, bg);
-      color: map.get($colors, text-more-subtle);
+      color: map.get($colors, text-subtle);
       border-color: map.get($colors, text-more-subtle);
 
       &:hover,
@@ -426,7 +426,6 @@ form[name="mailinglist"] {
   .small-like,
   .small-like a {
     display: inline;
-    line-height: 0%;
   }
 
   input,
@@ -443,7 +442,7 @@ form[name="mailinglist"] {
     }
 
     &::placeholder {
-      color: map.get($colors, text-more-subtle);
+      color: map.get($colors, text-subtle);
     }
 
     &:focus {
@@ -631,6 +630,12 @@ form[name="mailinglist"] {
   }
 }
 
+.social-links {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
 .two-by-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
@@ -803,37 +808,6 @@ form[name="mailinglist"] {
   }
 }
 
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  align-items: center;
-  justify-content: center;
-  padding-inline: map.get($spacing, sm);
-
-  & > div {
-    @include card-base;
-    @include flex(column, map.get($spacing, sm));
-    justify-content: center;
-    align-items: center;
-    border-color: map.get($colors, text);
-    border-radius: map.get($spacing, sm);
-    text-align: center;
-    max-width: calc($container-w / 1.618);
-
-    p {
-      margin: 0;
-      color: map.get($colors, text-subtle);
-    }
-
-    p:last-of-type {
-      margin-bottom: map.get($spacing, md);
-    }
-  }
-}
-
 .selected-work-card {
   background: map.get($colors, bg);
 
@@ -847,7 +821,7 @@ form[name="mailinglist"] {
 
   .flex-between {
     padding: map.get($spacing, md);
-    border-top: thin solid map.get($colors, text);
+    border-top: thin solid map.get($colors, text-subtle);
   }
 
   h2,
@@ -910,7 +884,7 @@ form[name="mailinglist"] {
 }
 
 .service-icon {
-  display: inline-block;
+  display: inline;
   width: clamp(
     map.get($spacing, xl),
     12vw,
@@ -1139,7 +1113,7 @@ form[name="mailinglist"] {
 }
 
 .faq-item {
-  border: thin solid map.get($colors, text);
+  border: thin solid map.get($colors, text-subtle);
   border-radius: map.get($spacing, xs);
   background: map.get($colors, bg);
   transition: border-color $base-transition;

@@ -27,9 +27,9 @@ section {
 .page-margins {
   padding: map.get($spacing, sm) clamp(0.5rem, 2vw, $base-rem)
     map.get($spacing, md) clamp(0.5rem, 2vw, $base-rem);
-  border-top: thin dotted map.get($colors, text-more-subtle);
-  border-right: thin dotted map.get($colors, text-more-subtle);
-  border-left: thin dotted map.get($colors, text-more-subtle);
+  border-top: thin dotted map.get($colors, text-subtle);
+  border-right: thin dotted map.get($colors, text-subtle);
+  border-left: thin dotted map.get($colors, text-subtle);
 }
 
 // ===================================
@@ -48,7 +48,7 @@ header {
   width: 100%;
   padding-inline: clamp(0.25rem, 2vw, $base-rem);
   background: map.get($colors, bg);
-  border-top: thin solid map.get($colors, text-more-subtle);
+  border-top: thin solid map.get($colors, text-subtle);
 
   // Mobile: Fixed height for predictable positioning
   height: $header-height;
@@ -132,6 +132,37 @@ nav {
   }
 }
 
+#marquee {
+  display: block;
+  width: 100%;
+  height: max-content;
+  overflow: hidden; /* Hide content outside the container */
+  white-space: nowrap;
+  border: thin dotted map.get($colors, text-subtle);
+  border-radius: map.get($spacing, xs);
+  background-color: map.get($colors, bg);
+
+  & > * {
+    display: inline-block;
+    animation: marquee 20s linear infinite;
+    color: map.get($colors, links);
+  }
+
+  &:hover > * {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(200%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 // ===================================
 // MOBILE MENU COMPONENTS
 // ===================================
@@ -196,7 +227,7 @@ nav {
     right: 0;
     bottom: $header-height;
     background: map.get($colors, bg);
-    border-top: thin solid map.get($colors, text-more-subtle);
+    border-top: thin solid map.get($colors, text-subtle);
     padding: map.get($spacing, md) map.get($spacing, md) map.get($spacing, xl)
       map.get($spacing, md);
     overflow: hidden;
@@ -264,7 +295,7 @@ nav {
     left: calc(map.get($spacing, 2xl) * -1);
     bottom: 0;
     width: 150vw;
-    border-bottom: thin dotted map.get($colors, text-more-subtle);
+    border-bottom: thin dotted map.get($colors, text-subtle);
   }
 }
 
@@ -278,7 +309,7 @@ nav {
     left: calc(map.get($spacing, 2xl) * -1);
     top: 0;
     width: 150vw;
-    border-top: thin dotted map.get($colors, text-more-subtle);
+    border-top: thin dotted map.get($colors, text-subtle);
   }
 }
 
@@ -313,7 +344,7 @@ nav {
   background-color: map.get($colors, links);
 
   &::before {
-    content: ' ';
+    content: " ";
     display: block;
     position: absolute;
     left: 0;
@@ -322,13 +353,16 @@ nav {
     height: 100%;
     opacity: 0.35;
     z-index: 0;
-  background-image: radial-gradient(
-      map.get($colors, bg) 0.45px,
-      transparent 0.45px
-    ),
-    radial-gradient(map.get($colors, bg) 0.45px, map.get($colors, links) 0.45px);
-  background-size: 1.25rem 1.25rem;
-  background-position: 0 0, 0.625rem 0.625rem;
+    background-image: radial-gradient(
+        map.get($colors, bg) 0.45px,
+        transparent 0.45px
+      ),
+      radial-gradient(
+        map.get($colors, bg) 0.45px,
+        map.get($colors, links) 0.45px
+      );
+    background-size: 1.25rem 1.25rem;
+    background-position: 0 0, 0.625rem 0.625rem;
   }
 
   * {

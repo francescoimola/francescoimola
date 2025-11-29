@@ -71,6 +71,12 @@ module.exports = function (eleventyConfig) {
         .replace(/^-+|-+$/g, '');
     });
 
+    // URL encoding filter for social share links
+    eleventyConfig.addFilter("urlencode", function(str) {
+      if (!str) return '';
+      return encodeURIComponent(String(str));
+    });
+
     // Check if image source is a remote URL
     eleventyConfig.addFilter("isRemoteUrl", function(src) {
       return src && (src.startsWith('http://') || src.startsWith('https://'));
