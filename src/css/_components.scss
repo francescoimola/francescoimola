@@ -749,6 +749,11 @@ form[name="mailinglist"] {
     border-bottom: thin solid map.get($colors, text-subtle);
   }
 
+  h3 {
+    margin-top: map.get($spacing, xl);
+    color: map.get($colors, text-subtle);
+  }
+
   ol li {
     margin-top: map.get($spacing, lg);
   }
