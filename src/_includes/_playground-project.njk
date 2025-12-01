@@ -18,11 +18,8 @@
       {% for image in images %}
         {% set imageName = image.src | split('/') | last | split('.') | first %}
         {% set imageExt = image.src | split('.') | last | lower %}
-        {% set fallbackFormat = 'png' if imageExt == 'png' else 'jpeg' %}
-        <picture>
-          <source type="image/webp" srcset="/assets/images/{{ imageName }}.webp">
-          <img src="/assets/images/{{ imageName }}.{{ fallbackFormat}}" alt="{{ image.alt }}" loading="lazy" decoding="async">
-        </picture>
+        {% set actualExt = 'jpeg' if imageExt == 'jpg' else imageExt %}
+        <img src="/assets/images/{{ imageName }}.{{ actualExt }}" alt="{{ image.alt }}" loading="lazy" decoding="async">
       {% endfor %}
     </figure>
   {% endif %}

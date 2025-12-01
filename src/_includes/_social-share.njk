@@ -5,31 +5,36 @@
 {% set shareText = teaser | urlencode if teaser else title | urlencode %}
 {% set shareUrlEncoded = shareUrl | urlencode %}
 
-<hr>
-<aside>
-  <h3>Share this post</h3>
+<aside class="pad-top-lg separate-above" style="display: inline-block;">
+  <h3>Like this?</h3>
+  <a href="https://notbadnotbad.substack.com/welcome" target="_blank" rel="noopener noreferrer" class="button-like pad-top-sm">→ Subscribe to my Not Bad newsletter for more</a>
+  <h3 class="pad-top-lg">Share this post</h3>
+  <p>If you found this article useful, please share it with your network</p>
   <ul class="no-list-style social-links">
     <li>
       <a href="https://twitter.com/intent/tweet?url={{ shareUrlEncoded }}&text={{ shareTitle }}"
          target="_blank"
          rel="noopener noreferrer"
-         aria-label="Share on X (Twitter)">
-        X (Twitter)
+         aria-label="Share on X (Twitter)"
+         class="button-like white-button">
+        <span style="white-space: nowrap">X (Twitter)</span>
       </a>
     </li>
     <li>
       <a href="https://www.facebook.com/sharer.php?u={{ shareUrlEncoded }}"
          target="_blank"
          rel="noopener noreferrer"
-         aria-label="Share on Facebook">
+         aria-label="Share on Facebook"
+         class="button-like white-button">
         Facebook
       </a>
     </li>
     <li>
-      <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ shareUrlEncoded }}"
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ shareUrlEncoded }}&title={{ shareTitle }}&summary={{ shareText }}&source={{ site.name | urlencode }}"
          target="_blank"
          rel="noopener noreferrer"
-         aria-label="Share on LinkedIn">
+         aria-label="Share on LinkedIn"
+         class="button-like white-button">
         LinkedIn
       </a>
     </li>
@@ -37,7 +42,8 @@
       <a href="https://reddit.com/submit?url={{ shareUrlEncoded }}&title={{ shareTitle }}"
          target="_blank"
          rel="noopener noreferrer"
-         aria-label="Share on Reddit">
+         aria-label="Share on Reddit"
+         class="button-like white-button">
         Reddit
       </a>
     </li>
@@ -45,7 +51,8 @@
       <a href="https://api.whatsapp.com/send?text={{ shareTitle }}%20{{ shareUrlEncoded }}"
          target="_blank"
          rel="noopener noreferrer"
-         aria-label="Share on WhatsApp">
+         aria-label="Share on WhatsApp"
+         class="button-like white-button">
         WhatsApp
       </a>
     </li>
@@ -53,7 +60,8 @@
       <a href="https://mastodon.social/share?text={{ shareTitle }}%20{{ shareUrlEncoded }}"
          target="_blank"
          rel="noopener noreferrer"
-         aria-label="Share on Mastodon">
+         aria-label="Share on Mastodon"
+         class="button-like white-button">
         Mastodon
       </a>
     </li>
@@ -61,7 +69,8 @@
       <a href="https://bsky.app/intent/compose?text={{ shareTitle }}%20{{ shareUrlEncoded }}"
          target="_blank"
          rel="noopener noreferrer"
-         aria-label="Share on Bluesky">
+         aria-label="Share on Bluesky"
+         class="button-like white-button">
         Bluesky
       </a>
     </li>

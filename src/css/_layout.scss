@@ -138,6 +138,7 @@ nav {
   height: max-content;
   overflow: hidden; /* Hide content outside the container */
   white-space: nowrap;
+  text-align: center; /* Center the child when not animating */
   border: thin dotted map.get($colors, text-subtle);
   border-radius: map.get($spacing, xs);
   background-color: map.get($colors, bg);
@@ -146,8 +147,12 @@ nav {
 
   & > * {
     display: inline-block;
-    animation: marquee 18s linear infinite;
     color: map.get($colors, links);
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: marquee 18s linear infinite;
+      padding-left: 100%;
+    }
   }
 
   &:hover > * {
@@ -156,13 +161,8 @@ nav {
 }
 
 @keyframes marquee {
-  0% {
-    transform: translateX(200%);
-  }
-
-  100% {
-    transform: translateX(-100%);
-  }
+  0% { transform: translateX(0); } /* Start off-screen right */
+  100% { transform: translateX(-100%); } /* End off-screen left */
 }
 
 // ===================================

@@ -8,7 +8,7 @@ title: Should I care about website speed?
 date: 2025-11-01
 draft: false
 teaser: Website speed matters. For your SEO, UX, and carbon footprint. Learn how to make websites load faster, show up in more searches, reduce friction in your journey, and keep people coming back.
-image: https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_1290,f_auto/dpr_auto/timothy-dykes-KCjzVioAG6A-unsplash_z0kuee.webp
+image: https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_643,q_auto,f_auto/timothy-dykes-KCjzVioAG6A-unsplash_z0kuee.webp
 imageAlt: a person working on their laptop on a bus
 ---
 
@@ -66,7 +66,7 @@ The easiest way to stop guessing is to test your site, right now. These free too
 - [GTmetrix](https://gtmetrix.com/) shows you detailed performance metrics
 - [Website Carbon Calculator](https://www.websitecarbon.com/) measures your environmental impact
 
-![Screenshot of a GTmetrix Report](https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_1290,f_auto/dpr_auto/GTmetrix-image-audits_ahebil.webp)
+![Screenshot of a GTmetrix Report](https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_1290,f_auto,q_auto/GTmetrix-image-audits_ahebil.webp)
 <small>What a typical report looks like | <a href="https://gtmetrix.com/blog/a-designers-guide-integrating-image-optimization-performance-culture/" target="_blank" rel="noopener noreferrer">Source: GTmetrix</a></small>
 
 If you're scoring below 75/100 or "B" on page speed metrics, don't panic. You're in good company, most sites built with website builders, or that haven't ben optimised at all, score poorly.
@@ -99,11 +99,11 @@ It took me weeks to come to terms with the sacrifices needed, but once I did, I 
 
 Currently, the homepage at francescoimola.com, which is also the longest page on the website, [gets a 100% score](https://pagespeed.web.dev/analysis/https-francescoimola-com/veciq5feip?form_factor=mobile) on Google Page Speed Insights across board. That for both performance, accessibility, best practices and SEO.
 
-![Screenshot of my Page Speed nsights results showing 100% score across all categories](https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_1290,f_auto/dpr_auto/cropped-francescoimola-com_veciq5feip_form_factor_mobile_ctyru4.webp)
+![Screenshot of my Page Speed nsights results showing 100% score across all categories](https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_1290,f_auto,q_auto/cropped-francescoimola-com_veciq5feip_form_factor_mobile_ctyru4.webp)
 
 [It scores a respectable B](https://www.websitecarbon.com/website/francescoimola-com/) from the Website Carbon Calculator, which I could probably improve by moving to a [verified green host](https://app.greenweb.org/directory/), something that's on my to-do list for 2026.
 
-![Screenshot of my "B" score from the Website Carbon Calculator](https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_1290,f_auto/dpr_auto/www.websitecarbon.com_website_francescoimola-com__c1d3ej.webp)
+![Screenshot of my "B" score from the Website Carbon Calculator](https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_1290,f_auto,q_auto/www.websitecarbon.com_website_francescoimola-com__c1d3ej.webp)
 
 I'm not going to lie, I had to go through some big changes to achieve these scores. These affected both the site architecture and its front-end.
 

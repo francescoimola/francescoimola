@@ -1,15 +1,11 @@
 const eleventySass = require("@11tyrocks/eleventy-plugin-sass-lightningcss");
-const pluginDate = require("eleventy-plugin-date");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const markdownIt = require("markdown-it");
-const markdownItAnchor = require("markdown-it-anchor");
 const markdownItAttrs = require("markdown-it-attrs");
-const Image = require("@11ty/eleventy-img");
-const { promisify } = require('util');
-const { readFile } = require('fs');
-const { imageSize } = require('image-size');
-const { JSDOM } = require('jsdom');
-
+const { promisify } = require("util");
+const { readFile } = require("fs");
+const { JSDOM } = require("jsdom");
+const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
 
 module.exports = function (eleventyConfig) {
   if (eleventyConfig === null || eleventyConfig === undefined) {
@@ -18,209 +14,159 @@ module.exports = function (eleventyConfig) {
 
   try {
     let markdownItOptions = {
-    html: true
-    }
-    eleventyConfig.setLibrary("md", markdownIt(markdownItOptions).use(markdownItAnchor).use(markdownItAttrs))
+      html: true,
+    };
+
+    // Custom markdown-it plugin to add eleventy:ignore to remote images
+    const md = markdownIt(markdownItOptions).use(markdownItAttrs);
+
+    // Store original image renderer
+    const defaultImageRender = md.renderer.rules.image || function(tokens, idx, options, env, self) {
+      return self.renderToken(tokens, idx, options);
+    };
+
+    // Override image renderer to add eleventy:ignore to remote URLs
+    md.renderer.rules.image = function(tokens, idx, options, env, self) {
+      const token = tokens[idx];
+      const srcIndex = token.attrIndex('src');
+
+      if (srcIndex >= 0) {
+        const src = token.attrs[srcIndex][1];
+        // If it's a remote URL, add eleventy:ignore
+        if (src.startsWith('http://') || src.startsWith('https://')) {
+          token.attrPush(['eleventy:ignore', '']);
+        }
+      }
+
+      return defaultImageRender(tokens, idx, options, env, self);
+    };
+
+    eleventyConfig.setLibrary("md", md);
     eleventyConfig.addPlugin(eleventySass);
-    eleventyConfig.addPlugin(pluginDate);
     eleventyConfig.addPlugin(pluginRss);
 
+    // Add eleventy:ignore to remote images BEFORE image transform runs
+    eleventyConfig.addTransform("ignoreRemoteImages", (content, outputPath) => {
+      if (outputPath?.endsWith(".html")) {
+        // Add eleventy:ignore to all images with remote URLs (http/https)
+        content = content.replace(
+          /<img\s+([^>]*?)src=["'](https?:\/\/[^"']+)["']([^>]*?)>/gi,
+          (match, before, url, after) => {
+            // Don't add if already has eleventy:ignore
+            if (match.includes("eleventy:ignore")) {
+              return match;
+            }
+            return `<img ${before}src="${url}"${after} eleventy:ignore>`;
+          }
+        );
+      }
+      return content;
+    });
+
+    // eleventy-img transform configuration
+    eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+      // Output image formats
+      formats: ["webp", "jpeg"],
+
+      // Output directory (relative to project root)
+      outputDir: "./public/assets/images",
+
+      // URL path for generated images
+      urlPath: "/assets/images/",
+
+      // Output image widths
+      widths: ["auto"],
+
+      // Optional, attributes assigned on <img> nodes override these values
+      defaultAttributes: {
+        loading: "lazy",
+        decoding: "async",
+      },
+
+      // Custom filename format for local images
+      filenameFormat: function (_id, src, width, format) {
+        const path = require("path");
+        const extension = path.extname(src);
+        const name = path.basename(src, extension);
+        return `${name}-${width}w.${format}`;
+      },
+    });
+
+    // Add lazy loading attributes to all images (including Cloudinary)
+    eleventyConfig.addTransform("lazyImages", (content, outputPath) => {
+      if (outputPath?.endsWith(".html")) {
+        content = content.replace(/<img(?![^>]*\bloading=)([^>]*)>/gi, '<img loading="lazy"$1>');
+        content = content.replace(/<img(?![^>]*\bdecoding=)([^>]*)>/gi, '<img decoding="async"$1>');
+      }
+      return content;
+    });
+
     // Blog categories collection - extracts all unique categories from blog posts
-    eleventyConfig.addCollection("blogCategories", function(collectionApi) {
+    eleventyConfig.addCollection("blogCategories", function (collectionApi) {
       let categories = new Set();
-      let posts = collectionApi.getFilteredByTag('blog');
-      posts.forEach(p => {
+      let posts = collectionApi.getFilteredByTag("blog");
+      posts.forEach((p) => {
         if (p.data.categories) {
-          p.data.categories.forEach(c => categories.add(c));
+          p.data.categories.forEach((c) => categories.add(c));
         }
       });
       return Array.from(categories).sort();
     });
 
-    // Passthrough copy for static assets
-    eleventyConfig.addPassthroughCopy("fonts");
-    eleventyConfig.addPassthroughCopy("assets");
+    // Passthrough copy for static assets (exclude images - handled by plugin)
+    eleventyConfig.addPassthroughCopy("src/assets/favicon");
+    eleventyConfig.addPassthroughCopy("src/assets/fonts");
+    eleventyConfig.addPassthroughCopy("src/assets/*.js");
     eleventyConfig.addPassthroughCopy("src/robots.txt");
 
+    // Readable date filter
+    eleventyConfig.addFilter("readableDate", function (date) {
+      return new Date(date).toLocaleDateString("en-US", {
+        dateStyle: "full",
+      });
+    });
+
     // Add split filter for Nunjucks
-    eleventyConfig.addFilter("split", function(str, separator) {
+    eleventyConfig.addFilter("split", function (str, separator) {
       return str.split(separator);
     });
 
     // Add limit filter for Nunjucks
-    eleventyConfig.addFilter("limit", function(array, limit) {
+    eleventyConfig.addFilter("limit", function (array, limit) {
       return array.slice(0, limit);
     });
 
     // Filter blog posts by category
-    eleventyConfig.addFilter("filterByCategory", function(posts, cat) {
+    eleventyConfig.addFilter("filterByCategory", function (posts, cat) {
       if (!cat) return posts;
       cat = cat.toLowerCase();
-      return posts.filter(p => {
+      return posts.filter((p) => {
         if (!p.data.categories) return false;
-        let cats = p.data.categories.map(s => s.toLowerCase());
+        let cats = p.data.categories.map((s) => s.toLowerCase());
         return cats.includes(cat);
       });
     });
 
     // Slugify filter for URL-safe strings
-    eleventyConfig.addFilter("slugify", function(str) {
+    eleventyConfig.addFilter("slugify", function (str) {
       return str
         .toLowerCase()
-        .replace(/[^a-z0-9]+/g, '-')
-        .replace(/^-+|-+$/g, '');
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
     });
 
     // URL encoding filter for social share links
-    eleventyConfig.addFilter("urlencode", function(str) {
-      if (!str) return '';
+    eleventyConfig.addFilter("urlencode", function (str) {
+      if (!str) return "";
       return encodeURIComponent(String(str));
     });
 
-    // Check if image source is a remote URL
-    eleventyConfig.addFilter("isRemoteUrl", function(src) {
-      return src && (src.startsWith('http://') || src.startsWith('https://'));
-    });
-
-    // Check if local image file exists
-    const fs = require('fs');
-    const path = require('path');
-    eleventyConfig.addFilter("localImageExists", function(imageName, ext) {
-      const webpPath = path.join('./assets/images', `${imageName}.webp`);
-      const fallbackPath = path.join('./assets/images', `${imageName}.${ext}`);
-      return fs.existsSync(webpPath) || fs.existsSync(fallbackPath);
-    });
-
     // Excerpt shortcode
-    eleventyConfig.addShortcode('teaser', post => extractExcerpt(post));
+    eleventyConfig.addShortcode("teaser", (post) => extractExcerpt(post));
 
-    // Image optimization shortcode
-    eleventyConfig.addNunjucksAsyncShortcode("image", async function(src, alt, sizes = "100vw") {
-      try {
-        let metadata = await Image(src, {
-          widths: [400, 800, 1200],
-          formats: ["webp", "jpeg"],
-          outputDir: "./public/img/",
-          urlPath: "/img/",
-          cacheOptions: {
-            duration: "1d",
-            directory: ".cache",
-            removeUrlQueryParams: false,
-          },
-          sharpWebpOptions: {
-            quality: 80,
-          },
-          sharpJpegOptions: {
-            quality: 80,
-          }
-        });
-
-        let imageAttributes = {
-          alt,
-          sizes,
-          loading: "lazy",
-          decoding: "async",
-        };
-
-        return Image.generateHTML(metadata, imageAttributes);
-      } catch (error) {
-        console.error(`Error processing image ${src}:`, error);
-        // Fallback to regular img tag
-        return `<img src="${src}" alt="${alt}" loading="lazy">`;
-      }
-    });
-
-    // Playground project image handler
-    eleventyConfig.addNunjucksAsyncShortcode("playgroundImage", async function(src, alt) {
-      const fs = require('fs');
-      const path = require('path');
-
-      const isRemote = src && (src.startsWith('http://') || src.startsWith('https://'));
-      const imageName = src.split('/').pop().split('.').slice(0, -1).join('.');
-      const imageExt = src.split('.').pop().toLowerCase();
-      const fallbackFormat = imageExt === 'png' ? 'png' : 'jpeg';
-
-      // Check if image exists locally in assets/images
-      const webpPath = path.join('./assets/images', `${imageName}.webp`);
-      const fallbackPath = path.join('./assets/images', `${imageName}.${fallbackFormat}`);
-      const localExists = fs.existsSync(webpPath) || fs.existsSync(fallbackPath);
-
-      // If remote and doesn't exist locally, process it with the image shortcode
-      if (isRemote && !localExists) {
-        try {
-          let metadata = await Image(src, {
-            widths: [400, 800, 1200],
-            formats: ["webp", "jpeg"],
-            outputDir: "./public/img/",
-            urlPath: "/img/",
-            cacheOptions: {
-              duration: "1d",
-              directory: ".cache",
-              removeUrlQueryParams: false,
-            },
-            sharpWebpOptions: {
-              quality: 80,
-            },
-            sharpJpegOptions: {
-              quality: 80,
-            }
-          });
-
-          let imageAttributes = {
-            alt,
-            sizes: "100vw",
-            loading: "lazy",
-            decoding: "async",
-          };
-
-          return Image.generateHTML(metadata, imageAttributes);
-        } catch (error) {
-          console.error(`Error processing remote image ${src}:`, error);
-          // Fallback to regular img tag
-          return `<img src="${src}" alt="${alt}" loading="lazy">`;
-        }
-      } else {
-        // Use existing local images
-        return `<picture>
-          <source type="image/webp" srcset="/assets/images/${imageName}.webp">
-          <img src="/assets/images/${imageName}.${fallbackFormat}" alt="${alt}" loading="lazy" decoding="async">
-        </picture>`;
-      }
-    });
-
-    // Add image dimensions transform
-    eleventyConfig.addTransform("img-dimensions", async function (content, outputPath) {
-      if (!outputPath || !outputPath.endsWith(".html")) return content;
-
-      const dom = new JSDOM(content);
-      const imgs = dom.window.document.querySelectorAll(
-        "img[src]:not([width]):not([height])"
-      );
-
-      if (imgs.length === 0) return content;
-
-      for (const img of imgs) {
-        try {
-          let src = img.getAttribute("src");
-
-          // Skip remote images - only process local images
-          if (src.startsWith("http://") || src.startsWith("https://")) continue;
-
-          let imgPath = src.replace(/^\//, "");
-          let filePath = `./public/${imgPath}`;
-          let buffer = await promisify(readFile)(filePath);
-          let dimensions = imageSize(buffer);
-
-          if (dimensions.width && dimensions.height) {
-            img.setAttribute("width", dimensions.width);
-            img.setAttribute("height", dimensions.height);
-          }
-        } catch (e) {
-          console.log(`Error processing image ${img.getAttribute("src")}: ${e.message}`);
-        }
-      }
-
-      return dom.serialize();
+    // Helper shortcode for Cloudinary/remote images (automatically adds eleventy:ignore)
+    eleventyConfig.addShortcode("remoteImg", function(src, width, height, alt, attrs = "") {
+      return `<img src="${src}" width="${width}" height="${height}" alt="${alt}" ${attrs} eleventy:ignore>`;
     });
 
     return {

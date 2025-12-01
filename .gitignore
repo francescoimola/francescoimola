@@ -5,6 +5,7 @@ node_modules
 public
 .claude
 .vscode
+deno.lock
 
 # Prevent VS Code Live Sass Compiler from cluttering source
 src/css/*.css
@@ -16,6 +17,7 @@ src/css/*.css.map
 # secrets and errors
 .env
 .log
+CLOUDINARY-IMAGES-SETUP.md
 
 # macOS related files
 .DS_Store

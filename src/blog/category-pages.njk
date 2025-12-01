@@ -28,7 +28,7 @@ eleventyComputed:
       {% if post.data.image %}
       <a href="{{ post.url | url }}" class="blog-post-preview__image"><img src="{{ post.data.image }}" width="320" height="160"
           {% if post.data.imageAlt %}alt="{{ post.data.imageAlt }}" {% else %}alt="" {% endif %} loading="lazy"
-          decoding="async" /></a>
+          decoding="async" eleventy:ignore /></a>
       {% endif %}
       <div class="blog-post-preview__content cap-width">
         <div class="blog-post-preview__header">

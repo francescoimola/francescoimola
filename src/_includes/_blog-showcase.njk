@@ -2,13 +2,13 @@
 	<h2 style="margin: 0;">From the blog</h2>
 	<a href="/blog/">See all blog posts</a>
 </div>
-	<ul class="pad-top-lg pad-btt-md no-list-style image-scroll">
-		{%- for post in collections.blog | reverse | limit(3) -%}
-		<li class="cap-width-sm card blog-card">
-				<h3 style="margin:0;"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
-				{% if post.data.teaser %}<small class="blog-post-preview__teaser">{{ post.data.teaser }}</small>
-				<small class="light">{{ post.date | readableDate }}</small>
-				{% endif %}
-		</li>
-		{%- endfor -%}
-	</ul>
+<ul class="pad-top-lg pad-btt-md no-list-style cap-width">
+	{%- for post in collections.blog | reverse | limit(3) -%}
+	<li class="cap-width-sm card blog-card">
+			<h3 style="margin:0;"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
+			{% if post.data.teaser %}<small class="blog-post-preview__teaser">{{ post.data.teaser }}</small>
+			<small class="light">{{ post.date | readableDate }}</small>
+			{% endif %}
+	</li>
+	{%- endfor -%}
+</ul>

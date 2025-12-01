@@ -121,13 +121,11 @@ hr {
   width: 100%;
 
   &.blog-card {
-    width: 100%;
-    height: max-content;
-    aspect-ratio: 2/1;
-    display: flex;
-    flex-direction: column;
+    min-width: 100%;
+    display: grid;
     gap: map.get($spacing, md);
-    justify-content: space-between;
+    grid-template-rows: auto 1fr auto;
+    height: max-content;
   }
 }
 
