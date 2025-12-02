@@ -122,8 +122,11 @@ module.exports = function (eleventyConfig) {
     // Readable date filter
     eleventyConfig.addFilter("readableDate", function (date) {
       return new Date(date).toLocaleDateString("en-US", {
-        dateStyle: "full",
+        month: "short",
+        day: "numeric",
+        year: "numeric",
       });
+      
     });
 
     // Add split filter for Nunjucks

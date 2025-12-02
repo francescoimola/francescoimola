@@ -36,22 +36,23 @@ return data.blog.description;
   </div>
 </div>
 
-<ul class=" pad-top-lg pad-btt-md no-list-style">
+<section class="pad-top-lg pad-btt-md cap-width-lg">
   {%- for post in posts | reverse -%}
-  <li role="article" class="pad-btt-md blog-post-preview">
-      {% if post.data.image %}
-      <a href="{{ post.url | url }}" class="blog-post-preview__image"><img src="{{ post.data.image }}" width="320" height="160"
-        {% if post.data.imageAlt %}alt="{{ post.data.imageAlt }}" {% else %}alt="" {% endif %} loading="lazy"
-          decoding="async" eleventy:ignore /></a>
+  <article class="blog-post-preview">
+    {% if post.data.image %}
+    <a href="{{ post.url | url }}" class="blog-post-preview__image"><img src="{{ post.data.image }}" width="320"
+        height="160" {% if post.data.imageAlt %}alt="{{ post.data.imageAlt }}" {% else %}alt="" {% endif %}
+        loading="lazy" decoding="async" eleventy:ignore /></a>
+    {% endif %}
+
+    <div class="blog-post-preview__content">
+      <h2 class="blog-header"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
+      <small class="blog-date">{{ post.date | readableDate }}</small>
+      {% if post.data.teaser %}
+      <p class="blog-teaser">{{ post.data.teaser }}</p>
       {% endif %}
-      <div class="blog-post-preview__content cap-width">
-        <div class="blog-post-preview__header">
-          <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
-          <small>{{ post.date | readableDate }}</small>
-        </div>
-        {% if post.data.teaser %}
-        <p class="blog-post-preview__teaser">{{ post.data.teaser }}</p>{% endif %}
-      </div>
-  </li>
+
+    </div>
+  </article>
   {%- endfor -%}
-</ul>
+</section>

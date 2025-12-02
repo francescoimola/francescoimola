@@ -342,6 +342,7 @@ h6 {
 	letter-spacing: $letter-spacing-base;
 	line-height: $lh-base;
 	color: map.get($colors, text);
+	text-wrap: balance;
 }
 
 h1,
@@ -450,7 +451,7 @@ mark {
 	}
 }
 
-i {
+i, em {
 	font-style: italic;
 	font-weight: inherit;
 }

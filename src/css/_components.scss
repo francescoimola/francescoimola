@@ -265,36 +265,36 @@ hr {
 }
 
 .ws-content {
-    @include flex(column, map.get($spacing, sm));
-    row-gap: $base-rem;
+  @include flex(column, map.get($spacing, sm));
+  row-gap: $base-rem;
 
-    > aside {
-      width: 100%;
-
-      @media only screen and (min-width: map.get($breakpoints, sm)) {
-        min-width: 33%;
-        margin: 0 2% 1% 0;
-        place-self: safe end;
-      }
-
-      > button:disabled {
-        font-size: $font-sm;
-        cursor: wait;
-      }
-    }
-
-    > img {
-      object-fit: cover;
-
-      @media only screen and (min-width: map.get($breakpoints, base)) {
-        max-width: 71%;
-      }
-    }
+  > aside {
+    width: 100%;
 
     @media only screen and (min-width: map.get($breakpoints, sm)) {
-      flex-direction: row;
+      min-width: 33%;
+      margin: 0 2% 1% 0;
+      place-self: safe end;
+    }
+
+    > button:disabled {
+      font-size: $font-sm;
+      cursor: wait;
     }
   }
+
+  > img {
+    object-fit: cover;
+
+    @media only screen and (min-width: map.get($breakpoints, base)) {
+      max-width: 71%;
+    }
+  }
+
+  @media only screen and (min-width: map.get($breakpoints, sm)) {
+    flex-direction: row;
+  }
+}
 
 .image-scroll {
   overscroll-behavior-x: contain;
@@ -591,6 +591,10 @@ form[name="mailinglist"] {
   max-width: calc($container-w / $golden-ratio);
 }
 
+.cap-width-lg {
+  max-width: calc($container-w * $golden-ratio);
+}
+
 .light {
   color: map.get($colors, text-more-subtle);
 }
@@ -632,16 +636,18 @@ form[name="mailinglist"] {
   display: flex;
   flex-direction: row;
   align-items: baseline;
+  flex-wrap: wrap;
 }
 
 .two-by-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+  grid-template: 1fr / 1fr;
   gap: map.get($spacing, sm);
   place-items: start;
 
-  .span-2 {
-    @media only screen and (min-width: map.get($breakpoints, sm)) {
+  @media only screen and (min-width: map.get($breakpoints, sm)) {
+    grid-template: 1fr 1fr / 1fr 1fr;
+    .span-2 {
       grid-column: 1 / span 2;
     }
   }
@@ -673,70 +679,52 @@ form[name="mailinglist"] {
 
 .blog-post-preview {
   display: grid;
-  gap: clamp(map.get($spacing, sm), 2vw, map.get($spacing, lg));
-  align-items: flex-start;
-
-  // Mobile: Single column, smaller typography
   grid-template-columns: 1fr;
+  gap: map.get($spacing, sm);
+  place-items: stretch;
+  margin-bottom: map.get($spacing, xl);
+
+  @media only screen and (min-width: map.get($breakpoints, base)) {
+    grid-template-columns: 1fr 1fr;
+    gap: map.get($spacing, md);
+    margin-bottom: map.get($spacing, lg);
+  }
+
+  a:focus-visible {
+      @include focus-outline;
+  }
 
   h2 {
     font-size: $font-base;
     letter-spacing: $letter-spacing-base;
   }
-
-  // Larger screens: Two column layout, reset typography
-  @media only screen and (min-width: map.get($breakpoints, base)) {
-    grid-template-columns: minmax(min(300px, 100%), 1fr) minmax(0, 2fr);
-  }
-
-  a {
-    &:focus-visible {
-      @include focus-outline;
-    }
-  }
 }
 
-.blog-post-preview__image {
-  img {
+.blog-post-preview__image img {
     display: block;
     width: 100%;
-    height: auto;
-  }
+    height: 100%;
+    object-fit: cover;
 }
 
 .blog-post-preview__content {
-  @include flex(
-    column,
-    clamp(map.get($spacing, sm), 3vw, map.get($spacing, md))
-  );
-  width: 100%;
+  max-width: $container-w;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: flex-start;
+  gap: map.get($spacing, xs);
 }
 
-.blog-post-preview__header {
-  @include flex(row, map.get($spacing, lg));
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  flex-wrap: wrap;
-
-  // Mobile: Smaller row gap
-  row-gap: calc(map.get($spacing, sm) * $perfect-fourth);
-
-  // Larger screens: Normal row gap
-  @media only screen and (min-width: map.get($breakpoints, base)) {
-    row-gap: map.get($spacing, md);
-  }
-
-  h2 {
-    margin-bottom: 0;
-  }
+h2.blog-header  {
+  margin-bottom: map.get($spacing, xs);
 }
 
-.blog-post-preview__teaser {
+.blog-teaser {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
@@ -744,12 +732,12 @@ form[name="mailinglist"] {
 
 .post-content {
   h2 {
-    margin: map.get($spacing, 2xl) 0 map.get($spacing, md) 0;
+    margin: calc(map.get($spacing, 2xl)* $perfect-fourth) 0 map.get($spacing, md) 0;
     padding-bottom: map.get($spacing, md);
-    border-bottom: thin solid map.get($colors, text-subtle);
+    border-bottom: thin dotted map.get($colors, text-subtle);
   }
 
-  h3 {
+  h3:not(h2 + h3):not(.share-section-header) {
     margin-top: map.get($spacing, xl);
     color: map.get($colors, text-subtle);
   }

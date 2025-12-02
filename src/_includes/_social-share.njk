@@ -5,8 +5,8 @@
 {% set shareText = teaser | urlencode if teaser else title | urlencode %}
 {% set shareUrlEncoded = shareUrl | urlencode %}
 
-<aside class="pad-top-lg separate-above" style="display: inline-block;">
-  <h3>Like this?</h3>
+<aside class="separate-above" style="display: inline-block; margin-top: 5rem;">
+  <h3 class="share-section-header">Like this?</h3>
   <a href="https://notbadnotbad.substack.com/welcome" target="_blank" rel="noopener noreferrer" class="button-like pad-top-sm">→ Subscribe to my Not Bad newsletter for more</a>
   <h3 class="pad-top-lg">Share this post</h3>
   <p>If you found this article useful, please share it with your network</p>
@@ -30,7 +30,7 @@
       </a>
     </li>
     <li>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ shareUrlEncoded }}&title={{ shareTitle }}&summary={{ shareText }}&source={{ site.name | urlencode }}"
+      <a href="https://www.linkedin.com/shareArticle?url={{ shareUrlEncoded }}&title={{ shareTitle }}"
          target="_blank"
          rel="noopener noreferrer"
          aria-label="Share on LinkedIn"
@@ -54,15 +54,6 @@
          aria-label="Share on WhatsApp"
          class="button-like white-button">
         WhatsApp
-      </a>
-    </li>
-    <li>
-      <a href="https://mastodon.social/share?text={{ shareTitle }}%20{{ shareUrlEncoded }}"
-         target="_blank"
-         rel="noopener noreferrer"
-         aria-label="Share on Mastodon"
-         class="button-like white-button">
-        Mastodon
       </a>
     </li>
     <li>

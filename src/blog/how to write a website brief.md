@@ -4,17 +4,14 @@ categories:
 - Web Design
 title: How to write a website brief that gets you what you want
 date: 2025-12-01
-draft: false
 teaser: Get better quotes and timelines. Discover the eight essentials every brief needs, including the one most people skip.
 image: https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_643,q_auto,f_auto,dpr_auto/How_to_write_a_website_brief_oktkpe.webp
 imageAlt: two people having a meeting in a cafe, one is taking notes on a notepad
 ---
 
-Maybe you've already found the right designer or agency partner—at a networking event, through a referral, or stumbling on a portfolio that made you think _yes, this person gets it_. Or maybe you're earlier in the process when you know you need a new site, but you're not sure who to hire yet.
+A clear brief gets you aligned quotes, faster timelines, and a designer or agency partner who actually understands your problem before they start solving it. And if you're shopping around, it lets you compare proposals on equal footing.
 
-Either way, the next logical step is the same, and it's where most people get stuck: writing a brief.
-
-A clear brief gets you aligned quotes, faster timelines, and a partner who actually understands your problem before they start solving it. If you're shopping around, it lets you compare proposals on equal footing. A vague brief gets you three rounds of "that's not quite what I meant", multiplied by however many people you sent it to.
+A vague brief gets you three rounds of "that's not quite what I meant", multiplied by however many people you sent it to.
 
 Here's how to write one that works.
 
@@ -113,7 +110,7 @@ Please, please, please include this. Even a rough range. "Between £5,000 and £
 
 Nobody with an ounce of respect for their craft is trying to squeeze every last drop out of you. The person on the other end is most likely trying to figure out whether they can deliver what you need with the budget and time available. And skipping this step wastes your time too, because you will get proposals you can't afford.
 
----
+<hr class="dotted">
 
 Get these eight key pieces of info right and you're ahead of most.
 
