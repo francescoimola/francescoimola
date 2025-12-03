@@ -506,10 +506,12 @@ img {
 }
 
 img, .selected-work-card {
-	border-radius: map.get($spacing, xs);
-	border: thin solid map.get($colors, text-subtle);
-	background-color: map.get($colors, bg);
-	overflow: clip;
+	&:not(.no-bkg) {
+		overflow: clip;
+		border-radius: map.get($spacing, xs);
+		border: thin solid map.get($colors, text-subtle);
+		background-color: map.get($colors, bg);
+	}
 
 	&.noborder {
 		border: revert;
