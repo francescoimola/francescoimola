@@ -267,31 +267,6 @@ nav {
   }
 }
 
-.simple-column {
-  @include flex;
-  justify-content: flex-start;
-}
-
-.secondary-links {
-  gap: map.get($spacing, sm);
-  align-items: flex-end;
-  margin-top: map.get($spacing, xs);
-
-  // Mobile: Hidden
-  display: none;
-  visibility: hidden;
-
-  // Larger screens: Visible
-  @media only screen and (min-width: calc(map.get($breakpoints, md) * 1.333)) {
-    display: flex;
-    visibility: visible;
-  }
-
-  .small-like {
-    margin: 0;
-  }
-}
-
 .separate-below {
   padding-bottom: map.get($spacing, md);
   position: relative;

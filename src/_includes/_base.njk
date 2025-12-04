@@ -12,7 +12,6 @@
 			{% if page.url != '/' %}
 			<div class="secondary-header pad-btt-lg">
 				<h1>{{ navtitle | default(title) }}</h1>
-				{% include "_links.njk" %}
 			</div>
 			{% endif %}
 			<div id="main-content">{{ content | safe }}</div>
