@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8" />
-  <title>{% if "francesco imola" in (title | lower) %}{{ title }}{% else %}{{ title }} | Francesco Imola{% endif %}</title>
+  <title>{% if "francesco imola" in (title | string | lower) %}{{ title }}{% else %}{{ title }} | Francesco Imola{% endif %}</title>
   {%- include "_meta.njk" -%}
   {%- include "_schema.njk" -%}
 
