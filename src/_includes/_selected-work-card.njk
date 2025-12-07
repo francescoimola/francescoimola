@@ -2,7 +2,7 @@
 <section class="pad-btt-md cap-width selected-work-card rounded">
 	<a href="{{ linkUrl | default('/portfolio/') }}">
 		<img src="{{ image.src | default('https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_1290,f_auto,q_auto/ezgif.com-optipng_pao87g.png') }}"
-				width="{{ image.width | default('436') }}" height="{{ image.height | default('519') }}" alt="{{ image.alt | default('') }}" fetchpriority="{{ image.fetchpriority | default('high') }}"
+				width="{{ image.width | default('436') }}" height="{{ image.height | default('519') }}" alt="project screeenshots stacked like a spread of card" fetchpriority="{{ image.fetchpriority | default('high') }}"
 				decoding="async" eleventy:ignore>
 		<div class="flex-between"><h2>{{ heading }}</h2><arrow-right-icon>→</arrow-right-icon></div>
 	</a>

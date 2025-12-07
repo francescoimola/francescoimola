@@ -2,7 +2,7 @@
 layout: _post-base.njk
 categories:
 - Web Design
-title: How to write a website brief that gets you what you want
+title: How to write a cracking website brief (8 step guide)
 date: 2025-12-01
 teaser: Get better quotes and timelines. Discover the eight essentials every brief needs, including the one most people skip.
 image: https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_643,q_auto,f_auto,dpr_auto/How_to_write_a_website_brief_oktkpe.webp

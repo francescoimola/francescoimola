@@ -2,8 +2,8 @@
 {%- if noindex %}<meta name="robots" content="noindex" />{%- endif %}
 
 <!-- Site description -->
-{%- if description -%}
-<meta name="description" content="{{ description }}" />
+{%- if teaser or description -%}
+<meta name="description" content="{{ teaser | default(description) }}" />
 {%- endif -%}
 
 <!-- Canonical URL -->
@@ -17,6 +17,6 @@
   property="og:url"
   content="{{ site.url }}{{ page.url }}"
 />
-<meta property="og:description" content="{{ description }}" />
+<meta property="og:description" content="{{ teaser | default(description) }}" />
 <meta property="og:type" content="website" />
-<meta property="og:image" content="{{ page.image | default('https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_1200,f_auto,q_auto/Open_Graph_Image_rfqysu.png') }}" />
+<meta property="og:image" content="{{ image | default('https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_1200,f_auto,q_auto/Open_Graph_Image_rfqysu.png') }}" />
