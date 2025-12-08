@@ -71,11 +71,11 @@ If you don't know the answers, say so. "We're with GoDaddy but open to switching
 
 ### 5. Look and feel (with direction)
 
-Rather than asking for something "clean and professional", try to include three to five links to sites you admire. And even better if you took a shares notes on _what_ you like about each.
+Rather than asking for something "clean and professional", try to include three to five links to sites you admire. And even better if you shared notes on _what_ you like about each.
 
-"I like the typography on this one."
-"The navigation here feels intuitive."
-"This site's photography style matches our brand."
+- "I love the font the headings use on this one."
+- "The navigation here feels intuitive."
+- "This site's photography style matches our brand."
 
 If it feels like I'm asking you to do a lot of work here, bear in mind that specifics, however brief, save everyone time... including yours later down the line.
 
@@ -132,10 +132,10 @@ Some clients want weekly video updates. Others prefer near-silence until milesto
 
 ### Too many decision-makers will sink you
 
-Nothing derails a project like conflicting feedback from five people with opinions. I would urge you to aim for no more than three people with final approval. Getting this wrong adds weeks. Mention in the brief who they are, how long you're expecting approvals to take, and (optionally) how to reach each stakeholder. And don't forget to clarify who should the designer contact if they have any questions about the brief itself.
+Nothing derails a project like conflicting feedback from five people with opinions. I would urge you to aim for no more than three people with final approval (getting this wrong adds weeks!). Mention in the brief who they are, how long you're expecting approvals to take, and (optionally) how to reach each stakeholder. And don't forget to clarify who should the designer contact if they have any questions about the brief itself.
 
 ## TLDR
 
-A good brief is an honest map of what you need, what you can spend, and how you work. Not a 20-page specification document or a brochure about how great it'll be to work with you.
+A good brief is not a 20-page brochure about how great it'll be to work with you, but it's an honest map of what you need, what you can spend, and how you like to work. 
 
-Rough edges and approximations are fine, the rest you'll figure out together. That's the point.
+If there are rough edges and approximations, that is 100% fine. As for the rest, you'll figure it out together. Which is the point.

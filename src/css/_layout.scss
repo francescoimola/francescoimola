@@ -296,74 +296,25 @@ nav {
 }
 
 .service-card {
-  @include card-base;
-  @include flex(column, map.get($spacing, xs));
+  @include flex(column, 0);
   justify-content: space-between;
   align-items: stretch;
   width: 100%;
   max-width: $container-w;
-  padding: 0;
+  border-top: thin solid map.get($colors, text-subtle);
+  padding-top: map.get($spacing, md);
+  margin-bottom: map.get($spacing, 2xl);
 
   // Larger screens: Row layout
   @media only screen and (min-width: map.get($breakpoints, md)) {
     flex-direction: row;
     flex-wrap: nowrap;
     max-width: none;
-    gap: map.get($spacing, 2xl);
   }
-}
 
-.service-card__header {
-  @include flex(row, map.get($spacing, xl));
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
-  max-height: none;
-  padding: map.get($spacing, md);
-  border-bottom: thin solid map.get($colors, text-subtle);
-  overflow: clip;
-  position: relative;
-  background-color: map.get($colors, links);
-
-  &::before {
-    content: " ";
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
+  & > h2, & > div {
     width: 100%;
-    height: 100%;
-    opacity: 0.35;
-    z-index: 0;
-    background-image: radial-gradient(
-        map.get($colors, bg) 0.45px,
-        transparent 0.45px
-      ),
-      radial-gradient(
-        map.get($colors, bg) 0.45px,
-        map.get($colors, links) 0.45px
-      );
-    background-size: 1.25rem 1.25rem;
-    background-position: 0 0, 0.625rem 0.625rem;
   }
-
-  * {
-    position: relative;
-    z-index: 1;
-    color: map.get($colors, bg);
-  }
-
-  // Larger screens: Column layout with right border
-  @media only screen and (min-width: map.get($breakpoints, md)) {
-    flex-direction: column;
-    border-right: thin solid map.get($colors, text-subtle);
-    border-bottom: 0 solid transparent;
-  }
-}
-
-.service-card__body {
-  width: 100%;
-  padding: map.get($spacing, md);
 }
 
 // ===================================
