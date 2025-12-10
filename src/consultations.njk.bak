@@ -84,34 +84,18 @@ permalink: '/consultations/'
 <section class="pad-btt-md cap-width separate-above">
     <h2>Is this for me?</h2>
     <p class="pad-top-sm">Great question. <mark>This is for you...</mark></p>
-    <table class="for-me-table pad-top-sm">
-        <tbody>
-            <tr>
-                <td>✅</td>
-                <td>If you're looking to grow and have exciting plans for your website, but can't proceed because
-                        something about it overwhelms you.</td>
-            </tr>
-            <tr>
-                <td>✅</td>
-                <td>If you want to improve an existing site, but first you need an expert to assess it, provide you with valuable insights, and let you get on.</td>
-            </tr>
-        </tbody>
-    </table>
+    <ul class="pad-top-sm no-list-style side-align-list">
+        <li><span>✅</span><span>If you're looking to grow and have exciting plans for your website, but can't proceed because
+                        something about it overwhelms you.</span></li>
+        <li><span>✅</span><span>If you want to improve an existing site, but first you need an expert to assess it, provide you with valuable insights, and let you get on.</span></li>
+    </ul>
     <p class="pad-top-lg">And <mark>probably not for you...</mark></p>
-    <table class="for-me-table pad-top-md">
-        <tbody>
-            <tr>
-                <td>❌</td>
-                <td>If you have highly technical questions about your CMS, analytics, hosting, advertising strategy, or website builder.</td>
-            </tr>
-            <tr>
-                <td>❌</td>
-                <td>If you don't already have a site and want to simply chat about ideas. It's better to <a
+    <ul class="pad-top-md no-list-style side-align-list">
+        <li><span>❌</span><span>If you have highly technical questions about your CMS, analytics, hosting, advertising strategy, or website builder.</span></li>
+        <li><span>❌</span><span>If you don't already have a site and want to simply chat about ideas. It's better to <a
                     href="https://cal.com/francescoimola/intro" target="_blank" rel="noopener noreferrer">book a free
-                    intro</a> with me instead.</td>
-            </tr>
-        </tbody>
-    </table>
+                    intro</a> with me instead.</span></li>
+    </ul>
 </section>
 
 <section class="pad-btt-md cap-width">

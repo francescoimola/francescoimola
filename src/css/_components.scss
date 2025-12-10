@@ -1223,3 +1223,18 @@ h2.blog-header  {
     opacity: 0.8;
   }
 }
+
+// ===================================
+// TABLES
+// ===================================
+
+.for-me-table {
+  border-collapse: collapse;
+  border-style: hidden;
+
+  td {
+    border: thin dotted map.get($colors, text-more-subtle);
+    padding: map.get($spacing, sm);
+    vertical-align:middle;
+  }
+}
