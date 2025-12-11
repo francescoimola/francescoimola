@@ -4,7 +4,7 @@ categories:
 - Emails
 title: "Welcome emails: why bother?"
 date: 2025-12-11
-teaser: What to write in a welcome email that you want people to read. With examples, content ideas, and how to get replies from new subscribers.
+teaser: What to write in a welcome email that people want to read. Including examples, 5 content must-haves, and how to get replies from new subscribers.
 image: https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_643,q_auto,f_auto/Write_a_welcome_email_f3lztn.webp
 imageAlt: computer window with an email draft open, laid over a background of a postbox surrounded by snow
 ---
@@ -29,7 +29,7 @@ You don't need to include much, but you do need these things:
 
 <br>
 
-**1. A subject line that isn't _Welcome!!_** 
+**1. A subject line that isn't _Welcome!_** 
 
 Try something that actually tells them what's inside. _Here's what to expect_ or _What you'll love about [brand/product name]_ work better already. Test it without any emoji first and only add one if it makes sense.
 
@@ -37,7 +37,7 @@ Try something that actually tells them what's inside. _Here's what to expect_ or
 
 <br>
 
-**2. A reminder of who you are.** 
+**2. Remind them who you are.** 
 
 They might be reading this immediately after signing up. Or three weeks later. Refresh their memory.
 
@@ -45,7 +45,7 @@ They might be reading this immediately after signing up. Or three weeks later. R
 
 <br>
 
-**3. What they're going to get from you.** 
+**3. What are they're going to get from you?** 
 
 If this a newsletter, how often will you email? What kind of stuff will you send? When's the next one? Answer these questions before they have to wonder.
 
@@ -53,7 +53,7 @@ If this a newsletter, how often will you email? What kind of stuff will you send
 
 <br>
 
-**4. Something useful right now.** 
+**4. Give them something useful right now.** 
 
 Don't make them wait for value. Share your best resource, a discount code if that's your strategy, or simply a link to something good that you've already released (e.g. your newest product or upcoming event).
 
@@ -61,7 +61,7 @@ Don't make them wait for value. Share your best resource, a discount code if tha
 
 <br>
 
-**5. An easy way out.** 
+**5. Offer an easy way out.** 
 
 Make it simple to unsubscribe. It keeps your list healthy and stops people resenting you.
 
