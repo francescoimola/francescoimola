@@ -9,21 +9,21 @@ image: https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_643,q_auto,f_
 imageAlt: computer window with an email draft open, laid over a background of a postbox surrounded by snow
 ---
 
-If you're only going to do one thing to improve your email marketing today, it's this: <mark>send every new subscriber a proper welcome email</mark>. Not an automated "Thanks for subscribing!" with your giant logo at the top, but something that acknowledges them as a person first, and customer second.
+If you're only going to do one thing to improve your email marketing today, make it this: <mark>send every new subscriber a proper welcome email</mark>. NO, not an automated "Thanks for subscribing!" with your giant logo at the top. Send them something that acknowledges them as a person first, and customer second.
 
 ## Why care?
 
 If you don't have a welcome email (or a welcome sequence) yet, you are leaving money on the table.
 
-Email platforms make setting one up fairly easy—so there's no technical challenge here. What's important is that <mark>welcome emails get far better engagement than regular emails</mark>. According to [Invesp](https://www.invespcro.com/blog/welcome-emails/), they have an average of 4x more opens and 5x more clicks than regular email campaigns!
+What's important is that <mark>welcome emails get far better engagement than regular emails</mark>. According to [Invesp](https://www.invespcro.com/blog/welcome-emails/), they have an average of 4x more opens and 5x more clicks than regular email campaigns!
 
 The real reason to care is simple: this is your one chance to tell people what they've signed up for before they forget about you (or worse, unsubscribe when you next reach out).
 
-Picture this: Someone has just signed up. Maybe it's to receive your newsletter, or maybe they're trying out your software. Either way, they've taken a step towards your business. They've entered a real-life restaurant. If your website is the menu on the door and the "Hello, please come in", this email is the restaurant manager coming to personally welcome you and to walk you tbrough the culinary tranformation that you're about to experience.
+Picture this: Someone has just signed up. Maybe it's to receive your newsletter, or maybe they're trying out your software. Either way, they've taken a step towards your business. They've entered a real-life restaurant. If your website is the menu on the door and the "Hello, please come in", this email is the restaurant manager coming to personally welcome you and to walk you through the culinary transformation that you're about to experience.
 
 ## What goes in a welcome email? (The 5 must-haves)
 
-A welcome email is your chance to offer a 10% discount to get customers tbrough the door. But it’s also an opportunity to connect with them and <mark>become the familiar face in a sea of indistinguishable brands</mark>.
+A welcome email is your chance to offer a 10% discount to get customers in the door. But it’s also an opportunity to connect with them and <mark>become the familiar face in a sea of indistinguishable brands</mark>.
 
 You don't need to include much, but you do need these things:
 
@@ -94,15 +94,15 @@ People reply when the question you're asking feels like the start of a conversat
 
 ## Single email or welcome sequence?
 
-<mark>Sometimes sending one welcome email isn't enough</mark>. If you're onboarding people into your software, for example, you might need a series that walks them tbrough the setup over a few sages. Or if you're selling a course, you might want to drip content over time to keep them engaged.
+<mark>Sometimes sending one welcome email isn't enough</mark>. If you're onboarding people into your software, for example, you might need a series that walks them through the setup over a few sages. Or if you're selling a course, you might want to drip content over time to keep them engaged.
 
 What I tell my clients is that a welcome series makes a lot of sense when:
 
 - There's genuine complexity to onboard (software, courses, memberships)
-- You're guiding people tbrough a transformation that takes time
+- You're guiding people through a transformation that takes time
 - You have a number of offers that you know your reader will find valuable, and you want to drip-share them over X many weeks.
 
-It doesn't make sense when you're just padding out a signup process. One good email beats tbree mediocre ones. 
+It doesn't make sense when you're just padding out a sign-up process. One good email beats three mediocre ones. 
 
 ## The secret to a high-performing welcome email
 
@@ -134,13 +134,15 @@ Instead, Kim recommends, keep the following tips in mind (they apply to both seq
 
 ## Before you send it
 
-Read it once more and ask: <mark>would I actually read this if it landed in my inbox from someone I just signed up with?</mark>
+Email platforms make setting one up fairly easy—but always test your email on at least two decides, desktop and mobile. 
+
+Once you've done so, read it once more and ask: <mark>would I actually read this if it landed in my inbox from someone I just signed up with?</mark>
 
 If the answer is "I'm not sure", send it to a trusted friend or colleague and ask for feedback.
 
 If the answer's no, you're not done yet. 
 
-Your welcome email sets expectations for everything that comes after, so it's worth getting right,. Even if that means rewriting it tbree times, which is normal, by the way.
+Your welcome email sets expectations for everything that comes after, so it's worth getting right,. Even if that means rewriting it three times, which is normal, by the way.
 
 
 ## PS: Need some inspiration? 
