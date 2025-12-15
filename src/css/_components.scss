@@ -677,7 +677,7 @@ form[name="mailinglist"] {
   place-items: start;
 
   @media only screen and (min-width: map.get($breakpoints, sm)) {
-    grid-template-columns: auto auto;
+    grid-template-columns: 1fr 1fr;
     grid-auto-rows: auto;
     height: fit-content;
     .span-2 {
@@ -1236,5 +1236,20 @@ h2.blog-header  {
     border: thin dotted map.get($colors, text-more-subtle);
     padding: map.get($spacing, sm);
     vertical-align:middle;
+  }
+}
+
+// ===================================
+// SAMPLE EMAIL
+// ===================================
+
+.sample-email {
+  font-size: $font-sm;
+	display: block;
+	text-rendering: optimizeSpeed;
+
+  em {
+    font-style: normal;
+    color: map.get($colors, text-more-subtle);
   }
 }
