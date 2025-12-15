@@ -1247,9 +1247,11 @@ h2.blog-header  {
   font-size: $font-sm;
 	display: block;
 	text-rendering: optimizeSpeed;
+  * {
+    color: map.get($colors, text);
+  }
 
   em {
-    font-style: normal;
-    color: map.get($colors, text-more-subtle);
+    color: map.get($colors, links);
   }
 }
