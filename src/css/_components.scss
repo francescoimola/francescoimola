@@ -28,10 +28,12 @@ button,
   box-shadow: none;
   cursor: pointer;
 
-  &:hover,
-  &:focus-visible {
-    background: map.get($colors, text-subtle);
-    color: map.get($colors, bg);
+  &:not(.testimonial-carousel__indicator):not(.testimonial-carousel__button) {
+    &:hover,
+    &:focus-visible {
+      background: map.get($colors, text-subtle);
+      color: map.get($colors, bg);
+    }
   }
 
   &:active:not(:disabled) {
@@ -119,35 +121,6 @@ hr {
   @include card-base;
   height: 100%;
   width: 100%;
-
-  &.blog-card {
-    display: grid;
-    gap: map.get($spacing, md);
-    grid-template-columns: 1fr;
-    grid-auto-rows: auto;
-    min-width: 100%;
-
-    @media only screen and (min-width: map.get($breakpoints, base)) {
-      grid-template-columns: 1fr 3fr;
-    }
-
-    img {
-      aspect-ratio: 21 / 9;
-      object-fit: cover;
-      width: 100%;
-      height: max-content;
-
-      @media only screen and (min-width: map.get($breakpoints, base)) {
-        aspect-ratio: 1 / 1;
-      }
-    }
-    > div {
-      display: grid;
-      gap: calc(map.get($spacing, sm)* $perfect-fourth);
-      grid-template-rows: auto 1fr auto;
-      height: max-content;
-    }
-  }
 }
 
 .center-contents {
@@ -242,33 +215,20 @@ hr {
 }
 
 .projects-showcase {
-  @include flex(row);
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-wrap: wrap;
-
-  // Mobile: Full width, smaller gap
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: start stretch;
   gap: map.get($spacing, md);
 
-  > * {
-    flex: 1 1 100%;
-  }
-
   // Medium screens: 40% width, larger gap
-  @media only screen and (min-width: map.get($breakpoints, sm)) {
-    column-gap: map.get($spacing, lg);
-    row-gap: map.get($spacing, 2xl);
-
-    > * {
-      flex: 1 1 40%;
-    }
+  @media only screen and (min-width: map.get($breakpoints, base)) {
+    grid-template-columns: 1fr 1fr;
+    gap: map.get($spacing, lg);
   }
 
   // Larger screens: 30% width
   @media only screen and (min-width: map.get($breakpoints, md)) {
-    > * {
-      flex: 1 1 30%;
-    }
+    grid-template-columns: 1fr 1fr 1fr
   }
 }
 
@@ -279,10 +239,6 @@ hr {
 
 .work {
   @include flex(column, map.get($spacing, sm));
-
-  .role {
-    color: map.get($colors, text-subtle);
-  }
 }
 
 .ws-content {
@@ -571,11 +527,11 @@ form[name="mailinglist"] {
 
 .flex-between {
   h2 {
-  margin: 0;
+    margin: 0;
   }
   & + p {
-  margin-top: map.get($spacing, md);
-}
+    margin-top: map.get($spacing, md);
+  }
 }
 
 .side-align-list > * {
@@ -605,7 +561,7 @@ form[name="mailinglist"] {
 }
 
 .pad-btt-md {
-  margin-bottom: calc(map.get($spacing, 2xl)*$golden-ratio);
+  margin-bottom: calc(map.get($spacing, 2xl) * $golden-ratio);
 }
 
 .pad-btt-lg {
@@ -724,7 +680,7 @@ form[name="mailinglist"] {
   }
 
   a:focus-visible {
-      @include focus-outline;
+    @include focus-outline;
   }
 
   h2 {
@@ -734,10 +690,10 @@ form[name="mailinglist"] {
 }
 
 .blog-post-preview__image img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .blog-post-preview__content {
@@ -749,7 +705,7 @@ form[name="mailinglist"] {
   gap: map.get($spacing, xs);
 }
 
-h2.blog-header  {
+h2.blog-header {
   margin-bottom: map.get($spacing, xs);
 }
 
@@ -765,7 +721,8 @@ h2.blog-header  {
 
 .post-content {
   h2 {
-    margin: calc(map.get($spacing, 2xl)* $perfect-fourth) 0 map.get($spacing, md) 0;
+    margin: calc(map.get($spacing, 2xl) * $perfect-fourth) 0
+      map.get($spacing, md) 0;
     padding-bottom: map.get($spacing, md);
     border-bottom: thin dotted map.get($colors, text-subtle);
   }
@@ -781,7 +738,7 @@ h2.blog-header  {
 
   ul {
     gap: map.get($spacing, xs);
-      li:last-child {
+    li:last-child {
       margin-bottom: map.get($spacing, md);
     }
   }
@@ -790,7 +747,8 @@ h2.blog-header  {
     margin-block: map.get($spacing, lg);
 
     & + small {
-      margin: calc(map.get($spacing, md) * -1) 0 calc(map.get($spacing, lg)*$perfect-fourth) 0;
+      margin: calc(map.get($spacing, md) * -1) 0
+        calc(map.get($spacing, lg) * $perfect-fourth) 0;
       text-align: center;
       color: map.get($colors, text-more-subtle);
       font-style: italic;
@@ -963,6 +921,10 @@ h2.blog-header  {
   position: relative;
   height: 100%;
   transition: transform 0.4s ease-in-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
 
 .testimonial-carousel__slide {
@@ -987,20 +949,16 @@ h2.blog-header  {
 .testimonial-carousel__button {
   border: thin solid transparent;
   background: none;
-  border-radius: map.get($spacing, xs);
   cursor: pointer;
   color: currentColor;
   line-height: 1;
-  outline: thin dotted transparent;
-  transition: color $base-transition, outline-color $base-transition,
-    transform $base-transition;
+  transition: color $base-transition, transform $base-transition;
   padding: map.get($spacing, xs);
 
   &:hover,
   &:focus-visible {
-    color: map.get($colors, text-more-subtle);
-    outline-color: map.get($colors, text-more-subtle);
-    background: transparent;
+    color: map.get($colors, links);
+    transform: scale(1.20);
   }
 
   &:active {
@@ -1013,25 +971,44 @@ h2.blog-header  {
   justify-content: space-between;
   align-items: center;
   gap: map.get($spacing, md);
+
+  [role="tablist"] {
+    @include flex(row, 0);
+  }
 }
 
 .testimonial-carousel__indicator {
+  // 44px minimum touch target for accessibility
+  width: 2.75rem;
+  height: 2.75rem;
   border: none;
-  border-radius: 50%;
-  width: map.get($spacing, sm);
-  height: map.get($spacing, sm);
-  background: map.get($colors, text-more-subtle);
+  background: transparent;
   cursor: pointer;
   padding: 0;
-  transition: background $base-transition, transform $base-transition;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // Visual dot using pseudo-element
+  &::before {
+    content: "";
+    width: map.get($spacing, sm);
+    height: map.get($spacing, sm);
+    border-radius: 50%;
+    background: map.get($colors, text-more-subtle);
+    transition: background $base-transition, transform $base-transition;
+  }
 
   &:hover,
   &:focus-visible {
-    background: map.get($colors, text-subtle);
-    transform: scale(1.2);
+    &::before {
+      background: map.get($colors, links);
+      transform: scale(1.2);
+    }
   }
 
-  &.current-slide {
+  &.current-slide::before {
     background: map.get($colors, text-subtle);
     transform: scale(1.3);
   }
@@ -1228,14 +1205,14 @@ h2.blog-header  {
 // TABLES
 // ===================================
 
-.for-me-table {
+.inner-borders {
   border-collapse: collapse;
   border-style: hidden;
 
   td {
     border: thin dotted map.get($colors, text-more-subtle);
     padding: map.get($spacing, sm);
-    vertical-align:middle;
+    vertical-align: middle;
   }
 }
 
@@ -1245,8 +1222,8 @@ h2.blog-header  {
 
 .sample-email {
   font-size: $font-sm;
-	display: block;
-	text-rendering: optimizeSpeed;
+  display: block;
+  text-rendering: optimizeSpeed;
   * {
     color: map.get($colors, text);
   }

@@ -5,7 +5,7 @@ categories:
 title: How to write a cracking website brief (8 step guide)
 date: 2025-12-01
 teaser: Get better quotes and timelines. Discover the eight essentials every brief needs, including the one most people skip.
-image: https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_643,q_auto,f_auto,dpr_auto/How_to_write_a_website_brief_oktkpe.webp
+image: https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_643,q_auto,f_auto,dpr_2.0/How_to_write_a_website_brief_oktkpe.webp
 imageAlt: two people having a meeting in a cafe, one is taking notes on a notepad
 ---
 

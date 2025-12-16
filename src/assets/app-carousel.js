@@ -80,7 +80,6 @@
       s.setAttribute('role', 'group');
       s.setAttribute('aria-roledescription', 'slide');
       s.setAttribute('aria-label', `${i + 1} of ${slides.length}`);
-      s.setAttribute('aria-hidden', s.classList.contains('current-slide') ? 'false' : 'true');
     });
 
     dots.forEach((d, i) => {
@@ -100,14 +99,13 @@
   const moveToSlide = (track, currentSlide, targetSlide) => {
     track.style.transform = "translateX(-" + targetSlide.style.left + ")";
     currentSlide.classList.remove("current-slide");
-    currentSlide.setAttribute('aria-hidden', 'true');
     targetSlide.classList.add("current-slide");
-    targetSlide.setAttribute('aria-hidden', 'false');
     // container keeps uniform height
   };
 
   // central helper to go to an index (updates dots, arrows, accessibility)
-  const goToIndex = (targetIndex) => {
+  // moveFocus: whether to move focus to the dot (false for button clicks, true for keyboard/dot clicks)
+  const goToIndex = (targetIndex, moveFocus = true) => {
     // Handle looping: wrap around if out of bounds
     if (targetIndex < 0) targetIndex = slides.length - 1;
     if (targetIndex >= slides.length) targetIndex = 0;
@@ -127,8 +125,10 @@
     nextButton.classList.remove("is-hidden");
     // announce for screen readers
     announceCurrent();
-    // move focus to the activated tab/indicator for clarity
-    try { targetDot.focus(); } catch (e) {}
+    // move focus to the activated tab/indicator (only for keyboard nav and dot clicks)
+    if (moveFocus) {
+      try { targetDot.focus(); } catch (e) {}
+    }
   };
 
   // Update indicator dots
@@ -137,16 +137,16 @@
     targetDot.classList.add("current-slide");
   };
 
-  // Next button click handler
+  // Next button click handler (don't move focus - keep it on button)
   nextButton.addEventListener("click", (e) => {
     const currentIndex = slides.findIndex((s) => s.classList.contains('current-slide'));
-    goToIndex(currentIndex + 1); // goToIndex handles wrapping to 0
+    goToIndex(currentIndex + 1, false);
   });
 
-  // Previous button click handler
+  // Previous button click handler (don't move focus - keep it on button)
   prevButton.addEventListener("click", (e) => {
     const currentIndex = slides.findIndex((s) => s.classList.contains('current-slide'));
-    goToIndex(currentIndex - 1); // goToIndex handles wrapping to last slide
+    goToIndex(currentIndex - 1, false);
   });
 
   // Indicator dots click handler

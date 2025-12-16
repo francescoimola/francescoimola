@@ -4,8 +4,8 @@
 
   <div class="testimonial-carousel" role="region" aria-roledescription="carousel" aria-label="Testimonials">
     <div class="testimonial-carousel__track-container">
-      <ul class="testimonial-carousel__track">
-        <li id="testimonial-slide-1" class="testimonial-carousel__slide current-slide">
+      <div class="testimonial-carousel__track">
+        <article id="testimonial-slide-1" class="testimonial-carousel__slide current-slide">
             <p class="small-like">"Francesco has the rare talent of being able to embed himself in a niche
               that he previously knew nothing about, quickly understanding the
               intricacies and writing with the confidence of an insider"</p>
@@ -16,8 +16,17 @@
                 Founder, <a href="https://www.seatingplan.com/" target="_blank" rel="noopener noreferrer">Mega Seating Plan</a>
               </p>
             </div>
-        </li>
-        <li id="testimonial-slide-2" class="testimonial-carousel__slide">
+        </article>
+        <article id="testimonial-slide-2" class="testimonial-carousel__slide current-slide">
+          <p class="small-like">"Francesco provided excellent tech support and reassurance for a web project. He's been very easy to work with."</p>
+          <br />
+          <div>
+            <strong class="small-like">Liv Pennington</strong>
+            <p class="small-like"><a href="https://www.livpennington.com/" target="_blank" rel="noopener noreferrer">Artist and Arts Programmer</a>
+            </p>
+          </div>
+        </article>
+        <article id="testimonial-slide-3" class="testimonial-carousel__slide">
             <p class="small-like">"Fran has been great to work with, he helped me to rework my website
               copy to align with a new direction I wanted to take. He is quick,
               responsive and a brilliant copywriter"</p>
@@ -25,8 +34,8 @@
               <strong class="small-like">Sarah Brown</strong>
               <p class="small-like"><a href="https://www.sarahyuklan.com/" target="_blank" rel="noopener noreferrer">Holistic Coach</a></p>
             </div>
-        </li>
-        <li id="testimonial-slide-3" class="testimonial-carousel__slide">
+        </article>
+        <article id="testimonial-slide-4" class="testimonial-carousel__slide">
             <p class="small-like">"A dream collaborator. Organised and strategic, he asks the right
               questions, does his research, and presents fantastic options"</p>
             <div>
@@ -34,20 +43,21 @@
               <p class="small-like revert-color" ><a href="https://www.linkedin.com/in/carly-anchal-nee-little-3a9b7112" target="_blank" rel="noopener noreferrer">PR &
                   Marketing Manager</a></p>
             </div>
-        </li>
-      </ul>
+        </article>
+      </div>
     </div>
 
     <div class="testimonial-carousel__nav pad-top-sm">
       <div></div>
       <div role="tablist" aria-label="Testimonial slides">
-        <button class="testimonial-carousel__indicator current-slide" role="tab" aria-selected="true" aria-controls="testimonial-slide-1" aria-label="Go to testimonial 1"></button>
-        <button class="testimonial-carousel__indicator" role="tab" aria-selected="false" aria-controls="testimonial-slide-2" aria-label="Go to testimonial 2"></button>
-        <button class="testimonial-carousel__indicator" role="tab" aria-selected="false" aria-controls="testimonial-slide-3" aria-label="Go to testimonial 3"></button>
+        <button type="button" class="testimonial-carousel__indicator current-slide" role="tab" aria-selected="true" aria-controls="testimonial-slide-1" aria-label="Go to testimonial 1"></button>
+        <button type="button" class="testimonial-carousel__indicator" role="tab" aria-selected="false" aria-controls="testimonial-slide-2" aria-label="Go to testimonial 2"></button>
+        <button type="button" class="testimonial-carousel__indicator" role="tab" aria-selected="false" aria-controls="testimonial-slide-3" aria-label="Go to testimonial 3"></button>
+        <button type="button" class="testimonial-carousel__indicator" role="tab" aria-selected="false" aria-controls="testimonial-slide-4" aria-label="Go to testimonial 4"></button>
       </div>
       <div>
-        <button class="testimonial-carousel__button testimonial-carousel__button--left is-hidden" aria-label="Previous testimonial">←</button>
-        <button class="testimonial-carousel__button testimonial-carousel__button--right" aria-label="Next testimonial">→</button>
+        <button type="button" class="testimonial-carousel__button testimonial-carousel__button--left" aria-label="Previous testimonial">←</button>
+        <button type="button" class="testimonial-carousel__button testimonial-carousel__button--right" aria-label="Next testimonial">→</button>
       </div>
     </div>
     <!-- live region for screen reader announcements -->

@@ -235,18 +235,11 @@ nav {
     bottom: $header-height;
     background: map.get($colors, bg);
     border-top: thin solid map.get($colors, text-subtle);
-    padding: map.get($spacing, md) map.get($spacing, md) map.get($spacing, xl)
-      map.get($spacing, md);
+    padding: map.get($spacing, 2xl) map.get($spacing, md);
     overflow: hidden;
-    @include flex(row, map.get($spacing, md));
-    justify-content: space-between;
-    align-items: flex-start;
-
-    .mobile-menu-links {
-      @include flex(column, map.get($spacing, sm));
-      justify-content: flex-start;
-      align-items: flex-start;
-    }
+   @include flex(column, map.get($spacing, md));
+      justify-content: center;
+      align-items: center;
   }
 }
 

@@ -379,7 +379,7 @@ small,
 	display: block;
 	text-rendering: optimizeSpeed;
 
-	&:not(.revert-color){
+	&:not(.revert-color):not(.light) {
 		color: map.get($colors, text-subtle);
 	}
 }
