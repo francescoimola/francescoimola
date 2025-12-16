@@ -7,6 +7,7 @@ date: 2025-12-11
 teaser: What to write in a welcome email that people want to read. Including examples, 5 content must-haves, and how to get replies from new subscribers.
 image: https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_643,q_auto,f_auto/Write_a_welcome_email_f3lztn.webp
 imageAlt: computer window with an email draft open, laid over a background of a postbox surrounded by snow
+permalink: '/blog/welcome-emails-why-bother/'
 ---
 
 If you're only going to do one thing to improve your email marketing today, make it this: <mark>send every new subscriber a proper welcome email</mark>. 
