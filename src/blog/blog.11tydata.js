@@ -14,19 +14,20 @@ module.exports = {
       if (data.draft && process.env.NODE_ENV === 'production') {
         return false;
       }
-      // If a custom permalink is already set in frontmatter, use it
-      if (typeof data.permalink === 'string') {
+      // If a permalink is explicitly set in frontmatter, use it
+      if (typeof data.permalink === 'function' || typeof data.permalink === 'string') {
         return data.permalink;
       }
-      // Otherwise, generate a clean URL from the title
-      if (data.title) {
-        const slug = data.title
+      // Use the file slug (slugified filename) for the URL
+      // This keeps URLs stable and based on filename, not title
+      if (data.page && data.page.fileSlug) {
+        const slug = data.page.fileSlug
           .toLowerCase()
           .replace(/[^a-z0-9]+/g, '-')
           .replace(/^-+|-+$/g, '');
         return `/blog/${slug}/`;
       }
-      return data.permalink;
+      return undefined;
     }
   }
 };
