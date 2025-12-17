@@ -14,8 +14,8 @@ module.exports = {
       if (data.draft && process.env.NODE_ENV === 'production') {
         return false;
       }
-      // If a custom permalink is already set, use it
-      if (data.permalink) {
+      // If a custom permalink is already set in frontmatter, use it
+      if (typeof data.permalink === 'string') {
         return data.permalink;
       }
       // Otherwise, generate a clean URL from the title
