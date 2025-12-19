@@ -16,7 +16,7 @@ button,
   width: fit-content;
   height: fit-content;
   padding: map.get($spacing, xs) map.get($spacing, sm);
-  border: thin solid map.get($colors, links);
+  border: thin solid map.get($colors, text-subtle);
   border-radius: map.get($spacing, md);
   corner-shape: squircle;
   font-size: $font-base;
@@ -589,6 +589,7 @@ form[name="mailinglist"] {
   margin-left: 0;
   list-style: none;
   padding-left: 0;
+  gap: map.get($spacing, xs);
 
   li::before {
     content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='%23000' d='M240 128a15.79 15.79 0 0 1-10.5 15l-63.44 23.07L143 229.5a16 16 0 0 1-30 0l-23.06-63.44L26.5 143a16 16 0 0 1 0-30l63.44-23.06L113 26.5a16 16 0 0 1 30 0l23.07 63.44L229.5 113a15.79 15.79 0 0 1 10.5 15'/%3E%3C/svg%3E");
@@ -625,15 +626,23 @@ form[name="mailinglist"] {
   flex-wrap: wrap;
 }
 
-.two-by-grid {
+.simple-grid {
   display: grid;
   grid-template: 1fr / 1fr;
   align-items: start;
   gap: map.get($spacing, sm);
   place-items: start;
 
+  &.three-column {
+    @media only screen and (min-width: map.get($breakpoints, md)) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: auto;
+      height: fit-content;
+    }
+  }
+
   @media only screen and (min-width: map.get($breakpoints, sm)) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: auto;
     height: fit-content;
     .span-2 {
@@ -842,6 +851,30 @@ h2.blog-header {
     arrow-right-icon {
       color: map.get($colors, bg);
     }
+  }
+}
+
+.wide-button {
+  text-decoration: none;
+  background: map.get($colors, links);
+  padding: map.get($spacing, md);
+  border: thin solid map.get($colors, text-subtle);
+  border-radius: map.get($spacing, xs);
+  max-width: 50%;
+  margin: 0 0 0 auto;
+
+  h2,
+    arrow-right-icon {
+      color: map.get($colors, bg);
+    }
+
+  &:focus-visible {
+      @include focus-outline;
+    }
+
+  &:hover,
+  &:has(a:focus-visible) {
+    background: map.get($colors, text-subtle);
   }
 }
 

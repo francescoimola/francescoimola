@@ -1,5 +1,5 @@
 {%- macro selectedWorkCard(heading, linkUrl = '/portfolio/', image = {}) -%}
-<section class="pad-btt-md cap-width selected-work-card rounded">
+<section class="pad-btt-md cap-width selected-work-card">
 	<a href="{{ linkUrl | default('/portfolio/') }}">
 		<img src="{{ image.src | default('https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_396,f_auto,q_auto,dpr_2.0/ezgif.com-optipng_pao87g.png') }}"
 				width="396" height="472" alt="project screenshots stacked like a spread of card" fetchpriority="{{ image.fetchpriority | default('high') }}"

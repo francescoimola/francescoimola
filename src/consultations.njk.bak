@@ -20,7 +20,7 @@ permalink: '/consultations/'
     <p>Maybe you know what's broken and need validation. Or you sense something isn't working, but don't know
         what exactly. A consultation gives you clarity in both cases. These are the areas we'll typically cover:</p>
 
-    <div class="two-by-grid pad-top-md">
+    <div class="simple-grid pad-top-md">
         <div class="card">
             <h3 class=" small-like">1. Words & design</h3>
             <small>Pointers on how to improve your website design and copywriting, or how to better align these elements
