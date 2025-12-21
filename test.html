@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francesco Imola</title>
+    <style>
+        :root {
+            /* ========================================
+               BASE VALUES - Change these to resize everything
+               ======================================== */
+            --scale: 1.25;                    /* Major Third scale ratio */
+            --font-base: 1rem;                /* Base font size (inherits from browser default) */
+            --space-unit: 0.25rem;            /* Base spacing unit (~4px at default) */
+
+            /* ========================================
+               SCALE POWERS (for exponential growth)
+               ======================================== */
+            --pow-1: var(--scale);
+            --pow-2: calc(var(--pow-1) * var(--scale));
+            --pow-3: calc(var(--pow-2) * var(--scale));
+            --pow-4: calc(var(--pow-3) * var(--scale));
+            --pow-5: calc(var(--pow-4) * var(--scale));
+            --pow-6: calc(var(--pow-5) * var(--scale));
+            --pow-7: calc(var(--pow-6) * var(--scale));
+            --pow-8: calc(var(--pow-7) * var(--scale));
+            --pow-9: calc(var(--pow-8) * var(--scale));
+            --pow-10: calc(var(--pow-9) * var(--scale));
+
+            /* ========================================
+               FONT SIZES (all in rem, scale with root)
+               ======================================== */
+            --text-sm: calc(var(--font-base) / var(--pow-1));         /* ~0.8rem */
+            --text-base: var(--font-base);                            /* 1rem */
+            --text-lg: calc(var(--font-base) * var(--pow-1));         /* 1.25rem */
+            --text-xl: calc(var(--font-base) * var(--pow-2));         /* ~1.56rem */
+            --text-2xl: calc(var(--font-base) * var(--pow-3));        /* ~1.95rem */
+
+            /* ========================================
+               LINE HEIGHTS (unitless ratios)
+               ======================================== */
+            --leading-none: 1;
+            --leading-tight: var(--pow-1);                            /* 1.25 */
+            --leading-normal: 1.5;
+            --leading-relaxed: 1.75;
+
+            /* ========================================
+               SPACING SCALE (exponential, all in rem)
+               ======================================== */
+            --space-1: var(--space-unit);                             /* 0.25rem */
+            --space-2: calc(var(--space-unit) * var(--pow-1));        /* ~0.31rem */
+            --space-3: calc(var(--space-unit) * var(--pow-2));        /* ~0.39rem */
+            --space-4: calc(var(--space-unit) * var(--pow-3));        /* ~0.49rem */
+            --space-5: calc(var(--space-unit) * var(--pow-4));        /* ~0.61rem */
+            --space-6: calc(var(--space-unit) * var(--pow-5));        /* ~0.76rem */
+            --space-7: calc(var(--space-unit) * var(--pow-6));        /* ~0.95rem */
+            --space-8: calc(var(--space-unit) * var(--pow-7));        /* ~1.19rem */
+            --space-9: calc(var(--space-unit) * var(--pow-8));        /* ~1.49rem */
+            --space-10: calc(var(--space-unit) * var(--pow-9));       /* ~1.86rem */
+            --space-11: calc(var(--space-unit) * var(--pow-10));      /* ~2.33rem */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            background-color: #F5E6A4;
+            font-family: minion-pro, "Times New Roman", Times, serif;
+            font-size: var(--text-base);
+            line-height: var(--leading-normal);
+            color: rgb(0, 0, 0);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Two-column layout */
+        .page-wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 0;
+            width: 32rem;
+            min-width: 32rem;
+            height: 100vh;
+            padding: var(--space-10);
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: var(--space-10);
+            overflow-y: auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-10);
+        }
+
+        .site-title {
+            font-size: var(--text-base);
+            line-height: var(--leading-normal);
+            cursor: pointer;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-list {
+            display: flex;
+            align-items: center;
+            gap: var(--space-1);
+        }
+
+        .nav-pill {
+            display: inline-block;
+            padding: var(--space-3) var(--space-4);
+            font-size: var(--text-sm);
+            line-height: var(--leading-none);
+            background-color: rgb(255, 255, 255);
+            border-radius: 9999px;
+            cursor: pointer;
+        }
+
+        .nav-pill:hover {
+            background-color: rgb(245, 245, 245);
+        }
+
+        .bio {
+            max-width: 36rem;
+            margin-bottom: var(--space-10);
+        }
+
+        .bio p {
+            font-size: var(--text-base);
+            line-height: var(--leading-normal);
+        }
+
+        .read-more {
+            font-style: italic;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .read-more:hover {
+            opacity: 0.75;
+        }
+
+        .projects-list {
+            flex: 1;
+        }
+
+        .project-item {
+            margin-bottom: 0;
+        }
+
+        .project-link {
+            display: flex;
+            gap: var(--space-7);
+            align-items: center;
+            cursor: pointer;
+            opacity: 0.5;
+        }
+
+        .project-link:hover, .project-link:focus {
+            opacity: 1;
+        }
+
+        .project-number {
+            display: inline-block;
+            width: var(--space-9);
+        }
+
+        .project-info {
+            display: flex;
+            gap: var(--space-1);
+            align-items: center;
+        }
+
+        h2 {
+            font-size: var(--text-base);
+            font-weight: normal;
+            line-height: var(--leading-normal);
+            margin: 0;
+        }
+
+        .project-separator {
+            color: rgb(46, 43, 43);
+            opacity: 0.75;
+        }
+
+        .project-category {
+            font-style: italic;
+            color: rgb(46, 43, 43);
+            opacity: 0.75;
+        }
+
+        .footer {
+            padding-top: var(--space-7);
+        }
+
+        .footer p {
+            font-style: italic;
+        }
+
+        /* Project Detail Styles */
+        .project-detail {
+            display: none;
+            max-width: 37.25rem;
+            margin: 0 auto;
+        }
+
+        .project-detail:target {
+            display: block;
+        }
+
+        .project-detail-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-7);
+        }
+
+        .project-detail-title {
+            display: flex;
+            gap: var(--space-4);
+            align-items: center;
+        }
+
+        .project-detail-title h1 {
+            font-size: var(--text-base);
+            font-weight: normal;
+            line-height: var(--leading-normal);
+        }
+
+        .project-detail-title .separator {
+            opacity: 0.75;
+        }
+
+        .project-detail-title .category {
+            font-style: italic;
+            opacity: 0.75;
+        }
+
+        .view-website-btn {
+            display: inline-block;
+            padding: var(--space-4) var(--space-6);
+            font-size: var(--text-sm);
+            line-height: var(--leading-none);
+            border-radius: 9999px;
+            cursor: pointer;
+        }
+
+        .view-website-btn:hover {
+            opacity: 0.9;
+        }
+
+        .project-prose {
+            line-height: var(--leading-relaxed);
+            color: rgb(55, 65, 81);
+        }
+
+        .project-prose p {
+            margin-bottom: var(--space-7);
+        }
+
+        .project-prose h2 {
+            font-style: italic;
+            color: rgb(17, 24, 39);
+            margin-top: var(--space-10);
+            margin-bottom: var(--space-7);
+        }
+
+        .project-prose a {
+            font-weight: 500;
+            text-decoration: underline;
+            color: rgb(17, 24, 39);
+        }
+
+        .project-prose a:hover {
+            opacity: 0.75;
+        }
+
+        .project-prose img {
+            width: 100%;
+            height: auto;
+            margin: var(--space-10) 0 var(--space-7);
+            display: block;
+        }
+
+        .project-prose video {
+            width: 100%;
+            height: auto;
+            margin: 0 0 var(--space-7);
+            display: block;
+        }
+
+        /* Default/empty state for main content */
+        .default-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            opacity: 0.5;
+            font-style: italic;
+        }
+
+        /* Hide default content when a project is targeted */
+        .project-detail:target ~ .default-content {
+            display: none;
+        }
+
+        /* Active state for selected project in sidebar */
+        .project-link[href="#polymer"]:target,
+        .project-link[href="#naturebound"]:target,
+        .project-link[href="#decomposition-library"]:target,
+        .project-link[href="#fertiliser-rehab"]:target,
+        .project-link[href="#hana-hudson"]:target,
+        .project-link[href="#cellular-goods"]:target,
+        .project-link[href="#pair-up"]:target,
+        .project-link[href="#people-like-us"]:target,
+        .project-link[href="#pivot"]:target,
+        .project-link[href="#uncrowd"]:target,
+        .project-link[href="#gcd-studio"]:target,
+        .project-link[href="#view-like-no-other"]:target,
+        .project-link[href="#pakta-studio"]:target {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="sidebar">
+            <header class="header">
+                <a href="#" class="site-title">Francesco Imola</a>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="#" class="nav-pill">Work</a></li>
+                        <li><a href="#contact" class="nav-pill">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <div class="bio">
+                <p>Designer and trust-based marketer based in Kent. I partner with small businesses whose digital presence has grown stale
+                and give them something simpler, cleaner, and built to last. <a href="#contact" class="read-more">Read more</a></p>
+            </div>
+
+            <div class="projects-list">
+                <ul>
+                    <li class="project-item">
+                        <a href="#polymer" class="project-link">
+                            <span class="project-number">[1]</span>
+                            <div class="project-info">
+                                <h2>Polymer</h2>
+                                <span class="project-separator">—</span>
+                                <span class="project-category">Personal</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="project-item">
+                        <a href="#naturebound" class="project-link">
+                            <span class="project-number">[2]</span>
+                            <div class="project-info">
+                                <h2>NatureBound</h2>
+                                <span class="project-separator">—</span>
+                                <span class="project-category">Freelance</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="project-item">
+                        <a href="#decomposition-library" class="project-link">
+                            <span class="project-number">[3]</span>
+                            <div class="project-info">
+                                <h2>Decomposition Library</h2>
+                                <span class="project-separator">—</span>
+                                <span class="project-category">Freelance</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="project-item">
+                        <a href="#fertiliser-rehab" class="project-link">
+                            <span class="project-number">[4]</span>
+                            <div class="project-info">
+                                <h2>Fertiliser Rehab</h2>
+                                <span class="project-separator">—</span>
+                                <span class="project-category">Freelance</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="project-item">
+                        <a href="#hana-hudson" class="project-link">
+                            <span class="project-number">[5]</span>
+                            <div class="project-info">
+                                <h2>Hana Hudson</h2>
+                                <span class="project-separator">—</span>
+                                <span class="project-category">Freelance</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="project-item">
+                        <a href="#cellular-goods" class="project-link">
+                            <span class="project-number">[6]</span>
+                            <div class="project-info">
+                                <h2>Cellular Goods</h2>
+                                <span class="project-separator">—</span>
+                                <span class="project-category">Companion</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="project-item">
+                        <a href="#pair-up" class="project-link">
+                            <span class="project-number">[7]</span>
+                            <div class="project-info">
+                                <h2>Pair Up</h2>
+                                <span class="project-separator">—</span>
+                                <span class="project-category">Companion</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="project-item">
+                        <a href="#people-like-us" class="project-link">
+                            <span class="project-number">[8]</span>
+                            <div class="project-info">
+                                <h2>People Like Us</h2>
+                                <span class="project-separator">—</span>
+                                <span class="project-category">Companion</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="project-item">
+                        <a href="#pivot" class="project-link">
+                            <span class="project-number">[9]</span>
+                            <div class="project-info">
+                                <h2>Pivot</h2>
+                                <span class="project-separator">—</span>
+                                <span class="project-category">Companion</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="project-item">
+                        <a href="#uncrowd" class="project-link">
+                            <span class="project-number">[10]</span>
+                            <div class="project-info">
+                                <h2>Uncrowd</h2>
+                                <span class="project-separator">—</span>
+                                <span class="project-category">Companion</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="project-item">
+                        <a href="#gcd-studio" class="project-link">
+                            <span class="project-number">[11]</span>
+                            <div class="project-info">
+                                <h2>GCD Studio</h2>
+                                <span class="project-separator">—</span>
+                                <span class="project-category">Midnight Agency</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="project-item">
+                        <a href="#view-like-no-other" class="project-link">
+                            <span class="project-number">[12]</span>
+                            <div class="project-info">
+                                <h2>View Like No Other</h2>
+                                <span class="project-separator">—</span>
+                                <span class="project-category">Midnight Agency</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="project-item">
+                        <a href="#pakta-studio" class="project-link">
+                            <span class="project-number">[13]</span>
+                            <div class="project-info">
+                                <h2>Pakta Studio</h2>
+                                <span class="project-separator">—</span>
+                                <span class="project-category">Co-founder</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <footer class="footer">
+                <p>Open to freelance and full-time opportunities.</p>
+            </footer>
+        </div>
+
+        <main class="main-content">
+            <!-- Polymer -->
+            <section id="polymer" class="project-detail">
+                <div class="project-detail-header">
+                    <div class="project-detail-title">
+                        <h1>Polymer</h1>
+                        <span class="separator">—</span>
+                        <span class="category">Personal</span>
+                    </div>
+                    <a href="https://polymer.kerimhudson.com" target="_blank" class="view-website-btn" style="background-color: #E8E8E8;">View website</a>
+                </div>
+                <div class="project-prose">
+                    <p>Polymer is a personal project exploring digital sustainability and minimalist web design. Built with a focus on reducing carbon footprint while maintaining aesthetic appeal.</p>
+                    <h2>Sustainable Design</h2>
+                    <p>The project emphasizes lightweight assets, efficient code, and thoughtful design choices that reduce energy consumption without compromising user experience.</p>
+                </div>
+            </section>
+
+            <!-- NatureBound -->
+            <section id="naturebound" class="project-detail">
+                <div class="project-detail-header">
+                    <div class="project-detail-title">
+                        <h1>NatureBound</h1>
+                        <span class="separator">—</span>
+                        <span class="category">Freelance</span>
+                    </div>
+                    <a href="https://naturebound.co" target="_blank" class="view-website-btn" style="background-color: #4CAF50; color: white;">View website</a>
+                </div>
+                <div class="project-prose">
+                    <p>NatureBound is a platform connecting people with nature-based experiences and outdoor adventures. The website was designed to inspire exploration while promoting environmental awareness.</p>
+                    <h2>User Experience</h2>
+                    <p>The interface prioritizes discovery, with intuitive navigation and rich imagery that brings the outdoor experiences to life.</p>
+                </div>
+            </section>
+
+            <!-- Decomposition Library -->
+            <section id="decomposition-library" class="project-detail">
+                <div class="project-detail-header">
+                    <div class="project-detail-title">
+                        <h1>Decomposition Library</h1>
+                        <span class="separator">—</span>
+                        <span class="category">Freelance</span>
+                    </div>
+                    <a href="https://decompositionlibrary.com" target="_blank" class="view-website-btn" style="background-color: #8B4513; color: white;">View website</a>
+                </div>
+                <div class="project-prose">
+                    <p>The Decomposition Library is an educational resource documenting the natural breakdown processes of various materials. It serves as both an artistic and scientific reference.</p>
+                    <h2>Visual Documentation</h2>
+                    <p>Each entry features detailed photography and time-lapse documentation, creating a unique archive of natural processes.</p>
+                </div>
+            </section>
+
+            <!-- Fertiliser Rehab -->
+            <section id="fertiliser-rehab" class="project-detail">
+                <div class="project-detail-header">
+                    <div class="project-detail-title">
+                        <h1>Fertiliser Rehab</h1>
+                        <span class="separator">—</span>
+                        <span class="category">Freelance</span>
+                    </div>
+                    <a href="https://fertiliserrehab.org" target="_blank" class="view-website-btn" style="background-color: #2E7D32; color: white;">View website</a>
+                </div>
+                <div class="project-prose">
+                    <p>Fertiliser Rehab is an initiative promoting sustainable agricultural practices and soil health restoration. The platform provides resources for farmers transitioning to organic methods.</p>
+                    <h2>Educational Resources</h2>
+                    <p>The website includes comprehensive guides, case studies, and community forums for knowledge sharing among sustainable agriculture practitioners.</p>
+                </div>
+            </section>
+
+            <!-- Hana Hudson -->
+            <section id="hana-hudson" class="project-detail">
+                <div class="project-detail-header">
+                    <div class="project-detail-title">
+                        <h1>Hana Hudson</h1>
+                        <span class="separator">—</span>
+                        <span class="category">Freelance</span>
+                    </div>
+                    <a href="https://hanahudson.com" target="_blank" class="view-website-btn" style="background-color: #E91E63; color: white;">View website</a>
+                </div>
+                <div class="project-prose">
+                    <p>A personal portfolio website for Hana Hudson, showcasing creative work across various mediums including photography, illustration, and mixed media art.</p>
+                    <h2>Portfolio Design</h2>
+                    <p>The design emphasizes the artwork itself, with a clean layout that allows each piece to breathe while maintaining cohesive navigation throughout the collection.</p>
+                </div>
+            </section>
+
+            <!-- Cellular Goods -->
+            <section id="cellular-goods" class="project-detail">
+                <div class="project-detail-header">
+                    <div class="project-detail-title">
+                        <h1>Cellular Goods</h1>
+                        <span class="separator">—</span>
+                        <span class="category">Companion</span>
+                    </div>
+                    <a href="https://cellulargoods.com" target="_blank" class="view-website-btn" style="background-color: #9C27B0; color: white;">View website</a>
+                </div>
+                <div class="project-prose">
+                    <p>Cellular Goods is a biotechnology company creating lab-grown cannabinoid products. Companion was engaged to design and build their e-commerce platform and brand website.</p>
+                    <h2>E-commerce Integration</h2>
+                    <p>The website combines product showcasing with educational content, helping users understand the science behind the products while providing a seamless purchasing experience.</p>
+                </div>
+            </section>
+
+            <!-- Pair Up -->
+            <section id="pair-up" class="project-detail">
+                <div class="project-detail-header">
+                    <div class="project-detail-title">
+                        <h1>Pair Up</h1>
+                        <span class="separator">—</span>
+                        <span class="category">Companion</span>
+                    </div>
+                    <a href="https://pairup.com" target="_blank" class="view-website-btn" style="background-color: #E2FF77;">View website</a>
+                </div>
+                <div class="project-prose">
+                    <p>Pair Up was a platform to find and chat with other creatives to get a second opinion or share passions. It was built during downtime between client work as an internal project. It was built as a somewhat async messaging platform, with the intention of allowing for slower, more focused discussion.</p>
+                    <h2>Creative Collaboration</h2>
+                    <p>The platform focused on meaningful connections between creatives, with features designed to facilitate thoughtful feedback and collaboration rather than rapid-fire communication.</p>
+                </div>
+            </section>
+
+            <!-- People Like Us -->
+            <section id="people-like-us" class="project-detail">
+                <div class="project-detail-header">
+                    <div class="project-detail-title">
+                        <h1>People Like Us</h1>
+                        <span class="separator">—</span>
+                        <span class="category">Companion</span>
+                    </div>
+                    <a href="https://paygap.plu.org.uk/" target="_blank" class="view-website-btn" style="background-color: #FF875F;">View website</a>
+                </div>
+                <div class="project-prose">
+                    <p>Companion was asked by People Like Us to create a website to help raise awareness and signings of their petition for mandatory reporting of the ethnicity pay gap. They wanted an interactive website which would allow people to anonymously report their stories, whilst encouraging people to sign the petition.</p>
+                    <p>The website was built using <a href="https://nextjs.org" target="_blank">Next.js</a>, <a href="https://tailwindcss.com" target="_blank">TailwindCSS</a>, <a href="https://react-spring.dev" target="_blank">React Spring</a> for animations, and <a href="https://supabase.com" target="_blank">Supabase</a> for database storage.</p>
+                    <h2>Anonymous Stories</h2>
+                    <p>Wanting to allow people to upload their stories without having to add any personal information, we created a dynamic form that people could add their stories too. These stories would then need to be moderated and approved before they were publicly visible on the website.</p>
+                    <p>As these stories had no other information, we opted for using interesting visual backgrounds - a mixture of shapes and colours - to make the stories visually unique.</p>
+                    <h2>Petition Data</h2>
+                    <p>As the main intention of the website was to gather signatures for a petition, we had to find a way to display the current number of signatures on the website. This was done by using the API available from the GOV.UK petition website.</p>
+                </div>
+            </section>
+
+            <!-- Pivot -->
+            <section id="pivot" class="project-detail">
+                <div class="project-detail-header">
+                    <div class="project-detail-title">
+                        <h1>Pivot</h1>
+                        <span class="separator">—</span>
+                        <span class="category">Companion</span>
+                    </div>
+                    <a href="https://pivot.how" target="_blank" class="view-website-btn" style="background-color: #FF9B52;">View website</a>
+                </div>
+                <div class="project-prose">
+                    <p>Pivot is a platform helping businesses navigate change and transformation. The website showcases their consulting services with a focus on strategic pivoting and business evolution.</p>
+                    <p>The website was built using <a href="https://nextjs.org" target="_blank">Next.js</a> and <a href="https://tailwindcss.com" target="_blank">TailwindCSS</a>, statically built as it was unlikely that content would need to change often.</p>
+                    <h2>Gradient Animations</h2>
+                    <p>With gradients as a key part of the branding, there was a desire to bring these elements into the website. We utilised GLSL shaders in order to be able to do this. This same shader was utilised across the website, with changes in the colours to represent the different sections.</p>
+                </div>
+            </section>
+
+            <!-- Uncrowd -->
+            <section id="uncrowd" class="project-detail">
+                <div class="project-detail-header">
+                    <div class="project-detail-title">
+                        <h1>Uncrowd</h1>
+                        <span class="separator">—</span>
+                        <span class="category">Companion</span>
+                    </div>
+                    <a href="https://uncrowd.uk/" target="_blank" class="view-website-btn" style="background-color: #FAD400;">View website</a>
+                </div>
+                <div class="project-prose">
+                    <p>Uncrowd is a customer experience observation and comparing platform. Companion was commissioned to design and build them a playful website to match their brand, including playful illustrations and animations.</p>
+                    <p>The Uncrowd website was built using <a href="https://nextjs.org" target="_blank">Next.js</a>, <a href="https://tailwindcss.com" target="_blank">TailwindCSS</a> and a backend CMS built using <a href="https://www.sanity.io/" target="_blank">Sanity</a>. The website is statically generated, with the cache busted when pages are updated in the CMS.</p>
+                    <h2>Modifiable SVG Animations</h2>
+                    <p>With an illustrative heavy website, the brand system required a flexibility to update the colours of various animations. To prevent requiring these to be pre-generated and stored on the website, we utilised SVG animations rendered in React, allowing for the colours to be updated as the branding system is updated, as well as across the website. This provided the team when editing pages in the CMS the ability to pick and choose illustrations and their colours.</p>
+                    <h2>Building Blocks</h2>
+                    <p>Rather than building out a website that has prescriptive pages, the whole of the Uncrowd Website is built using a series of modular blocks, allowing them to pick and choose what content is displayed where, and unlimited options for generating more pages.</p>
+                </div>
+            </section>
+
+            <!-- GCD Studio -->
+            <section id="gcd-studio" class="project-detail">
+                <div class="project-detail-header">
+                    <div class="project-detail-title">
+                        <h1>GCD Studio</h1>
+                        <span class="separator">—</span>
+                        <span class="category">Midnight Agency</span>
+                    </div>
+                    <a href="https://gcd.studio/" target="_blank" class="view-website-btn" style="background-color: #F7F7F7;">View website</a>
+                </div>
+                <div class="project-prose">
+                    <p>GCD Studio is a showcase platform for students of the Graphic Design department at Central St Martins. The platform allows students to log in and create their own projects and manage them individually, whilst exploring the works of their fellow classmates and alumni.</p>
+                    <p>The website was built using <a href="https://www.radix-ui.com" target="_blank">Radix</a>, <a href="https://aws.amazon.com" target="_blank">AWS</a> and <a href="https://styled-components.com" target="_blank">Styled Components</a>.</p>
+                    <h2>Building Blocks</h2>
+                    <p>The backend utilises a building-block nature of components to allow students and teachers to create pages of their work in a personalised manner. They can upload images, write text, and add links. The pages can also be saved as drafts and published when ready.</p>
+                    <h2>Playfulness</h2>
+                    <p>The large buttons, rounded edges and shadows, and disappearing text are playful elements to the website that provide a strong consistent branding alongside the students' work.</p>
+                </div>
+            </section>
+
+            <!-- View Like No Other -->
+            <section id="view-like-no-other" class="project-detail">
+                <div class="project-detail-header">
+                    <div class="project-detail-title">
+                        <h1>View Like No Other</h1>
+                        <span class="separator">—</span>
+                        <span class="category">Midnight Agency</span>
+                    </div>
+                    <a href="https://www.viewlikenoother.com/" target="_blank" class="view-website-btn" style="background-color: #FCF6EE;">View website</a>
+                </div>
+                <div class="project-prose">
+                    <p>Looking to rent out their office premises, the management of One Canada Square asked Midnight Studio to create an interactive 3D model of the tower to explore the available space.</p>
+                    <p>The View Like No Other project initially started as just a standard marketing website for real estate in Central London. But after exploring the uniqueness of the shape and its obvious place in the silhouette of London's skyline, there was a desire to encapsulate the building itself in the website.</p>
+                    <h2>The Building Model</h2>
+                    <p>We opted to using WebGL, specifically <a href="https://docs.pmnd.rs/react-three-fiber/getting-started/introduction" target="_blank">React Three Fiber</a> (a wrapper around Three.js) in order to achieve this. A model for each of the building's floors was generated in Cinema 4D before being exported and optimised for web.</p>
+                    <p>We then stacked them in the viewport to allow for an easy transition between the floors as you scroll through the page, giving visitors the ability to truly experience the space. Hovering dots appear over the floors to provide contextual and additional information.</p>
+                    <h2>Connecting Content</h2>
+                    <p>A CMS was built to connect the information regarding property sizes and availability to allow the sales team to update floors as and when they are no longer available. In this case, we utilised <a href="https://www.contentful.com/" target="_blank">Contentful</a>.</p>
+                </div>
+            </section>
+
+            <!-- Pakta Studio -->
+            <section id="pakta-studio" class="project-detail">
+                <div class="project-detail-header">
+                    <div class="project-detail-title">
+                        <h1>Pakta Studio</h1>
+                        <span class="separator">—</span>
+                        <span class="category">Co-founder</span>
+                    </div>
+                    <a href="https://paktastudio.com" target="_blank" class="view-website-btn" style="background-color: #c5c5bb;">View website</a>
+                </div>
+                <div class="project-prose">
+                    <p>Pakta Studio was a multi-disciplinary design studio, primarily focused on ethically and sustainably producing bags, backpacks, and accessories. As the studio drew to a close, we wanted a website to showcase the work we had done, as well as reflect us both individually. We opted to create a multi-lingual website to showcase the projects, without the need to switch between languages.</p>
+                    <p>The website was built using <a href="https://nextjs.org" target="_blank">Next.js</a> and <a href="https://tailwindcss.com" target="_blank">TailwindCSS</a>. As the website was for a personal project which was being archived, I opted to building it statically as any future amendments (if needed) could be easily handled by myself.</p>
+                    <h2>Showcasing Projects</h2>
+                    <p>We had a series of different product lines and projects, utilising different materials and visuals. Whilst the website was heavily gridded, taking from the strong rectangular shape of our flagship backpack and logo, we opted to use background colours to distinguish the individual projects.</p>
+                </div>
+            </section>
+
+            <div class="default-content">
+                <p>Select a project to view details</p>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
